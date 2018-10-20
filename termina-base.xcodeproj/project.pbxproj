@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		BFD81C96217B8AAC0049B5D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C95217B8AAC0049B5D4 /* main.swift */; };
+		BFD81CA5217B8AD60049B5D4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9C217B8AD50049B5D4 /* Player.swift */; };
+		BFD81CA6217B8AD60049B5D4 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9D217B8AD50049B5D4 /* Monster.swift */; };
+		BFD81CA7217B8AD60049B5D4 /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9E217B8AD50049B5D4 /* Attack.swift */; };
+		BFD81CA8217B8AD60049B5D4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9F217B8AD50049B5D4 /* Item.swift */; };
+		BFD81CA9217B8AD60049B5D4 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA0217B8AD50049B5D4 /* Room.swift */; };
+		BFD81CAA217B8AD60049B5D4 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA1217B8AD50049B5D4 /* Entity.swift */; };
+		BFD81CAB217B8AD60049B5D4 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA2217B8AD60049B5D4 /* Weapon.swift */; };
+		BFD81CAC217B8AD60049B5D4 /* Commads.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA3217B8AD60049B5D4 /* Commads.swift */; };
+		BFD81CAD217B8AD60049B5D4 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA4217B8AD60049B5D4 /* Potion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +34,15 @@
 /* Begin PBXFileReference section */
 		BFD81C92217B8AAC0049B5D4 /* termina-base */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "termina-base"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD81C95217B8AAC0049B5D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BFD81C9C217B8AD50049B5D4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BFD81C9D217B8AD50049B5D4 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		BFD81C9E217B8AD50049B5D4 /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
+		BFD81C9F217B8AD50049B5D4 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		BFD81CA0217B8AD50049B5D4 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		BFD81CA1217B8AD50049B5D4 /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		BFD81CA2217B8AD60049B5D4 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		BFD81CA3217B8AD60049B5D4 /* Commads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commads.swift; sourceTree = "<group>"; };
+		BFD81CA4217B8AD60049B5D4 /* Potion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,15 @@
 		BFD81C94217B8AAC0049B5D4 /* termina-base */ = {
 			isa = PBXGroup;
 			children = (
+				BFD81C9E217B8AD50049B5D4 /* Attack.swift */,
+				BFD81CA3217B8AD60049B5D4 /* Commads.swift */,
+				BFD81CA1217B8AD50049B5D4 /* Entity.swift */,
+				BFD81C9F217B8AD50049B5D4 /* Item.swift */,
+				BFD81C9D217B8AD50049B5D4 /* Monster.swift */,
+				BFD81C9C217B8AD50049B5D4 /* Player.swift */,
+				BFD81CA4217B8AD60049B5D4 /* Potion.swift */,
+				BFD81CA0217B8AD50049B5D4 /* Room.swift */,
+				BFD81CA2217B8AD60049B5D4 /* Weapon.swift */,
 				BFD81C95217B8AAC0049B5D4 /* main.swift */,
 			);
 			path = "termina-base";
@@ -119,7 +146,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD81CA8217B8AD60049B5D4 /* Item.swift in Sources */,
+				BFD81CAB217B8AD60049B5D4 /* Weapon.swift in Sources */,
+				BFD81CA5217B8AD60049B5D4 /* Player.swift in Sources */,
+				BFD81CAA217B8AD60049B5D4 /* Entity.swift in Sources */,
+				BFD81CAD217B8AD60049B5D4 /* Potion.swift in Sources */,
+				BFD81CAC217B8AD60049B5D4 /* Commads.swift in Sources */,
+				BFD81CA9217B8AD60049B5D4 /* Room.swift in Sources */,
+				BFD81CA6217B8AD60049B5D4 /* Monster.swift in Sources */,
 				BFD81C96217B8AAC0049B5D4 /* main.swift in Sources */,
+				BFD81CA7217B8AD60049B5D4 /* Attack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
