@@ -59,6 +59,7 @@
 		BFD81C89217B8AAC0049B5D4 = {
 			isa = PBXGroup;
 			children = (
+				BFD81C95217B8AAC0049B5D4 /* main.swift */,
 				BFD81C94217B8AAC0049B5D4 /* termina-base */,
 				BFD81C93217B8AAC0049B5D4 /* Products */,
 			);
@@ -84,7 +85,6 @@
 				BFD81CA4217B8AD60049B5D4 /* Potion.swift */,
 				BFD81CA0217B8AD50049B5D4 /* Room.swift */,
 				BFD81CA2217B8AD60049B5D4 /* Weapon.swift */,
-				BFD81C95217B8AAC0049B5D4 /* main.swift */,
 			);
 			path = "termina-base";
 			sourceTree = "<group>";
