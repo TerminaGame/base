@@ -7,7 +7,7 @@
 //
 class Entity {
     var name, type: String
-    var health, maximumHealth: Int
+    var health, maximumHealth: Double
     
     /**
      Reduces the health of the entity. Sets health to 0 if a negative value is produced.
@@ -15,7 +15,7 @@ class Entity {
      - Parameters:
         - amount: The amount of damage to subract from health.
      */
-    func takeDamage(_ amount: Int) {
+    func takeDamage(_ amount: Double) {
         let tempHealth = health - amount
         if (tempHealth < 0) {
             health = 0
@@ -32,16 +32,11 @@ class Entity {
         - myType: The entity's type.
         - myHealth: The health given to the entity.
      */
-    init(_ myName: String, _ myType: String, _ myHealth: Int) {
+    init(_ myName: String, _ myType: String, _ myHealth: Double) {
         name = myName
         type = myType
         health = myHealth
         maximumHealth = myHealth
-    }
-
-    
-    deinit {
-        print("\(name) has been killed.")
     }
     
 }

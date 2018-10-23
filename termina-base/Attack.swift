@@ -22,7 +22,7 @@ class AttackScene {
                 item.use()
             }
         }
-        enemy?.takeDamage((player?.level)! * 2)
+        enemy?.takeDamage(Double((player?.level)! * 2))
         print("You strike first.")
         if (enemy?.health == 0) {
             enemy = nil

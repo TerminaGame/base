@@ -17,7 +17,7 @@ class CommandInterpreter {
         - command: The command to try running
         - room: The room the player is located in.
      */
-    func parseCommand(_ command: String, _ room: Room) {
+    func parseCommand(_ command: String, _ room: Room, _ settingsHandler: SettingsManager) {
         switch command {
         case "attack":
             if room.monsterHere {
@@ -40,9 +40,10 @@ class CommandInterpreter {
                 break
             }
         case "exit":
-            print("Are you sure you want to exit? (y/n)")
+            print("Are you sure you want to exit? (y/n)\nNote: Your player status will be saved, but your inventory or room data will NOT.")
             
             if (readLine()! == "y") || (readLine()! == "yes") {
+                settingsHandler.saveSettings()
                 exit(0)
             } else if (readLine()! == "n") || (readLine()! == "no") {
                 break
@@ -91,6 +92,13 @@ class CommandInterpreter {
                     room.myItems.removeLast()
                 }
             }
+            break
+        
+        case "save":
+            settingsHandler.saveSettings()
+            print("[I] Player data saved!")
+            break
+        
         case "help":
             print("""
 ===List of Commands===
@@ -101,6 +109,7 @@ equip - Equip the weapon in the room, if possible.
 exit - quits the game.
 help - displays this screen.
 heal - heals your health.
+save - saves your player profile.
 leave - leave the room, if possible.
 """)
             break

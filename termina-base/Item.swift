@@ -35,8 +35,8 @@ class Item {
     init(_ itemName: String, _ itemType: String) {
         name = itemName
         type = itemType
-        effect = Int.random(in: 1 ... 10)
-        maximumUse = Int.random(in: 1 ... 5)
+        effect = Int.random(in: 10 ... 20)
+        maximumUse = Int.random(in: 1 ... 10)
         currentUse = maximumUse
     }
 }

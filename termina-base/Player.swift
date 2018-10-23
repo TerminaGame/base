@@ -16,7 +16,7 @@ class Player: Entity {
      - Parameters:
         - amount: The amount to heal by.
      */
-    func heal(_ amount: Int) {
+    func heal(_ amount: Double) {
         health += amount
 
         if (health > maximumHealth) {

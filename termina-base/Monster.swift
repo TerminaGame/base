@@ -8,7 +8,8 @@
 
 class Monster: Entity {
     
-    var level, attack: Int!
+    var level: Int!
+    var attack: Double!
     
     /**
      Attack a player by the attack amount.
@@ -26,8 +27,8 @@ class Monster: Entity {
      - Parameters:
         - amount: The amount to take damage, if possible.
      */
-    override func takeDamage(_ amount: Int) {
-        let chance = Int.random(in: 0 ... 9)
+    override func takeDamage(_ amount: Double) {
+        let chance = Double.random(in: 0.0 ... 9.0)
         super.takeDamage(chance)
     }
     
@@ -41,6 +42,6 @@ class Monster: Entity {
     init(_ monsterName: String, _ myLevel: Int) {
         super.init(monsterName, "Monster", 50)
         level = myLevel
-        attack = myLevel - 2
+        attack = Double(myLevel) * 1.5
     }
 }

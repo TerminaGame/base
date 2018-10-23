@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BFCF1197217FAE2E00E85D38 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */; };
+		BFCF11AA217FB57500E85D38 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */; };
+		BFCF11AB217FB57500E85D38 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF11A9217FB57500E85D38 /* Files.swift */; };
 		BFD81C96217B8AAC0049B5D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C95217B8AAC0049B5D4 /* main.swift */; };
 		BFD81CA5217B8AD60049B5D4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9C217B8AD50049B5D4 /* Player.swift */; };
 		BFD81CA6217B8AD60049B5D4 /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9D217B8AD50049B5D4 /* Monster.swift */; };
@@ -20,18 +23,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		BFD81C90217B8AAC0049B5D4 /* CopyFiles */ = {
+		BFD81C90217B8AAC0049B5D4 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		BFCF11A9217FB57500E85D38 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		BFD81C92217B8AAC0049B5D4 /* termina-base */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "termina-base"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD81C95217B8AAC0049B5D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BFD81C9C217B8AD50049B5D4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -56,12 +63,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFCF1194217FA9F300E85D38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFCF11A7217FB57500E85D38 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */,
+				BFCF11A9217FB57500E85D38 /* Files.swift */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 		BFD81C89217B8AAC0049B5D4 = {
 			isa = PBXGroup;
 			children = (
 				BFD81C95217B8AAC0049B5D4 /* main.swift */,
 				BFD81C94217B8AAC0049B5D4 /* termina-base */,
 				BFD81C93217B8AAC0049B5D4 /* Products */,
+				BFCF1194217FA9F300E85D38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +100,7 @@
 		BFD81C94217B8AAC0049B5D4 /* termina-base */ = {
 			isa = PBXGroup;
 			children = (
+				BFCF11A7217FB57500E85D38 /* Libraries */,
 				BFD81C9E217B8AD50049B5D4 /* Attack.swift */,
 				BFD81CA3217B8AD60049B5D4 /* Commads.swift */,
 				BFD81CA1217B8AD50049B5D4 /* Entity.swift */,
@@ -85,6 +110,7 @@
 				BFD81CA4217B8AD60049B5D4 /* Potion.swift */,
 				BFD81CA0217B8AD50049B5D4 /* Room.swift */,
 				BFD81CA2217B8AD60049B5D4 /* Weapon.swift */,
+				BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */,
 			);
 			path = "termina-base";
 			sourceTree = "<group>";
@@ -98,7 +124,7 @@
 			buildPhases = (
 				BFD81C8E217B8AAC0049B5D4 /* Sources */,
 				BFD81C8F217B8AAC0049B5D4 /* Frameworks */,
-				BFD81C90217B8AAC0049B5D4 /* CopyFiles */,
+				BFD81C90217B8AAC0049B5D4 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -115,6 +141,9 @@
 		BFD81C8A217B8AAC0049B5D4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Marquis Kurt";
@@ -149,12 +178,15 @@
 				BFD81CA8217B8AD60049B5D4 /* Item.swift in Sources */,
 				BFD81CAB217B8AD60049B5D4 /* Weapon.swift in Sources */,
 				BFD81CA5217B8AD60049B5D4 /* Player.swift in Sources */,
+				BFCF11AA217FB57500E85D38 /* SwiftyJSON.swift in Sources */,
 				BFD81CAA217B8AD60049B5D4 /* Entity.swift in Sources */,
 				BFD81CAD217B8AD60049B5D4 /* Potion.swift in Sources */,
 				BFD81CAC217B8AD60049B5D4 /* Commads.swift in Sources */,
 				BFD81CA9217B8AD60049B5D4 /* Room.swift in Sources */,
 				BFD81CA6217B8AD60049B5D4 /* Monster.swift in Sources */,
 				BFD81C96217B8AAC0049B5D4 /* main.swift in Sources */,
+				BFCF11AB217FB57500E85D38 /* Files.swift in Sources */,
+				BFCF1197217FAE2E00E85D38 /* SettingsManager.swift in Sources */,
 				BFD81CA7217B8AD60049B5D4 /* Attack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQQXSP79X3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -293,6 +326,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQQXSP79X3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

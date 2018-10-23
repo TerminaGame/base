@@ -19,7 +19,7 @@ class Potion: Item {
         if (currentUse <= 0) {
             print("[E] The potion can no longer heal you.")
         } else {
-            player.heal(effect)
+            player.heal(Double(effect))
             super.use()
         }
     }

@@ -37,7 +37,7 @@ class Room {
         let chance = Int.random(in: 0 ... 9)
         
         if (chance > 4) {
-            myMonster = Monster("Searcher", chance)
+            myMonster = Monster("Monster", Int.random(in: player.level ... player.level + 2))
             monsterHere = true
             myAttackSequence = AttackScene(player, myMonster!)
         }

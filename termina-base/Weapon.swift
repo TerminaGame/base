@@ -17,6 +17,13 @@ class Weapon: Item {
      Equip the weapon and level up the player temporarily.
      */
     func equip() {
+        
+        for object in equipper.inventory {
+            if object is Weapon {
+                equipper.inventory.removeFirst()
+            }
+        }
+        
         equipper.inventory.append(self)
         equipper.levelUp(level)
     }
