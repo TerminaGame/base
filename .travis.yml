@@ -5,12 +5,14 @@ language: swift
 osx_image: xcode10
 
 script:
-  xcodebuild -scheme termina-base -project termina-base.xcodeproj build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  xcodebuild -scheme termina-base -project termina-base.xcodeproj -derivedDataPath dist build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 deploy:
   provider: releases
   api_key:
     secure: $GITHUB_API_KEY
   file_glob: true
+  file: "dist/Build/Products/Debug/termina-base"
+  skip_cleanup: true
   on:
     tags: true
