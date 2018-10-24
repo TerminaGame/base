@@ -25,8 +25,9 @@ class AttackScene {
                 item.use()
             }
         }
-        let totalDamageFromPlayer = Double(((player?.level ?? 1)) + (player?.temporaryLevel ?? 0))
-        enemy?.takeDamage(Double(totalDamageFromPlayer * 2))
+        let damageFromPlayer = Double(((player?.level ?? 1)) + (player?.temporaryLevel ?? 0))
+        let totalDamageFromPlayer = damageFromPlayer * 2.0
+        enemy?.takeDamage(totalDamageFromPlayer)
         print("You strike first.")
         if (enemy?.health == 0) {
             enemy = nil

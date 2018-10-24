@@ -33,6 +33,7 @@ class Room {
     
     /**
      Constructs the Room object. Randomly adds monsters and an attack sequence if necessary.
+     Also adds healing potions, weapons, and experience bottles as necessary.
      
      - Parameters:
         - player: The player to put into the room
@@ -47,8 +48,15 @@ class Room {
         }
         
         if (chance >= 4) {
-            let myPotion = Potion("Heal Potion", player)
-            myItems.append(myPotion)
+            let selectRandomHelper = Int.random(in: 0 ... 3)
+            if selectRandomHelper <= 2 {
+                let myPotion = Potion("Heal Potion", player)
+                myItems.append(myPotion)
+            } else if selectRandomHelper == 3 {
+                let myBottle = Bottle("Bottle of Experience", player)
+                myItems.append(myBottle)
+            }
+            
         }
         
         if (chance >= 3 && chance <= 6) {

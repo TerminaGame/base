@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- Interpreter for gicven commands, either by user input in a terminal or from a button assignment.
+ Interpreter for given commands, either by user input in a terminal or from a button assignment.
  */
 class CommandInterpreter {
     
@@ -47,6 +47,19 @@ class CommandInterpreter {
                     }
                     break
                 }
+            
+            case "xp":
+                for obj in room.myItems {
+                    if obj is Bottle {
+                        obj.use()
+                        room.myItems.removeFirst()
+                    } else if !(obj is Bottle) {
+                        print("You cannot upgrade your XP with a \(obj.name).")
+                    } else {
+                        print("There's nothing here, silly.")
+                    }
+                }
+                break
             
             case "exit":
                 print("Are you sure you want to exit? (y/n)")
@@ -145,6 +158,7 @@ class CommandInterpreter {
     attack - attacks the monster in the room, if present.
     equip - Equip the weapon in the room, if possible.
     heal - restores your health by an amount.
+    xp - use an experience-enhancing bottle, if possible.
     
     == Miscellaneous ==
     clear - clears the console screen.

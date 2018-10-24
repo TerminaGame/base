@@ -44,7 +44,7 @@ class Item {
         name = itemName
         type = itemType
         effect = Int.random(in: 10 ... 20)
-        maximumUse = Int.random(in: 1 ... 10)
+        maximumUse = Int.random(in: 2 ... 10)
         currentUse = maximumUse
     }
 }
