@@ -5,6 +5,7 @@
 //  Created by Marquis Kurt on 10/17/18.
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
+import Foundation
 
 /**
  Primary enemy that attacks players.
@@ -31,7 +32,8 @@ class Monster: Entity {
         - amount: The amount to take damage, if possible.
      */
     override func takeDamage(_ amount: Double) {
-        let chance = Double.random(in: 0.0 ... 9.0)
+        let chance = Double(round(10*Double.random(in: 0.0 ... 9.0))/10)
+        //let chance = Double.random(in: 0.0 ... 9.0).rounded(FloatingPointRoundingRule.awayFromZero)
         super.takeDamage(chance)
     }
     

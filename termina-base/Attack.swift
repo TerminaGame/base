@@ -37,7 +37,7 @@ class AttackScene {
             }
         } else {
             let enemyHealth = String(enemy!.health)
-            print("It wasn't enough to kill the monster (health now \(enemyHealth)).\nIt is now the monster's turn.")
+            print("It wasn't enough to kill \(enemy?.name ?? "Monster") (health now \(enemyHealth)).\nIt is now the monster's turn.")
             enemy?.attackPlayer(player!)
             let selfHealth = String(player!.health)
             
