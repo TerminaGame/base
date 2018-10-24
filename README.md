@@ -22,3 +22,5 @@ If you're looking for GUI versions, we recommend looking at the following projec
 **Libraries used**:
 - [Files](https://github.com/JohnSundell/Files)
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+
+**Termina is licensed under the Apache License. Libraires used in Termina are under their respective licenses.**
