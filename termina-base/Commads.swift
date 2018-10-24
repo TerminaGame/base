@@ -116,18 +116,28 @@ class CommandInterpreter {
                 print("[I] Player data saved!")
                 break
             
+            case "clear":
+                print("\u{001B}[2J")
+                break
+            
             case "help":
                 print("""
-    ===List of Commands===
+    === List of Commands ===
+    == Getting Information ==
     aboutroom - displays information about the room.
     aboutself - displays information about oneself.
+
+    == Interactions ==
     attack - attacks the monster in the room, if present.
     equip - Equip the weapon in the room, if possible.
+    heal - restores your health by an amount.
+    
+    == Miscellaneous ==
+    clear - clears the console screen.
     exit - quits the game.
     help - displays this screen.
-    heal - heals your health.
-    save - saves your player profile.
     leave - leave the room, if possible.
+    save - saves your player profile.
     """)
                 break
             default:
