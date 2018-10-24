@@ -47,7 +47,7 @@ class Room {
         }
         
         if (chance >= 4) {
-            let myPotion = Potion("Potion of Quick Healing", player)
+            let myPotion = Potion("Heal Potion", player)
             myItems.append(myPotion)
         }
         

@@ -11,6 +11,7 @@
  */
 class Player: Entity {
     var experience, level: Int!
+    var temporaryLevel: Int!
     var inventory = [Item]()
     
     /**

@@ -21,10 +21,15 @@ class Item {
      */
     func use() {
         if (currentUse < 0 ) {
-            print("[E] Item can no longer be used.")
+            print("[E] \(name) can no longer be used.")
         } else {
             currentUse = currentUse - 1
-            print("[W] This item now has \(currentUse + 1) uses left!")
+            
+            if currentUse == 0 {
+                print("[I] \(name) is broken and can no longer be used.")
+            } else {
+                print("[W] \(name) now has \(currentUse) uses left!")
+            }
         }
     }
     

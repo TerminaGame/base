@@ -37,15 +37,15 @@ class Weapon: Item {
         }
         
         equipper.inventory.append(self)
-        equipper.levelUp(level)
+        equipper.temporaryLevel = level
+        print("\(name) has been equipped! Your attack score is [\(level + equipper.level)].")
     }
     /**
      Unequip the weapon.
      */
     func unequip() {
-        // equipper.level = equipper.level - level
         if currentUse == maximumUse {
-            equipper.level = equipper.level - level
+            equipper.temporaryLevel = 0
         }
         
         equipper.inventory.removeFirst()
@@ -60,10 +60,10 @@ class Weapon: Item {
             unequip()
         } else {
             super.use()
-            if (equipper.level - 1 < 0) {
-                equipper.level = 1
+            if (equipper.temporaryLevel - 1 < 0) {
+                equipper.temporaryLevel = 0
             } else {
-                equipper.level = equipper.level - 1
+                equipper.temporaryLevel = equipper.temporaryLevel - 1
             }
         }
     }

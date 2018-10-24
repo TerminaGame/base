@@ -49,7 +49,7 @@ class CommandInterpreter {
                 }
             
             case "exit":
-                print("Are you sure you want to exit? (y/n)\nNote: Your player status will be saved, but your inventory or room data will NOT.")
+                print("Are you sure you want to exit? (y/n)")
                 
                 if (readLine()! == "y") || (readLine()! == "yes") {
                     settingsHandler.saveSettings()
@@ -61,14 +61,28 @@ class CommandInterpreter {
             case "aboutself":
                 let myLevel = String(myPlayer.level)
                 let myExperience = String(myPlayer.experience)
-                print("===\(myPlayer.name)===")
-                print("Level: [\(myLevel)]")
-                print("Progress to next Level: [\(myExperience)]")
+                print("=== \(myPlayer.name) ===")
+                print("Level \(myLevel)")
+                print("Progress to next Level: \(myExperience)/25")
                 print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)")
+                print("Current Inventory: ")
+                
+                if myPlayer.inventory.isEmpty != true {
+                    for item in myPlayer.inventory {
+                        if item is Weapon {
+                            let weaponTemp = item as? Weapon
+                            print(" - \(weaponTemp?.name ?? "Weapon") [Level \(weaponTemp?.level ?? 0)] (\((weaponTemp?.currentUse ?? 0) + 1 ) uses left)")
+                        } else {
+                            print(" - \(item.name) (\(item.currentUse) uses left)")
+                        }
+                    }
+                } else {
+                    print(" - Inventory empty!")
+                }
                 break
             
             case "aboutroom":
-                print("===Current Room===")
+                print("=== Current Room ===")
                 if room.monsterHere {
                     let monsterLevel = String(room.myMonster!.level)
                     let monsterName = room.myMonster?.name
@@ -85,7 +99,7 @@ class CommandInterpreter {
                             let weaponLevel = String(thisWeapon.level!)
                             print(" - \(thisWeapon.name) [Level \(weaponLevel)]")
                         } else {
-                            print(" - \(obj.name)")
+                            print(" - \(obj.name) (\(obj.currentUse) uses left)")
                         }
                     }
                 } else {

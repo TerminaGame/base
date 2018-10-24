@@ -25,11 +25,12 @@ class AttackScene {
                 item.use()
             }
         }
-        enemy?.takeDamage(Double((player?.level)! * 2))
+        let totalDamageFromPlayer = Double(((player?.level ?? 1)) + (player?.temporaryLevel ?? 0))
+        enemy?.takeDamage(Double(totalDamageFromPlayer * 2))
         print("You strike first.")
         if (enemy?.health == 0) {
             enemy = nil
-            print("Congratulations! You've reduced the Monster to a nil object! Attack it one more time before you leave.\nYour XP has been upgraded.")
+            print("Congratulations! You've reduced \(enemy?.name ?? "Monster") to a nil object! Attack it one more time before you leave.")
             player?.experience += 5
             
             if ((player?.experience)! >= 25) {
@@ -37,17 +38,17 @@ class AttackScene {
             }
         } else {
             let enemyHealth = String(enemy!.health)
-            print("It wasn't enough to kill \(enemy?.name ?? "Monster") (health now \(enemyHealth)).\nIt is now the monster's turn.")
+            print("It wasn't enough to kill \(enemy?.name ?? "Monster") Its health is \(enemyHealth).\n\nIt is now \(enemy?.name ?? "Monster")'s turn.")
             enemy?.attackPlayer(player!)
             let selfHealth = String(player!.health)
             
             if (player?.health == 0) {
                 player = nil
-                print("You died!\n\(enemy!.name) has killed you.")
-                print("The game is now over. You'll be back in your terminal.")
+                print("You died!\n\(enemy?.name ?? "Monster") has killed you.")
+                print("The game is now over. Exiting to terminal...")
                 exit(1)
             }
-            print("The monster hasn't killed you yet! Your health is \(selfHealth).")
+            print("\(enemy?.name ?? "Monster") hasn't killed you yet! Your health is \(selfHealth).")
         }
     }
     

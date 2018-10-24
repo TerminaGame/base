@@ -30,7 +30,8 @@ if !vm.loadSettings() {                 // If the settings file is missing, ask 
     command.parseCommand("help", Room(myPlayer), vm)    // Automatically display the 'help' command so new players know of all the commands.
     print("\n")
 } else {                                // If the settings file is found, greet the player and assume that they know the controls.
-    print("Welcome back to Termina, \(myPlayer.name). We've been waiting for you.")
+    print("Welcome back to Termina, \(myPlayer.name). We've been waiting for you.\n")
+    command.parseCommand("aboutself", Room(myPlayer), vm)
 }
 
 // Always keep creating a new room until the room is destroyed.
@@ -43,7 +44,7 @@ while true {
         if theDarkRoom.isDestroyed == true {
             theDarkRoom = Room(myPlayer)
         }
-        print("What would you like to do?")
+        print("\nWhat would you like to do? Type a command:")
         command.parseCommand(readLine(strippingNewline: true)!, theDarkRoom, vm) // Get the player's input and parse the command into the interpreter.
     }
 }
