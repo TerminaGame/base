@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Item to increase player's level and allow attacking monsters with higher damage.
+ */
 class Weapon: Item {
     
     var level: Int!
@@ -20,7 +23,16 @@ class Weapon: Item {
         
         for object in equipper.inventory {
             if object is Weapon {
-                equipper.inventory.removeFirst()
+                let weapon = object as? Weapon
+                print("[W] You already have a weapon equipped, \(weapon?.name ?? "Weapon"). Are you sure you want to equip \(name) instead? (y/n)")
+                
+                let response = readLine()!
+                if (response == "yes" || response == "y") {
+                    weapon?.unequip()
+                } else {
+                    print("[E] Operation aborted.")
+                    break
+                }
             }
         }
         
@@ -32,6 +44,10 @@ class Weapon: Item {
      */
     func unequip() {
         // equipper.level = equipper.level - level
+        if currentUse == maximumUse {
+            equipper.level = equipper.level - level
+        }
+        
         equipper.inventory.removeFirst()
     }
     
@@ -44,7 +60,11 @@ class Weapon: Item {
             unequip()
         } else {
             super.use()
-            equipper.level = equipper.level - 1
+            if (equipper.level - 1 < 0) {
+                equipper.level = 1
+            } else {
+                equipper.level = equipper.level - 1
+            }
         }
     }
     

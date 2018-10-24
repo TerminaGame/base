@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Item to restore player's health
+ */
 class Potion: Item {
     
     var player: Player!

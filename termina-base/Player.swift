@@ -5,6 +5,10 @@
 //  Created by Marquis Kurt on 10/17/18.
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
+
+/**
+ Primary entity to interact with items and attack monsters. Takes and stores data from `settings.json`
+ */
 class Player: Entity {
     var experience, level: Int!
     var inventory = [Item]()

@@ -8,10 +8,18 @@
 
 import Foundation
 
+/**
+ Handler for loading and saving settings to/from a JSON file (`settings.json`)
+ */
 class SettingsManager {
     
     var thisPlayer: Player!
     
+    /**
+     Load the player settings from a JSON file and assign the values to the Player object.
+     
+     - Returns: Boolean value of operation's success
+     */
     func loadSettings() -> Bool {
         let jsonPath = try! Folder(path: "")
         
@@ -33,6 +41,9 @@ class SettingsManager {
         }
     }
     
+    /**
+     Save the current values from the Player object to a JSON file.
+     */
     func saveSettings() {
         let jsonPath = try! Folder(path: "")
         try! jsonPath.createFile(named: "settings.json", contents: """
@@ -45,6 +56,12 @@ class SettingsManager {
 """)
     }
     
+    /**
+     Constructs the SettingsManager class.
+     
+     - Parameters:
+        - who: the player to load data to and save data from
+     */
     init(_ who: Player) {
         thisPlayer = who
     }

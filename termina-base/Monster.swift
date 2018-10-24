@@ -6,6 +6,9 @@
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
 
+/**
+ Primary enemy that attacks players.
+ */
 class Monster: Entity {
     
     var level: Int!

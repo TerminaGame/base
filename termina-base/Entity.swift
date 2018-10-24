@@ -5,6 +5,10 @@
 //  Created by Marquis Kurt on 10/17/18.
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
+
+/**
+ Base class for describing entities in the game.
+ */
 class Entity {
     var name, type: String
     var health, maximumHealth: Double

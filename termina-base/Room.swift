@@ -8,12 +8,16 @@
 
 import Foundation
 
+/**
+ Base element that can contain items and a monster, as well as its name generators and attack scenes.
+ */
 class Room {
     var myMonster: Monster?
     var monsterHere = false
     var myAttackSequence: AttackScene?
     var myItems = [Item]()
     var isDestroyed = false
+    let myNameGen = NameGenerator()
     
     /**
      Attempt to attack the monster in the room. If the monster is dead from attack, removes it from Room.
@@ -37,18 +41,18 @@ class Room {
         let chance = Int.random(in: 0 ... 9)
         
         if (chance > 4) {
-            myMonster = Monster("Monster", Int.random(in: player.level ... player.level + 2))
+            myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level ... player.level + 2))
             monsterHere = true
             myAttackSequence = AttackScene(player, myMonster!)
         }
         
-        if (chance >= 5) {
+        if (chance >= 4) {
             let myPotion = Potion("Potion of Quick Healing", player)
             myItems.append(myPotion)
         }
         
         if (chance >= 3 && chance <= 6) {
-            let myWeapon = Weapon("Weapon of Death", chance, player)
+            let myWeapon = Weapon(myNameGen.generateWeaponName(), chance, player)
             myItems.append(myWeapon)
         }
     }

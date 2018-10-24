@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ Base class for describing items in the game.
+ */
 class Item {
     var name, type: String
     var effect: Int
