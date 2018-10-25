@@ -27,24 +27,43 @@ if !vm.loadSettings() {                 // If the settings file is missing, ask 
     vm.saveSettings()
     
     print("\n")
-    command.parseCommand("help", Room(myPlayer), vm)    // Automatically display the 'help' command so new players know of all the commands.
+    command.parseCommand("help", Room(myPlayer, nil), vm)    // Automatically display the 'help' command so new players know of all the commands.
     print("\n")
 } else {                                // If the settings file is found, greet the player and assume that they know the controls.
     print("Welcome back to Termina, \(myPlayer.name). We've been waiting for you.\n")
-    command.parseCommand("aboutself", Room(myPlayer), vm)
+    command.parseCommand("aboutself", Room(myPlayer, nil), vm)
 }
 
 // Always keep creating a new room until the room is destroyed.
 // This is how new rooms generate.
 while true {
     //TODO: Break this loop when level reaches the maximum level to initiate a boss fight.
-    var theDarkRoom = Room(myPlayer)
+    var theDarkRoom = Room(myPlayer, nil)
+    
+    // If the player's level is 420 or greater, break out of this loop.
+    if myPlayer.level >= 420 {
+        break
+    }
     
     while theDarkRoom.isDestroyed == false {
         if theDarkRoom.isDestroyed == true {
-            theDarkRoom = Room(myPlayer)
+            theDarkRoom = Room(myPlayer, nil)
         }
         print("\nWhat would you like to do? Type a command:")
         command.parseCommand(readLine(strippingNewline: true)!, theDarkRoom, vm) // Get the player's input and parse the command into the interpreter.
     }
+}
+
+// This code usually gets executed when the player has reached the sufficient level.
+// In this case, this is where the boss battle with Termina occurs.
+print("Well, haven't you managed to get yourself here?")
+print("X")
+
+while myPlayer.level >= 420 {
+    let termina = Termina()
+    let terminaRoom = Room(myPlayer, termina)
+    
+    print("\nWhat would you like to do? Type a command:")
+    command.parseCommand(readLine(strippingNewline: true)!, terminaRoom, vm)
+    termina.insult()
 }

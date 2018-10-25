@@ -38,12 +38,17 @@ class Room {
      - Parameters:
         - player: The player to put into the room
      */
-    init(_ player: Player) {
+    init(_ player: Player, _ monster: Monster?) {
         let chance = Int.random(in: 0 ... 9)
         
         if (chance > 4) {
-            myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level ... player.level + 2))
-            monsterHere = true
+            if monster != nil {
+                myMonster = monster
+                monsterHere = true
+            } else {
+                myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level ... player.level + 2))
+                monsterHere = true
+            }
             myAttackSequence = AttackScene(player, myMonster!)
         }
         

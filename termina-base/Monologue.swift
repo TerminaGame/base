@@ -13,6 +13,8 @@ import Foundation
  */
 class Monologue {
     
+    
+    
     let terminaDerogatoryMonologue = [
         "You really shouldn't have tried to come after me.",
         "This is a big mistake.",
