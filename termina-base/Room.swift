@@ -37,6 +37,7 @@ class Room {
      
      - Parameters:
         - player: The player to put into the room
+        - monster: The monster to insert into the room. If set to `nil`, will generate randomly.
      */
     init(_ player: Player, _ monster: Monster?) {
         let chance = Int.random(in: 0 ... 9)
