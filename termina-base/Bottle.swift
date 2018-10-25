@@ -20,6 +20,11 @@ class Bottle: Item {
      */
     override func use() {
         player.experience += effect
+        
+        if player.experience >= 25 {
+            player.levelUp(1)
+        }
+        
         super.use()
     }
     

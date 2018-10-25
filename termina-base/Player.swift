@@ -27,7 +27,7 @@ class Player: Entity {
         if (health > maximumHealth) {
             health = maximumHealth
         }
-        experience += 5
+        experience += 3
         if (experience >= 25) {
             levelUp(1)
         }
