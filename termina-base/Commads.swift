@@ -28,35 +28,46 @@ class CommandInterpreter {
                 if room.monsterHere {
                     room.attackHere()
                 } else {
-                    print("You cannot attack now, there is no monster nearby.")
+                    print("There's nothing to attack in this room.")
                 }
                 break
             
             case "heal":
-                for obj in room.myItems {
-                    if obj is Potion {
-                        obj.use()
-                        if obj.currentUse == 0 {
-                            room.myItems.removeFirst()
+                if room.myItems.isEmpty {
+                    print("There aren't any items in this room.")
+                } else {
+                    for obj in room.myItems {
+                        if obj is Potion {
+                            obj.use()
+                            if obj.currentUse == 0 {
+                                room.myItems.removeFirst()
+                            }
+                            break
+                        } else if !(obj is Potion) {
+                            print("You can't use \(obj.name) to heal yourself.")
+                            break
+                        } else {
+                            print("There aren't any items in this room.")
+                            break
                         }
-                        break
-                    } else if !(obj is Potion) {
-                        print("You can't use \(obj.name) to heal yourself.")
-                    } else {
-                        print("There's nothing here, silly.")
                     }
-                    break
                 }
+                
+                break
             
             case "xp":
-                for obj in room.myItems {
-                    if obj is Bottle {
-                        obj.use()
-                        room.myItems.removeFirst()
-                    } else if !(obj is Bottle) {
-                        print("You cannot upgrade your XP with a \(obj.name).")
-                    } else {
-                        print("There's nothing here, silly.")
+                if room.myItems.isEmpty {
+                    print("There aren't any items in this room.")
+                } else {
+                    for obj in room.myItems {
+                        if obj is Bottle {
+                            obj.use()
+                            room.myItems.removeFirst()
+                        } else if !(obj is Bottle) {
+                            print("You cannot upgrade your XP with a \(obj.name).")
+                        } else {
+                            print("There aren't any items in this room.")
+                        }
                     }
                 }
                 break
@@ -64,10 +75,10 @@ class CommandInterpreter {
             case "exit":
                 print("Are you sure you want to exit? (y/n)")
                 
-                if (readLine()! == "y") || (readLine()! == "yes") {
+                if (readLine()! == "y" || readLine()! == "yes") {
                     settingsHandler.saveSettings()
                     exit(0)
-                } else if (readLine()! == "n") || (readLine()! == "no") {
+                } else if (readLine()! == "n" || readLine()! == "no") {
                     break
                 }
             
@@ -92,6 +103,7 @@ class CommandInterpreter {
                 } else {
                     print(" - Inventory empty!")
                 }
+                print("\n")
                 break
             
             case "aboutroom":
@@ -118,22 +130,32 @@ class CommandInterpreter {
                 } else {
                     print("There are no items here.")
                 }
+                print("\n")
                 break
             
             case "leave":
+                print("Moving to the next room...")
                 if room.monsterHere == false {
                     room.isDestroyed = true
                 } else {
-                    print("[E] You cannot leave now, there are monsters nearby.\nHave you deleted them?")
+                    print("[E] You cannot leave until you kill \(room.myMonster?.name ?? "the monster") has been killed.")
                 }
                 break
             
             case "equip":
-                for obj in room.myItems {
-                    if obj is Weapon {
-                        let useWeapon = obj as! Weapon
-                        useWeapon.equip()
-                        room.myItems.removeLast()
+                if room.myItems.isEmpty {
+                    print("There is nothing to equip in this room.")
+                    break
+                } else {
+                    for obj in room.myItems {
+                        if obj is Weapon {
+                            let useWeapon = obj as! Weapon
+                            useWeapon.equip()
+                            print("\(obj.name) has been equipped!")
+                            room.myItems.removeLast()
+                        } else {
+                            print("\(obj.name) cannot be equipped.")
+                        }
                     }
                 }
                 break

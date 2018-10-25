@@ -32,21 +32,21 @@ if !vm.loadSettings() {
     
     // Automatically display the 'help' command so new players know of all the commands.
     print("\n")
-    command.parseCommand("help", Room(myPlayer, nil), vm)
+    command.parseCommand("help", Room(myPlayer, nil, command), vm)
     print("\n")
 }
 
 // If the settings file is found, greet the player and assume that they know the controls.
 else {
     print("Welcome back to Termina, \(myPlayer.name). We've been waiting for you.\n")
-    command.parseCommand("aboutself", Room(myPlayer, nil), vm)
+    command.parseCommand("aboutself", Room(myPlayer, nil, nil), vm)
 }
 
 // Always keep creating a new room until the room is destroyed or the player level is
 // high enough to break out of the loop and fight the boss.
 while true {
     //TODO: Break this loop when level reaches the maximum level to initiate a boss fight.
-    var theDarkRoom = Room(myPlayer, nil)
+    var theDarkRoom = Room(myPlayer, nil, command)
     
     // If the player's level is 420 or greater, break out of this loop.
     if myPlayer.level >= 420 {
@@ -54,9 +54,9 @@ while true {
     }
     
     // Loop infinitely until the player leaves the room, then go back to the main loop.
-    while theDarkRoom.isDestroyed == false {
-        if theDarkRoom.isDestroyed == true {
-            theDarkRoom = Room(myPlayer, nil)
+    while !theDarkRoom.isDestroyed {
+        if theDarkRoom.isDestroyed {
+            theDarkRoom = Room(myPlayer, nil, command)
         }
         
         // Get the player's input and parse the command into the interpreter.
@@ -75,7 +75,7 @@ while myPlayer.level >= 420 {
     
     // Add Termina as a Monster to a new room.
     let termina = Termina()
-    let terminaRoom = Room(myPlayer, termina)
+    let terminaRoom = Room(myPlayer, termina, command)
     
     // Keep looping infinitely until the player is able to leave the room
     while !terminaRoom.isDestroyed {

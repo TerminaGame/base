@@ -38,8 +38,9 @@ class Room {
      - Parameters:
         - player: The player to put into the room
         - monster: The monster to insert into the room. If set to `nil`, will generate randomly.
+        - cmd: The command interpreter to run the "aboutroom" command. If set to `nil`, will not display command.
      */
-    init(_ player: Player, _ monster: Monster?) {
+    init(_ player: Player, _ monster: Monster?, _ cmd: CommandInterpreter?) {
         let chance = Int.random(in: 0 ... 9)
         
         if (chance > 4) {
@@ -68,6 +69,10 @@ class Room {
         if (chance >= 3 && chance <= 6) {
             let myWeapon = Weapon(myNameGen.generateWeaponName(), chance, player)
             myItems.append(myWeapon)
+        }
+        
+        if cmd != nil {
+            cmd!.parseCommand("aboutroom", self, SettingsManager(player))
         }
     }
     
