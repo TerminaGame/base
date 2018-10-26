@@ -200,6 +200,13 @@ class CommandInterpreter {
         case "clear":
             print("\u{001B}[2J")
             break
+            
+        case "deleteself":
+            settingsHandler.deleteSettings()
+            print("You died! You deleted yourself from existence.")
+            print("The game is now over. Exiting to terminal...")
+            exit(42)
+            break
         
         case "help":
             print("""

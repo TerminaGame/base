@@ -64,6 +64,16 @@ class SettingsManager {
 }
 """)
     }
+    /**
+     Delete the settings.json file.
+     */
+    func deleteSettings() {
+        let jsonPath = try! Folder(path: "")
+        
+        try! jsonPath.file(named: "settings.json").copy(to: Folder(path: "../"))
+        
+        try! jsonPath.file(named: "settings.json").delete()
+    }
     
     /**
      Constructs the SettingsManager class.

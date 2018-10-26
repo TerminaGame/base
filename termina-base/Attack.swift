@@ -31,7 +31,7 @@ class AttackScene {
         print("You strike first.")
         if (enemy?.health == 0) {
             enemy = nil
-            print("Congratulations! You've reduced \(enemy?.name ?? "Monster") to a nil object! Attack it one more time before you leave.")
+            print("Congratulations! You've reduced \(enemy?.name ?? "the monster") to a nil object! Attack it one more time before you leave.")
             player?.experience += 5
             
             if ((player?.experience)! >= 25) {
