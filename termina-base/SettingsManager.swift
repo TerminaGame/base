@@ -31,7 +31,16 @@ class SettingsManager {
             thisPlayer.name = jsonData["name"].string!
             thisPlayer.level = Int(jsonData["level"].string!)
             thisPlayer.experience = Int(jsonData["progress"].string!)
-            thisPlayer.health = Double(jsonData["health"].string!)!
+            
+            // Disable possible bypass of adding extra health
+            if Double(jsonData["health"].string!)! >= 100.0 {
+                thisPlayer.health = 100.0
+                saveSettings()
+            } else {
+                thisPlayer.health = Double(jsonData["health"].string!)!
+            }
+            
+            
             
             return true
             
