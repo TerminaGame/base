@@ -33,7 +33,6 @@ class Monster: Entity {
      */
     override func takeDamage(_ amount: Double) {
         let chance = Double(round(10*Double.random(in: 0.0 ... 9.0))/10)
-        //let chance = Double.random(in: 0.0 ... 9.0).rounded(FloatingPointRoundingRule.awayFromZero)
         super.takeDamage(chance)
     }
     

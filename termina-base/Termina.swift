@@ -23,6 +23,17 @@ class Termina: Monster {
     }
     
     /**
+     Damage Termina by an amount and print a painful scream.
+     
+     - Parameters:
+        - amount: The amount of damage to give to Termina
+     */
+    override func takeDamage(_ amount: Double) {
+        super.takeDamage(amount)
+        print("Termina: Aah~!")
+    }
+    
+    /**
      Construct Termina with level 420.
      */
     init() {
