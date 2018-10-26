@@ -13,7 +13,27 @@ import Foundation
  */
 class Monologue {
     
-    
+    let randomMonologuesNPC = [
+        "Remember: she is always watching.",
+        "Was there ever a happy time?",
+        "Once you go into the void, you can't come back.",
+        "You better be well-equipped if you want to defeat her.",
+        "I haven't showered in three weeks.",
+        "She always looks at me funny.",
+        "Programmers beware!",
+        "Can I sleep now?",
+        "This isn't fun anymore.",
+        "It's just a game.",
+        "How is she even real?",
+        "Her name is Termina.",
+        "Please help me.",
+        "I've waited here for a really long time.",
+        "I don't think she likes me at all.",
+        "Alize stole my cookies!",
+        "She's not fun at all.",
+        "Frankly, she was a mistake.",
+        "I don't blame you."
+    ]
     
     let terminaDerogatoryMonologue = [
         "You really shouldn't have tried to come after me.",

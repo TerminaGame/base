@@ -57,6 +57,41 @@ class NameGenerator {
         "Conversion"
     ]
     
+    let namesNPC = [
+        "John",
+        "Manny",
+        "Douglas",
+        "Linus",
+        "Peter",
+        "Mike",
+        "Aaron",
+        "Daniel",
+        "Samuel",
+        "Henry",
+        "Joseph",
+        "Adam",
+        "Thomas",
+        "Tim",
+        "Andrew",
+        
+        "Andromeda",
+        "Michelle",
+        "Alize",
+        "Monique",
+        "Susan",
+        "Allison",
+        "Amy",
+        "Natalie",
+        "Nova",
+        "Chloe",
+        "Dupris",
+        "Claris",
+        "Maria",
+        "Leah",
+        "Sarah",
+        "Mia"
+    ]
+    
     /**
      Generates a weapon name from random elements of a list with its prefix.
      
@@ -73,6 +108,15 @@ class NameGenerator {
      */
     func generateMonsterName() -> String {
         return (monsterList.randomElement() ?? "") + (monsterAddition.randomElement() ?? "") + monsterSuffix
+    }
+    
+    /**
+     Picks a name from an array randomly.
+     
+     - Returns: NPC name as a String
+     */
+    func generateNameNPC() -> String {
+        return namesNPC.randomElement() ?? "NPC"
     }
     
 }

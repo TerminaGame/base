@@ -38,6 +38,13 @@ class NPC: Entity {
     }
     
     /**
+        Say a random line from a list of dialogues.
+     */
+    func saySomething() {
+        print("\(name): \((Monologue().randomMonologuesNPC.randomElement() ?? "Help me."))")
+    }
+    
+    /**
      Construct the NPC class.
      
      - Parameters:

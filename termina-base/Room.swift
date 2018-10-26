@@ -13,6 +13,7 @@ import Foundation
  */
 class Room {
     var myMonster: Monster?
+    var myNPC: NPC?
     var monsterHere = false
     var myAttackSequence: AttackScene?
     var myItems = [Item]()
@@ -44,6 +45,7 @@ class Room {
         let chance = Int.random(in: 0 ... 9)
         
         if (chance > 4) {
+            myNPC = nil
             if monster != nil {
                 myMonster = monster
                 monsterHere = true
@@ -52,6 +54,8 @@ class Room {
                 monsterHere = true
             }
             myAttackSequence = AttackScene(player, myMonster!)
+        } else {
+            myNPC = NPC(myNameGen.generateNameNPC())
         }
         
         if (chance >= 4) {
