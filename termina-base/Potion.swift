@@ -20,7 +20,7 @@ class Potion: Item {
      */
     override func use() {
         if (currentUse <= 0) {
-            print("[E] The potion can no longer heal you.")
+            Logger().error("The potion can no longer heal you.")
         } else {
             player.heal(Double(effect))
             super.use()

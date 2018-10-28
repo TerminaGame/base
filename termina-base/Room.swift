@@ -28,7 +28,7 @@ class Room {
             myAttackSequence?.attack()
         } else {
             monsterHere = false
-            print("[I] \(myMonster?.name ?? "The enemy") has been killed!")
+            Logger().info("\(myMonster?.name ?? "The enemy") has been killed!")
             myMonster = nil
         }
     }
@@ -51,7 +51,7 @@ class Room {
                 myMonster = monster
                 monsterHere = true
             } else {
-                myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level ... player.level + 2))
+                myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 3 ... player.level + 2))
                 monsterHere = true
             }
             myAttackSequence = AttackScene(player, myMonster!)

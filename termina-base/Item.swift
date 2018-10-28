@@ -21,14 +21,14 @@ class Item {
      */
     func use() {
         if (currentUse < 0 ) {
-            print("[E] \(name) can no longer be used.")
+            Logger().error("\(name) can no longer be used.")
         } else {
             currentUse = currentUse - 1
             
             if currentUse == 0 {
-                print("[I] \(name) is broken and can no longer be used.")
+                Logger().warning("\(name) is broken and can no longer be used.")
             } else {
-                print("[W] \(name) now has \(currentUse) uses left!")
+                Logger().warning("\(name) now has \(currentUse) uses left!")
             }
         }
     }

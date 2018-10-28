@@ -25,6 +25,7 @@
 		BFD81CAB217B8AD60049B5D4 /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA2217B8AD60049B5D4 /* Weapon.swift */; };
 		BFD81CAC217B8AD60049B5D4 /* Commads.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA3217B8AD60049B5D4 /* Commads.swift */; };
 		BFD81CAD217B8AD60049B5D4 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA4217B8AD60049B5D4 /* Potion.swift */; };
+		BFDB8AB321863EFD00ECEACB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8AB221863EFD00ECEACB /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +61,7 @@
 		BFD81CA2217B8AD60049B5D4 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		BFD81CA3217B8AD60049B5D4 /* Commads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commads.swift; sourceTree = "<group>"; };
 		BFD81CA4217B8AD60049B5D4 /* Potion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
+		BFDB8AB221863EFD00ECEACB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				BF5A5A3E2180CE6400E2523C /* NPC.swift */,
 				BF5A5A402180D06700E2523C /* Monologue.swift */,
 				BF4AEC7921811640002722B3 /* Bottle.swift */,
+				BFDB8AB221863EFD00ECEACB /* Logger.swift */,
 			);
 			path = "termina-base";
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDB8AB321863EFD00ECEACB /* Logger.swift in Sources */,
 				BF5A5A412180D06700E2523C /* Monologue.swift in Sources */,
 				BFD81CA8217B8AD60049B5D4 /* Item.swift in Sources */,
 				BFD81CAB217B8AD60049B5D4 /* Weapon.swift in Sources */,

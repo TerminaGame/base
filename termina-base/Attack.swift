@@ -29,22 +29,22 @@ class AttackScene {
         let totalDamageFromPlayer = damageFromPlayer * 1.5
         enemy?.takeDamage(totalDamageFromPlayer)
         if (enemy?.health == 0) {
-            print("\(enemy?.name ?? "The enemy") is now stunned. Attack one more time to kill it permanently.")
+            Logger().info("\(enemy?.name ?? "The enemy") is now stunned. Attack one more time to kill it permanently.")
             enemy = nil
             player?.experienceUp(5)
         } else {
             let enemyHealth = String(enemy!.health)
-            print("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).\n\n")
+            Logger().info("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).")
             enemy?.attackPlayer(player!)
             let selfHealth = String(player!.health)
             
             if (player?.health == 0) {
                 player = nil
-                print("You died!\n\(enemy?.name ?? "Monster") has killed you.")
-                print("The game is now over. Exiting to terminal...")
+                Logger().info("You died! \(enemy?.name ?? "Monster") has killed you.")
+                Logger().info("The game is now over. Exiting to terminal...")
                 exit(1)
             }
-            print("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")
+            Logger().warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")
         }
     }
     

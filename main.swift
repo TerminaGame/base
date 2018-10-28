@@ -26,6 +26,7 @@ let vm = SettingsManager(myPlayer)
 
 // If the settings file is missing, ask the player to create a new player account.
 if !vm.loadSettings() {
+    Logger().info("Creating a new settings file in this directory...")
     print("Enter a name to continue: ")
     myPlayer.name = readLine()!
     vm.saveSettings()

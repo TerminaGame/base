@@ -90,16 +90,16 @@ class CommandInterpreter {
                 room.attackHere()
             } else if room.myNPC != nil {
                 room.myNPC?.takeDamage(1)
-                print("You killed \(room.myNPC?.name ?? "NPC")! You monster...")
+                Logger().info("You killed \(room.myNPC?.name ?? "NPC")! You monster...")
                 room.myNPC = nil
             } else {
-                print("There's nothing to attack in this room.")
+                Logger().error("There's nothing to attack in this room.")
             }
             break
             
         case "heal":
             if room.myItems.isEmpty {
-                print("There aren't any items in this room.")
+                Logger().error("There aren't any items in this room.")
             } else {
                 for obj in room.myItems {
                     if obj is Potion {
@@ -109,10 +109,10 @@ class CommandInterpreter {
                         }
                         break
                     } else if !(obj is Potion) {
-                        print("You can't use \(obj.name) to heal yourself.")
+                        Logger().error("You can't use \(obj.name) to heal yourself.")
                         break
                     } else {
-                        print("There aren't any items in this room.")
+                        Logger().error("There aren't any items in this room.")
                         break
                     }
                 }
@@ -122,43 +122,42 @@ class CommandInterpreter {
             
         case "xp":
             if room.myItems.isEmpty {
-                print("There aren't any items in this room.")
+                Logger().error("There aren't any items in this room.")
             } else {
                 for obj in room.myItems {
                     if obj is Bottle {
                         obj.use()
                         room.myItems.removeFirst()
                     } else if !(obj is Bottle) {
-                        print("You cannot upgrade your XP with a \(obj.name).")
+                        Logger().error("You cannot upgrade your XP with a \(obj.name).")
                     } else {
-                        print("There aren't any items in this room.")
+                        Logger().error("There aren't any items in this room.")
                     }
                 }
             }
             break
             
         case "leave":
-            print("Moving to the next room...")
+            Logger().info("Moving to the next room...")
             if room.monsterHere == false {
                 room.isDestroyed = true
             } else {
-                print("[E] You cannot leave until you kill \(room.myMonster?.name ?? "the monster") has been killed.")
+                Logger().error("You cannot leave until you kill \(room.myMonster?.name ?? "the monster") has been killed.")
             }
             break
             
         case "equip":
             if room.myItems.isEmpty {
-                print("There is nothing to equip in this room.")
+                Logger().error("There is nothing to equip in this room.")
                 break
             } else {
                 for obj in room.myItems {
                     if obj is Weapon {
                         let useWeapon = obj as! Weapon
                         useWeapon.equip()
-                        print("\(obj.name) has been equipped!")
                         room.myItems.removeLast()
                     } else {
-                        print("\(obj.name) cannot be equipped.")
+                        Logger().error("\(obj.name) cannot be equipped.")
                     }
                 }
             }
@@ -172,7 +171,7 @@ class CommandInterpreter {
                     room.myNPC?.saySomething()
                 }
             } else {
-                print("There isn't anyone here to talk to.")
+                Logger().error("There isn't anyone here to talk to.")
             }
             break
            
@@ -183,18 +182,19 @@ class CommandInterpreter {
         
         
         case "exit":
-            print("Are you sure you want to exit? (y/n)")
+            Logger().warning("Are you sure you want to exit? (y/n)")
             
             if (readLine()! == "y" || readLine()! == "yes") {
                 settingsHandler.saveSettings()
                 exit(0)
             } else if (readLine()! == "n" || readLine()! == "no") {
+                Logger().info("Resuming game...")
                 break
             }
         
         case "save":
             settingsHandler.saveSettings()
-            print("[I] Player data saved!")
+            Logger().info("Player data saved!")
             break
         
         case "clear":
@@ -203,8 +203,8 @@ class CommandInterpreter {
             
         case "deleteself":
             settingsHandler.deleteSettings()
-            print("You died! You deleted yourself from existence.")
-            print("The game is now over. Exiting to terminal...")
+            Logger().info("You died! You deleted yourself from existence.")
+            Logger().info("The game is now over. Exiting to terminal...")
             exit(42)
             break
         
@@ -233,7 +233,7 @@ save - saves your player profile.
         
         
         default:
-            print("\(command) is not a valid command. Type 'help' to see a list of commands.")
+            Logger().error("\(command) is not a valid command. Type 'help' to see a list of commands.")
             break
         }
     }
