@@ -186,7 +186,13 @@ class CommandInterpreter {
             
             if (readLine()! == "y" || readLine()! == "yes") {
                 settingsHandler.saveSettings()
-                myLogger.printLog()
+                
+                myLogger.info("Would you like a log of this session? (y/n)")
+                if (readLine()! == "y" || readLine()! == "yes") {
+                    myLogger.printLog()
+                } else {
+                    myLogger.info("Skipping creating the log file...")
+                }
                 exit(0)
             } else if (readLine()! == "n" || readLine()! == "no") {
                 myLogger.info("Resuming game...")
