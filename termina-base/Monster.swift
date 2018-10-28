@@ -32,7 +32,7 @@ class Monster: Entity {
         - amount: The amount to take damage, if possible.
      */
     override func takeDamage(_ amount: Double) {
-        let chance = Double(round(10*Double.random(in: 0.0 ... 9.0))/10)
+        let chance = Double(round(10*Double.random(in: 1.0 ... 9.0))/10)
         super.takeDamage(chance)
     }
     

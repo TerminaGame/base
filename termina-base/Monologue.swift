@@ -74,9 +74,13 @@ class Monologue {
         "She's probably the smartest out of anyone in this building.",
         "Rumor has it that she hears everything in this place.",
         "I'd rather fight aliens than be her prisoner.",
-        "Grapes."
+        "Grapes.",
+        "Sometimes, it feels like the end is never the end is never the end is never..."
     ]
     
+    /**
+     Quips from Termina after attacking her.
+     */
     let terminaDerogatoryMonologue = [
         "You really shouldn't have tried to come after me.",
         "This is a big mistake.",

@@ -19,12 +19,7 @@ class Bottle: Item {
      Add the experience points and then break immediately.
      */
     override func use() {
-        player.experience += effect
-        
-        if player.experience >= 25 {
-            player.levelUp(1)
-        }
-        
+        player.experienceUp(effect)
         super.use()
     }
     

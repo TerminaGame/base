@@ -27,10 +27,7 @@ class Player: Entity {
         if (health > maximumHealth) {
             health = maximumHealth
         }
-        experience += 3
-        if (experience >= 25) {
-            levelUp(1)
-        }
+        experienceUp(3)
     }
     
     /**
@@ -42,6 +39,24 @@ class Player: Entity {
     func levelUp(_ amount: Int) {
         level += amount
         experience = 0
+    }
+    
+    /**
+     Adds experience to the player. If the result is over the maximum (25), level up to the next level and add the leftover experience.
+     
+     - Parameters:
+        - amount: The amount of experience to add to the player.
+     */
+    func experienceUp(_ amount: Int) {
+        let temporaryExperience = experience + amount
+        
+        if temporaryExperience >= 25 {
+            let storedExperienceFromOverflow = temporaryExperience - 25
+                levelUp(1)
+                experience = storedExperienceFromOverflow
+        } else {
+            experience = temporaryExperience
+        }
     }
     
     /**

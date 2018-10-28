@@ -28,6 +28,7 @@ class Room {
             myAttackSequence?.attack()
         } else {
             monsterHere = false
+            print("[I] \(myMonster?.name ?? "The enemy") has been killed!")
             myMonster = nil
         }
     }
