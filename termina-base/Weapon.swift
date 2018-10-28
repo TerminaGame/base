@@ -24,13 +24,13 @@ class Weapon: Item {
         for object in equipper.inventory {
             if object is Weapon {
                 let weapon = object as? Weapon
-                Logger().warning("You already have a weapon equipped, \(weapon?.name ?? "Weapon"). Are you sure you want to equip \(name) instead? (y/n)")
+                myLogger.warning("You already have a weapon equipped, \(weapon?.name ?? "Weapon"). Are you sure you want to equip \(name) instead? (y/n)")
                 
                 let response = readLine()!
                 if (response == "yes" || response == "y") {
                     weapon?.unequip()
                 } else {
-                    Logger().error("Operation aborted.")
+                    myLogger.error("Operation aborted.")
                     break
                 }
             }
@@ -38,7 +38,7 @@ class Weapon: Item {
         
         equipper.inventory.append(self)
         equipper.temporaryLevel = level
-        Logger().info("\(name) has been equipped! Your attack score is [\(level + equipper.level)].")
+        myLogger.info("\(name) has been equipped! Your attack score is [\(level + equipper.level)].")
     }
     /**
      Unequip the weapon.
@@ -56,7 +56,7 @@ class Weapon: Item {
      */
     override func use() {
         if (currentUse <= 0) {
-            Logger().error("Your weapon can no longer be used!")
+            myLogger.error("Your weapon can no longer be used!")
             unequip()
         } else {
             super.use()

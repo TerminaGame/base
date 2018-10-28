@@ -45,7 +45,7 @@ class SettingsManager {
             return true
             
         } else {
-            Logger().error("Player data not found.")
+            myLogger.error("Player data not found.")
             return false
         }
     }

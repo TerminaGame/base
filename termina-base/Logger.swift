@@ -9,6 +9,24 @@
 import Foundation
 
 class Logger {
+    
+    var log = [String]()
+    
+    /**
+     Create a log file of all logging messages. Overwrites any older log files.
+     */
+    func printLog() {
+        let logPath = try! Folder(path: "")
+        
+        var fullLogAsString = ""
+        
+        for message in log {
+            fullLogAsString += "\(message)\n"
+        }
+        
+        try! logPath.createFile(named: "termlog.txt").write(string: fullLogAsString)
+    }
+    
     /**
      Print a warning to the console.
      
@@ -16,7 +34,9 @@ class Logger {
         - message: The message to be logged/printed.
      */
     func warning(_ message: String) {
-        print("[W] \(message)")
+        let fullLogMessage = "[W] \(message)"
+        log.append(fullLogMessage)
+        print(fullLogMessage)
     }
     
     /**
@@ -26,7 +46,9 @@ class Logger {
      - message: The message to be logged/printed.
      */
     func error(_ message: String) {
-        print("[E] \(message)")
+        let fullLogMessage = "[E] \(message)"
+        log.append(fullLogMessage)
+        print(fullLogMessage)
     }
     
     /**
@@ -36,7 +58,9 @@ class Logger {
      - message: The message to be logged/printed.
      */
     func info(_ message: String) {
-        print("[I] \(message)")
+        let fullLogMessage = "[I] \(message)"
+        log.append(fullLogMessage)
+        print(fullLogMessage)
     }
     
 }

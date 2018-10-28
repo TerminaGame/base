@@ -28,7 +28,7 @@ class Room {
             myAttackSequence?.attack()
         } else {
             monsterHere = false
-            Logger().info("\(myMonster?.name ?? "The enemy") has been killed!")
+            myLogger.info("\(myMonster?.name ?? "The enemy") has been killed!")
             myMonster = nil
         }
     }

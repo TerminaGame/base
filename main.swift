@@ -20,6 +20,7 @@ print("""
 // These will get used constantly throughout the game.
 let myPlayer = Player("player")
 let command = CommandInterpreter()
+let myLogger = Logger()
 
 // Construct a settings manager to load data and attempt to locate a settings file.
 let vm = SettingsManager(myPlayer)
