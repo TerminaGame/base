@@ -22,6 +22,9 @@ let myPlayer = Player("player")
 let command = CommandInterpreter()
 let myLogger = Logger()
 
+// Silently log that a new session has started. These silent logs appear everywhere so that
+// the user has a better understanding of what is going on. They are stored in termlog.txt when
+// the user exits the game.
 myLogger.logToFile("Starting a new session...", "info")
 
 // Construct a settings manager to load data and attempt to locate a settings file.
@@ -64,6 +67,7 @@ while true {
     while !theDarkRoom.isDestroyed {
         if theDarkRoom.isDestroyed {
             theDarkRoom = Room(myPlayer, nil, command)
+            myLogger.logToFile("New room generated.", "info")
         }
         
         // Get the player's input and parse the command into the interpreter.
