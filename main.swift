@@ -16,21 +16,25 @@ print("""
     Copyright © 2018 Marquis Kurt. All rights reserved.
     """)
 
-// Construct a player and command interpreter.
+// Construct a player, command interpreter, and logger.
 // These will get used constantly throughout the game.
 let myPlayer = Player("player")
 let command = CommandInterpreter()
 let myLogger = Logger()
 
+myLogger.logToFile("Starting a new session...", "info")
+
 // Construct a settings manager to load data and attempt to locate a settings file.
 let vm = SettingsManager(myPlayer)
+myLogger.logToFile("Attempting to load settings...", "info")
 
 // If the settings file is missing, ask the player to create a new player account.
 if !vm.loadSettings() {
-    Logger().info("Creating a new settings file in this directory...")
+    myLogger.info("Creating a new settings file in this directory...")
     print("Enter a name to continue: ")
     myPlayer.name = readLine()!
     vm.saveSettings()
+    myLogger.logToFile("New player data with name \(myPlayer.name) saved in settings.json.", "info")
     
     // Automatically display the 'help' command so new players know of all the commands.
     print("\n")
@@ -49,6 +53,7 @@ else {
 while true {
     //TODO: Break this loop when level reaches the maximum level to initiate a boss fight.
     var theDarkRoom = Room(myPlayer, nil, command)
+    myLogger.logToFile("New room generated.", "info")
     
     // If the player's level is 420 or greater, break out of this loop.
     if myPlayer.level >= 420 {

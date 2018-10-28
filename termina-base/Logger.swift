@@ -63,4 +63,26 @@ class Logger {
         print(fullLogMessage)
     }
     
+    /**
+     Add a log message to the log file without displaying it to the console.
+     
+     - Parameters:
+        - message: The message to be logged/printed.
+        - type: The type of log message (warning, error, info).
+     */
+    func logToFile(_ message: String, _ type: String) {
+        var fullLogMessage = ""
+        if type == "warning" {
+            fullLogMessage = "[W] \(message)"
+        } else if type == "error" {
+            fullLogMessage = "[E] \(message)"
+        } else if type == "info" {
+            fullLogMessage = "[I] \(message)"
+        } else {
+            error("Type of log message isn't specified, so it will not be printed to the log file.")
+        }
+        
+        log.append(fullLogMessage)
+    }
+    
 }
