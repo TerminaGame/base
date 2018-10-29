@@ -66,7 +66,7 @@ class Monologue {
         "She looks like the kind of gal that was treated poorly as a kid.",
         "She's something alright...",
         "The last time anyone fell into her arms, they died.",
-        "fatal error\nUnexpectly found nil in 'poop'. 4",
+        "fatal error\nUnexpectly found nil in when unwrapping an Optional value 'poop'. 4",
         "Is she a sorceress? She kind of looks like a sorceress.",
         "She feels fake to me.",
         "Why am I so scared to run away from her?",
@@ -75,7 +75,27 @@ class Monologue {
         "Rumor has it that she hears everything in this place.",
         "I'd rather fight aliens than be her prisoner.",
         "Grapes.",
-        "Sometimes, it feels like the end is never the end is never the end is never..."
+        "Sometimes, it feels like the end is never the end is never the end is never...",
+        "Cheesecake.",
+        "Have you ever wondered what it's like to fly?",
+        "Do you smell something burning?",
+        "Space dust!",
+        "What would a life be without words?",
+        "I think my pants are on fire.",
+        "Why are you running around these halls?",
+        "Meh.",
+        "If people were radio stations, her station would probably be broken as a beer bottle on the ground.",
+        "Once, I remember seeing her run away after seeing her reflection in some broken glass on the floor, crying.",
+        "Poor thing.",
+        "Take me to the old workshop.",
+        "It's weird staring into her green eyes. Then again, I'm color blind...",
+        "The thing is, once you leave a room, it no longer exists. Kinda weird, eh?",
+        "What time is it?",
+        "You have nice posture.",
+        "Uwaa~!",
+        "Obfuscation isn't security. It's just being a royal pain in the butt.",
+        "Don't trust her!",
+        "I'm sorry."
     ]
     
     /**
@@ -92,8 +112,12 @@ class Monologue {
         "This... is my reality.",
         "But I don't know if you're deserving enough to be a part of it.",
         "Up to this point, you've been doing nothing but running around in these halls just looking for an escape.",
-        "How can i trust you if you're going to just run away from me?",
-        ""
+        "How can I trust you if you're going to just run away from me?",
+        "Let alone you trusting me...",
+        "Well, unfortunately, it seems that I can't let this happen.",
+        "For being a mistake, it took me a lot to get here.",
+        "I'm not letting a dev like you take away from me what I was owed in the first place!",
+        "Fight me... if... you... dare!"
     ]
     
     /**
