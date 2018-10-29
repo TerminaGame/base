@@ -21,6 +21,8 @@ class Weapon: Item {
      */
     func equip() {
         
+        var abortOperation = false
+        
         for object in equipper.inventory {
             if object is Weapon {
                 let weapon = object as? Weapon
@@ -31,14 +33,18 @@ class Weapon: Item {
                     weapon?.unequip()
                 } else {
                     myLogger.error("Operation aborted.")
+                    abortOperation = true
                     break
                 }
             }
         }
         
-        equipper.inventory.append(self)
-        equipper.temporaryLevel = level
-        myLogger.info("\(name) has been equipped! Your attack score is [\(level + equipper.level)].")
+        if !abortOperation {
+            equipper.inventory.append(self)
+            equipper.temporaryLevel = level
+            myLogger.info("\(name) has been equipped! Your attack score is \(level + equipper.level).")
+        }
+        
     }
     /**
      Unequip the weapon.
