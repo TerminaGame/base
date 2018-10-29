@@ -20,6 +20,10 @@ Currently, there are no releases of Termina ready for the public. However, feel 
 If you're looking for GUI versions, we recommend looking at the following projects:
 - [TerminaGame/mac](https://github.com/TerminaGame/mac): official SpriteKit version of Termina for macOS
 
+
+## About Logging Features
+Termina does log information about your current session for your convenience. However, this data is _not_ stored anywhere and will only be saved when the user asks for this log to be exported to a text file (`termlog.txt`).
+
 **Libraries used**:
 - [Files](https://github.com/JohnSundell/Files)
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
