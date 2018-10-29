@@ -213,6 +213,11 @@ class CommandInterpreter {
             myLogger.info("The game is now over. Exiting to terminal...")
             exit(42)
             break
+            
+        case "printlog":
+            myLogger.info("Printing log until now.")
+            myLogger.printLog()
+            myLogger.info("Done.")
         
         case "help":
             print("""
@@ -233,6 +238,7 @@ clear - clears the console screen.
 exit - quits the game.
 help - displays this screen.
 leave - leave the room, if possible.
+printlog - print the log of the current session as of running the command.
 save - saves your player profile.
 """)
             break
