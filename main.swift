@@ -24,7 +24,7 @@ let myLogger = Logger()
 
 // Silently log that a new session has started. These silent logs appear everywhere so that
 // the user has a better understanding of what is going on. They are stored in termlog.txt when
-// the user exits the game.
+// the user exits the game (if the user asks for this log).
 myLogger.logToFile("Starting a new session...", "info")
 
 // Construct a settings manager to load data and attempt to locate a settings file.
