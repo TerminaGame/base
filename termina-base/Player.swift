@@ -39,6 +39,7 @@ class Player: Entity {
     func levelUp(_ amount: Int) {
         level += amount
         experience = 0
+        myLogger.info("You leveled up to level \(level ?? 1)!")
     }
     
     /**
@@ -57,6 +58,8 @@ class Player: Entity {
         } else {
             experience = temporaryExperience
         }
+        
+        myLogger.info("Your experience is now \(experience ?? 0)!")
     }
     
     /**
