@@ -85,4 +85,19 @@ class Logger {
         log.append(fullLogMessage)
     }
     
+    /**
+     Ask the user if they want a log exported to `termlog.txt` before performing an action.
+     */
+    func askForLogBeforeExiting() {
+        info("Would you like a copy of this session's log? (y/n)")
+        let response = readLine(strippingNewline: true)!
+        
+        if response == "y" || response == "yes" {
+            info("Log will be printed to termlog.txt.")
+            printLog()
+        } else {
+            error("User aborted operation.")
+        }
+    }
+    
 }

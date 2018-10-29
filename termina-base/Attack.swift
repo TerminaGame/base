@@ -41,8 +41,8 @@ class AttackScene {
             if (player?.health == 0) {
                 player = nil
                 myLogger.info("You died! \(enemy?.name ?? "Monster") has killed you.")
-                myLogger.info("The game is now over. Exiting to terminal...")
-                myLogger.printLog()
+                myLogger.info("The game is now over. Exiting to terminal...")                
+                myLogger.askForLogBeforeExiting()
                 exit(1)
             }
             myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")

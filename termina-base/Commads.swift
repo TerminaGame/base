@@ -187,15 +187,8 @@ class CommandInterpreter {
             if (readLine()! == "y" || readLine()! == "yes") {
                 settingsHandler.saveSettings()
                 
-                myLogger.info("Would you like a log of this session? (y/n)")
-                if (readLine()! == "y" || readLine()! == "yes") {
-                    myLogger.printLog()
-                } else if (readLine()! == "n" || readLine()! == "no") {
-                    myLogger.info("Skipping creating the log file...")
-                } else {
-                    myLogger.error("Could not determine action. Resuming game...")
-                    break
-                }
+                myLogger.askForLogBeforeExiting()
+                
                 exit(0)
             } else if (readLine()! == "n" || readLine()! == "no") {
                 myLogger.info("Resuming game...")
