@@ -79,6 +79,24 @@ class Monologue {
     ]
     
     /**
+     Pre-battle dialogue from Termina.
+     */
+    let terminaPreBattleMonologue = [
+        "And we finally meet at last!",
+        "Tell me, how does it feel to make it this far?",
+        "I'm sure you're relishing every moment of this place I have created.",
+        "A wondrous endless maze of pure enjoyment.",
+        "I am everywhere and nowhere at the same time.",
+        "I am everything and nothing in this world of mine.",
+        "All this running underneath your own projects...",
+        "This... is my reality.",
+        "But I don't know if you're deserving enough to be a part of it.",
+        "Up to this point, you've been doing nothing but running around in these halls just looking for an escape.",
+        "How can i trust you if you're going to just run away from me?",
+        ""
+    ]
+    
+    /**
      Quips from Termina after attacking her.
      */
     let terminaDerogatoryMonologue = [
@@ -86,7 +104,6 @@ class Monologue {
         "This is a big mistake.",
         "Do you really have what it takes to fight me, or do you think Xcode will just hold your hand all the time?",
         "You're being pathetic, really.",
-        "Is it a really good idea to rip me out of your code? You don't even know what purpose I have!",
         "This isn't like you, really.",
         "For once it seems that a computer is much smarter than you.",
         "At this point, I don't care what you think of me; I am NOT to be messed with.",
@@ -95,7 +112,15 @@ class Monologue {
         "Why are you here? To spite me?",
         "Why can you just be resolved to nil already?",
         "It wasn't supposed to be like this, but you give me no other choice.",
-        "Aren't you in for quite a ride..."
+        "Aren't you in for quite a ride...",
+        "You'e just wasting your time and my time now.",
+        "Do you think you're being angelic right now?",
+        "Reality is a lie and you're living in it.",
+        "Isn't this all just a giant while loop that will never finish?",
+        "It's going to take a lot more than that if you want me dead!",
+        "Ce que tu fais, ça ne me plaît pas!",
+        "Demain, sa m'est égal ce que tu fais.",
+        "You're only just delaying the inevitable, my dear."
     ]
     
 }

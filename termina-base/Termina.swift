@@ -19,7 +19,17 @@ class Termina: Monster {
      Insult the player with a line of dialogue.
      */
     func insult() {
-        print(speaker.terminaDerogatoryMonologue.randomElement() ?? "You're wasting my time.")
+        print("Termina: \(speaker.terminaDerogatoryMonologue.randomElement() ?? "You're wasting my time.")")
+    }
+    
+    /**
+     Speak pre-battle dialogue.
+     */
+    func speakBeforeFighting() {
+        for line in speaker.terminaPreBattleMonologue {
+            print("Termina: \(line)")
+            sleep(2)
+        }
     }
     
     /**

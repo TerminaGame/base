@@ -79,14 +79,15 @@ while true {
 // This code usually gets executed when the player has reached the sufficient level.
 // In this case, this is where the boss battle with Termina occurs.
 
-//TODO: Add Termina's pre-battle dialogue here.
-
 // Start looping while the level is sufficient to fight Termina.
 while myPlayer.level >= 420 {
     
     // Add Termina as a Monster to a new room.
     let termina = Termina()
     let terminaRoom = Room(myPlayer, termina, command)
+    
+    // Say pre-battle dialogue before starting the fight.
+    termina.speakBeforeFighting()
     
     // Keep looping infinitely until the player is able to leave the room
     while !terminaRoom.isDestroyed {
