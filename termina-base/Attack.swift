@@ -25,7 +25,7 @@ class AttackScene {
                 item.use()
             }
         }
-        let damageFromPlayer = Double(((player?.level!)!) + (player?.temporaryLevel!)!)
+        let damageFromPlayer = Double(((player?.level! ?? 1)) + (player?.temporaryLevel ?? 0))
         let totalDamageFromPlayer = damageFromPlayer * 1.5
         enemy?.takeDamage(totalDamageFromPlayer)
         if (enemy?.health == 0) {
