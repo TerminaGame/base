@@ -1,4 +1,7 @@
 # Termina (Base + CLI)
+
+![Screenshot](screenshot.png)
+
 Termina is a fun single-user, level-based user dungeon game for macOS and Linux.
 
 [![Build Status](https://travis-ci.com/TerminaGame/base.svg?branch=master)](https://travis-ci.com/TerminaGame/base)
