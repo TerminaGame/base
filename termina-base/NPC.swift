@@ -13,7 +13,7 @@ import Foundation
  */
 class NPC: Entity {
     
-    let monologue = [""]
+    var monologue = [""]
     
     /**
      Immediately kill the NPC (not recommended).
@@ -35,6 +35,7 @@ class NPC: Entity {
                 sleep(2)
             }
         }
+        monologue = [""]
     }
     
     /**
