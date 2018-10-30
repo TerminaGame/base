@@ -14,7 +14,6 @@ import Foundation
 class Room {
     var myMonster: Monster?
     var myNPC: NPC?
-    var monsterHere = false
     var myAttackSequence: AttackScene?
     var myItems = [Item]()
     var isDestroyed = false
@@ -27,9 +26,7 @@ class Room {
         if myAttackSequence?.enemy != nil {
             myAttackSequence?.attack()
         } else {
-            monsterHere = false
-            myLogger.info("\(myMonster?.name ?? "The enemy") has been killed!")
-            myMonster = nil
+            print("Please, stop with the overkill.")
         }
     }
     
@@ -49,14 +46,12 @@ class Room {
             myNPC = nil
             if monster != nil {
                 myMonster = monster
-                monsterHere = true
             } else {
                 if player.level <= 4 {
                     myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: 1 ... 3))
                 } else {
                     myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 3 ... player.level + 2))
                 }
-                monsterHere = true
             }
             myAttackSequence = AttackScene(player, myMonster!)
         } else {

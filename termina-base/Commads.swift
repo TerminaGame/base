@@ -30,12 +30,12 @@ class CommandInterpreter {
             
         case "aboutroom":
             print("=== Current Room ===")
-            if room.monsterHere {
+            if room.myAttackSequence?.enemy != nil {
                 let monsterLevel = String(room.myMonster!.level)
                 let monsterName = room.myMonster?.name
-                print("\(monsterName ?? "Monster") [Level \(monsterLevel)]")
+                print("\(monsterName ?? "Monster") [Level \(monsterLevel)] (Enemy)")
             } else if room.myNPC != nil {
-                print("\(room.myNPC?.name ?? "NPC") [Level 0] (Harmless)")
+                print("\(room.myNPC?.name ?? "NPC") [Level 0] (NPC)")
             } else {
                 print("There are no entities here.")
             }
@@ -86,7 +86,7 @@ class CommandInterpreter {
             INTERACTIONS
          */
         case "attack":
-            if room.monsterHere {
+            if room.myAttackSequence?.enemy != nil {
                 room.attackHere()
             } else if room.myNPC != nil {
                 room.myNPC?.takeDamage(1)
@@ -139,7 +139,7 @@ class CommandInterpreter {
             
         case "leave":
             myLogger.info("Moving to the next room...")
-            if room.monsterHere == false {
+            if room.myAttackSequence?.enemy == nil {
                 room.isDestroyed = true
             } else {
                 myLogger.error("You cannot leave until you kill \(room.myMonster?.name ?? "the monster") has been killed.")
@@ -154,8 +154,12 @@ class CommandInterpreter {
                 for obj in room.myItems {
                     if obj is Weapon {
                         let useWeapon = obj as! Weapon
-                        useWeapon.equip()
-                        room.myItems.removeLast()
+                        let getEquipped = useWeapon.equip()
+                        if getEquipped {
+                            room.myItems.removeLast()
+                        } else {
+                            break
+                        }
                     } else {
                         myLogger.error("\(obj.name) cannot be equipped.")
                     }

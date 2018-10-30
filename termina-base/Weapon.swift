@@ -19,7 +19,7 @@ class Weapon: Item {
     /**
      Equip the weapon and level up the player temporarily.
      */
-    func equip() {
+    func equip() -> Bool {
         
         var abortOperation = false
         
@@ -34,7 +34,7 @@ class Weapon: Item {
                 } else {
                     myLogger.error("Operation aborted.")
                     abortOperation = true
-                    break
+                    return false
                 }
             }
         }
@@ -43,6 +43,7 @@ class Weapon: Item {
             equipper.inventory.append(self)
             equipper.temporaryLevel = level
             myLogger.info("\(name) has been equipped! Your attack score is \(level + equipper.level).")
+            return true
         }
         
     }

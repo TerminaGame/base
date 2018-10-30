@@ -131,7 +131,7 @@ class Monologue {
         "Rumors have been spreading about you, you know.",
         "Someone not quite like us... but not quite like her, either.",
         "How did you even get here?",
-        "I don't think anyone like you has been here before, let alone being able to be here.",
+        "I don't think a Player object like you has ever existed here before.",
         "I'm sure you've heard many thing about her already, maybe...",
         "I'm going to be honest with you; she's definitely broken on the inside, but I think there's still a chance.",
         "If you just try to run away, you might destroy the only chance of giving her what she dearly needs.",
