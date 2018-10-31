@@ -100,8 +100,12 @@ class CommandInterpreter {
                 room.attackHere()
             } else if room.myNPC != nil {
                 room.myNPC?.takeDamage(1)
-                myLogger.info("You killed \(room.myNPC?.name ?? "NPC")! You monster...")
+                myLogger.error("You killed \((room.myNPC?.name ?? "NPC").bold())! You monster...")
                 room.myNPC = nil
+                
+                myPlayer.takeDamage(50.0)
+                myLogger.error("You have been damaged as a consequence.")
+                
             } else {
                 myLogger.error("There's nothing to attack in this room.")
             }

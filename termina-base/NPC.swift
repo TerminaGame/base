@@ -34,7 +34,7 @@ class NPC: Entity {
                 print("Press Enter to continue.".bold())
                 let _ = readLine()!
             } else {
-                print("\(name): \(line)")
+                print("\(name.bold().cyan()): \(line)")
                 if !instant {
                     sleep(2)
                 }
@@ -47,7 +47,7 @@ class NPC: Entity {
         Say a random line from a list of dialogues.
      */
     func saySomething() {
-        print("\(name): \((Monologue().randomMonologuesNPC.randomElement() ?? "Help me."))")
+        print("\(name.bold().cyan()): \((Monologue().randomMonologuesNPC.randomElement() ?? "Help me."))")
     }
     
     /**
