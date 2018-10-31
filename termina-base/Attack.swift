@@ -29,7 +29,7 @@ class AttackScene {
         let totalDamageFromPlayer = damageFromPlayer * 1.5
         enemy?.takeDamage(totalDamageFromPlayer)
         if (enemy?.health == 0) {
-            myLogger.info("\(enemy?.name ?? "The enemy") is now cleared!")
+            myLogger.info("\(enemy?.name ?? "The enemy") is now caught!")
             enemy = nil
             player?.experienceUp(5)
         } else {
