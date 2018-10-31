@@ -198,13 +198,15 @@ class CommandInterpreter {
         case "exit":
             myLogger.warning("Are you sure you want to exit? (y/n)")
             
-            if (readLine()! == "y" || readLine()! == "yes") {
+            let response = readLine()!
+            
+            if (response == "y" || response == "yes") {
                 settingsHandler.saveSettings()
                 
                 myLogger.askForLogBeforeExiting()
                 
                 exit(0)
-            } else if (readLine()! == "n" || readLine()! == "no") {
+            } else if (response == "n" || response == "no") {
                 myLogger.info("Resuming game...")
                 break
             } else {

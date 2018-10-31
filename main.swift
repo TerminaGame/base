@@ -45,14 +45,17 @@ if !vm.loadSettings() {
     let storyJumpStart = StartRoom(myPlayer, craig)
     myLogger.logToFile("Tutorial room generated.", "info")
     
+    // Clear the console and have Craig start his monologue.
     command.parseCommand("clear", storyJumpStart, vm)
     command.parseCommand("talk", storyJumpStart, vm)
+    
+    // Immediately move to the next room after finishing.
     command.parseCommand("leave", storyJumpStart, vm)
 }
 
 // If the settings file is found, greet the player and assume that they know the controls.
 else {
-    print("Welcome back to Termina, \(myPlayer.name). We've been waiting for you.\n")
+    print("Welcome back to Termina, \(myPlayer.name.bold()). We've been waiting for you.\n")
     command.parseCommand("aboutself", Room(myPlayer, nil, nil), vm)
 }
 
