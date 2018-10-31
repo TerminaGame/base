@@ -32,5 +32,6 @@ Termina does log information about your current session for your convenience. Ho
 **Libraries used**:
 - [Files](https://github.com/JohnSundell/Files)
 - [SwiftyJSON](https://github.com/SwiftyJSON/SwiftyJSON)
+- [ColorizeSwift](https://github.com/mtynior/ColorizeSwift/)
 
 **Termina is licensed under the Apache License. Libraires used in Termina are under their respective licenses.**

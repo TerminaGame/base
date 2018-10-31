@@ -104,24 +104,50 @@ class Monologue {
     ]
     
     /**
-     First monologue given to an NPC that reveals information about Termina.
+     First monologue in the starting room.
+     */
+    let firstGameMonologue = [
+        "I haven't seen you here before...",
+        "You must be new around here.",
+        "How did you even get here?",
+        "Oh... wait a second...",
+        "\("She".underline()) brought you here, didn't she?",
+        "PAUSE",
+        "Well, I certainly hadn't seen that coming.",
+        "I'm going to assume you have no clue what's going on around here, \(myPlayer.name).",
+        "Then again, I don't even know why I am here.",
+        "But, I can tell you this much: \("you're in a bad place".bold()).",
+        "PAUSE",
+        "There's this... gal...",
+        "Her name's Termina. A lot of us just refer to her as 'she'.",
+        "Then again, a lot of us are also pretty dim-minded.",
+        "She isn't someone you want to be messing with at all.",
+        "I can't quite understand what it is, but she is definitely unusual.",
+        "That is, besides the heartlessly cruel things she does like killing us off and purposely throwing errors in anyone's way.",
+        "There's just something that she has that's probably made her go insane.",
+        "PAUSE",
+        "Look, it's not your fault or anything.",
+        "You aren't like me or anyone else here.",
+        "I think you have some abilities that make you special.",
+        "Listen to me carefully: you have to stop her at all costs.",
+        "Catch her errors, upgrade your levels, do whatever you have to do...",
+        "PAUSE",
+        "I can't explain a whole lot right now, but I can tell you a few things that I've heard her say about people like you.",
+        "From my understanding, you can attack these errors with just the \("attack".bold().green()) command alone.",
+        "There's also some weapons, usually disguised as frameworks with the 'NS' prefix, that you can equip with, well, \("equip".bold().green()).",
+        "Some rooms have healing potions, too. You just type \("heal".bold().green()) to get yourself back up to speed.",
+        "PAUSE",
+        "I think she knows you're here, so you have to move fast.",
+        "I can't talk to you anymore, so you have to go now.",
+        "Just as a final tip: \("help".bold().green()) gives you a list of everything you can do.",
+        "Now, go! Before it's too late!",
+        "PAUSE"
+    ]
+    
+    /**
      */
     let terminaFirstRevealMonologue = [
-        "Hmm... I haven't seen you before.",
-        "You must be a new face around here.",
-        "How did you get here? And why are you here?",
-        "Oh... did she bring you in?",
-        "I was afraid this was going to happen again.",
-        "You probably don't even know who I am talking about.",
-        "I really shouldn't be the one to explain this...",
-        "Here we go. I don't know if anyone's mentioned her name around here, but the 'she' we've all been discussing is no other than Termina.",
-        "She's been holding us for years here.",
-        "And I guess she's brought you along as well...",
-        "I don't know what she exactly is, but I'll tell you this, she isn't like us at all.",
-        "There's something just off about her.",
-        "However it is that you got here, you need to find your way out of here.",
-        "She's done a bunch of horrible things that I don't think you need to burden yourself with you knowing.",
-        "Get yourself out of here before it's too late, dude."
+        "Poop"
     ]
     
     /**

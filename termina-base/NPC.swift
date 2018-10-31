@@ -23,16 +23,21 @@ class NPC: Entity {
     }
     
     /**
-     Say the respective monologue for the NPC line by line.
+     Say the respective monologue for the NPC line by line. If `"PAUSE"` is listed anywhere, prompt the user to hit the Enter key before continuing.
      
      - Parameters:
         - instant: Whether to display all lines instantly (Bool) instead of line by line
      */
     func sayMonologue(instant: Bool) {
         for line in monologue {
-            print("\(name): \(line)")
-            if !instant {
-                sleep(2)
+            if line == "PAUSE" {
+                print("Press Enter to continue.".bold())
+                let _ = readLine()!
+            } else {
+                print("\(name): \(line)")
+                if !instant {
+                    sleep(2)
+                }
             }
         }
         monologue = [""]

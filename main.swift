@@ -14,7 +14,7 @@ let version = "1.0.0beta1"
 print("""
     Termina \(version)
     Copyright © 2018 Marquis Kurt. All rights reserved.
-    """)
+    """.foregroundColor(TerminalColor.orange3))
 
 // Construct a player, command interpreter, and logger.
 // These will get used constantly throughout the game.
@@ -39,10 +39,15 @@ if !vm.loadSettings() {
     vm.saveSettings()
     myLogger.logToFile("New player data with name \(myPlayer.name) saved in settings.json.", "info")
     
-    // Automatically display the 'help' command so new players know of all the commands.
-    print("\n")
-    command.parseCommand("help", Room(myPlayer, nil, command), vm)
-    print("\n")
+    // Create the starting room for player to interact with the NPC.
+    let craig = NPC("Craig")
+    craig.monologue = Monologue().firstGameMonologue
+    let storyJumpStart = StartRoom(myPlayer, craig)
+    myLogger.logToFile("Tutorial room generated.", "info")
+    
+    command.parseCommand("clear", storyJumpStart, vm)
+    command.parseCommand("talk", storyJumpStart, vm)
+    command.parseCommand("leave", storyJumpStart, vm)
 }
 
 // If the settings file is found, greet the player and assume that they know the controls.

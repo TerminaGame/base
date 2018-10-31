@@ -29,13 +29,23 @@ class CommandInterpreter {
         */
             
         case "aboutroom":
-            print("=== Current Room ===")
+            print("=== \("Current Room".bold()) ===".foregroundColor(TerminalColor.orange3))
             if room.myAttackSequence?.enemy != nil {
                 let monsterLevel = String(room.myMonster!.level)
                 let monsterName = room.myMonster?.name
-                print("\(monsterName ?? "Monster") [Level \(monsterLevel)] (Enemy)")
+                print("\(monsterName ?? "Monster") [Level \(monsterLevel)] (Enemy)".red())
+                
+                if myPlayer.level <= 3 {
+                    print("Use the \("attack".bold()) command to catch the error!".green())
+                }
+                
             } else if room.myNPC != nil {
-                print("\(room.myNPC?.name ?? "NPC") [Level 0] (NPC)")
+                print("\(room.myNPC?.name ?? "NPC") (NPC)")
+                
+                if myPlayer.level <= 3 {
+                    print("Use the \("talk".bold()) command to interact!".green())
+                }
+                
             } else {
                 print("There are no entities here.")
             }
@@ -59,10 +69,10 @@ class CommandInterpreter {
         case "aboutself":
             let myLevel = String(myPlayer.level)
             let myExperience = String(myPlayer.experience)
-            print("=== \(myPlayer.name) ===")
+            print("=== \(myPlayer.name.bold()) ===".foregroundColor(TerminalColor.orange3))
             print("Level \(myLevel)")
-            print("Progress to next Level: \(myExperience)/25")
-            print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)")
+            print("Progress to next Level: \(myExperience)/25".cyan())
+            print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)".yellow())
             print("Current Inventory: ")
             
             if myPlayer.inventory.isEmpty != true {
@@ -225,19 +235,19 @@ class CommandInterpreter {
         
         case "help":
             print("""
-=== List of Commands ===
+=== \("List of Commands".bold()) ===
 == Getting Information ==
 aboutroom - displays information about the room.
 aboutself - displays information about oneself.
 
-== Interactions ==
+== \("Interactions".bold()) ==
 attack - attacks the monster in the room, if present.
 equip - Equip the weapon in the room, if possible.
 heal - restores your health by an amount.
 talk - talk to a person in the room, if possible.
 xp - use an experience-enhancing bottle, if possible.
 
-== Miscellaneous ==
+== \("Miscellaneous".bold()) ==
 clear - clears the console screen.
 exit - quits the game.
 help - displays this screen.

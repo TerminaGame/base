@@ -36,7 +36,7 @@ class Logger {
     func warning(_ message: String) {
         let fullLogMessage = "[W] \(message)"
         log.append(fullLogMessage)
-        print(fullLogMessage)
+        print(fullLogMessage.yellow())
     }
     
     /**
@@ -48,7 +48,7 @@ class Logger {
     func error(_ message: String) {
         let fullLogMessage = "[E] \(message)"
         log.append(fullLogMessage)
-        print(fullLogMessage)
+        print(fullLogMessage.red().bold())
     }
     
     /**
@@ -60,7 +60,7 @@ class Logger {
     func info(_ message: String) {
         let fullLogMessage = "[I] \(message)"
         log.append(fullLogMessage)
-        print(fullLogMessage)
+        print(fullLogMessage.lightBlue())
     }
     
     /**
