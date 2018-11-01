@@ -12,7 +12,7 @@ deploy:
   api_key:
     secure: $GITHUB_API_KEY
   file_glob: true
-  file: "dist/Build/Products/Debug/termina-base"
+  file: "dist/Build/Products/Debug/termina"
   skip_cleanup: true
   on:
     tags: true

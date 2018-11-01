@@ -52,7 +52,7 @@
 		BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		BFCF11A9217FB57500E85D38 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		BFCF11AC217FD7FF00E85D38 /* NameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
-		BFD81C92217B8AAC0049B5D4 /* termina-base */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "termina-base"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD81C92217B8AAC0049B5D4 /* termina */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = termina; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD81C95217B8AAC0049B5D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		BFD81C9C217B8AD50049B5D4 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		BFD81C9D217B8AD50049B5D4 /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		BFD81C93217B8AAC0049B5D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BFD81C92217B8AAC0049B5D4 /* termina-base */,
+				BFD81C92217B8AAC0049B5D4 /* termina */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,7 +188,7 @@
 			);
 			name = "termina-base";
 			productName = "termina-base";
-			productReference = BFD81C92217B8AAC0049B5D4 /* termina-base */;
+			productReference = BFD81C92217B8AAC0049B5D4 /* termina */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -377,9 +377,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = FQQXSP79X3;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.marquiskurt.termina-base";
+				PRODUCT_NAME = termina;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -388,9 +393,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = FQQXSP79X3;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.marquiskurt.termina-base";
+				PRODUCT_NAME = termina;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
