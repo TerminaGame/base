@@ -32,11 +32,12 @@ class Monster: Entity {
         - amount: The amount to take damage, if possible.
      */
     override func takeDamage(_ amount: Double) {
-        let chance = Double(round(10*Double.random(in: 1.0 ... 9.0))/10)
-        if chance <= 2 {
-            super.takeDamage(amount)
+        let chance = Int.random(in: 1 ... 10)
+        
+        if chance <= 3 {
+            myLogger.info("\(name) deflected and took no damage!")
         } else {
-            super.takeDamage(chance)
+            super.takeDamage(amount)
         }
     }
     
@@ -48,8 +49,8 @@ class Monster: Entity {
         - myLevel: The monster's level.
      */
     init(_ monsterName: String, _ myLevel: Int) {
-        super.init(monsterName, "Monster", 50)
+        super.init(monsterName, "Monster", 100)
         level = myLevel
-        attack = Double(myLevel) * 1.5
+        attack = Double(myLevel)
     }
 }

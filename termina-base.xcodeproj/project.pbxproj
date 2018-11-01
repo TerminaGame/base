@@ -79,6 +79,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF9C2603218B3BC900E1662A /* Specials */ = {
+			isa = PBXGroup;
+			children = (
+				BFF221EA218A2F8E000D477B /* StartRoom.swift */,
+				BF5A5A3C2180CDB900E2523C /* Termina.swift */,
+			);
+			path = Specials;
+			sourceTree = "<group>";
+		};
+		BF9C2604218B3BDC00E1662A /* Bases */ = {
+			isa = PBXGroup;
+			children = (
+				BFD81C9F217B8AD50049B5D4 /* Item.swift */,
+				BFD81CA1217B8AD50049B5D4 /* Entity.swift */,
+				BFD81CA0217B8AD50049B5D4 /* Room.swift */,
+				BFD81C9D217B8AD50049B5D4 /* Monster.swift */,
+				BFD81C9C217B8AD50049B5D4 /* Player.swift */,
+				BFD81C9E217B8AD50049B5D4 /* Attack.swift */,
+			);
+			path = Bases;
+			sourceTree = "<group>";
+		};
+		BF9C2605218B3C0000E1662A /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				BFD81CA3217B8AD60049B5D4 /* Commads.swift */,
+				BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */,
+				BFDB8AB221863EFD00ECEACB /* Logger.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		BFCF1194217FA9F300E85D38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,24 +149,16 @@
 		BFD81C94217B8AAC0049B5D4 /* termina-base */ = {
 			isa = PBXGroup;
 			children = (
+				BF9C2605218B3C0000E1662A /* Client */,
+				BF9C2604218B3BDC00E1662A /* Bases */,
+				BF9C2603218B3BC900E1662A /* Specials */,
 				BFCF11A7217FB57500E85D38 /* Libraries */,
-				BFD81C9E217B8AD50049B5D4 /* Attack.swift */,
-				BFD81CA3217B8AD60049B5D4 /* Commads.swift */,
-				BFD81C9F217B8AD50049B5D4 /* Item.swift */,
-				BFD81CA1217B8AD50049B5D4 /* Entity.swift */,
-				BFD81C9D217B8AD50049B5D4 /* Monster.swift */,
-				BFD81C9C217B8AD50049B5D4 /* Player.swift */,
 				BFD81CA4217B8AD60049B5D4 /* Potion.swift */,
-				BFD81CA0217B8AD50049B5D4 /* Room.swift */,
 				BFD81CA2217B8AD60049B5D4 /* Weapon.swift */,
-				BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */,
 				BFCF11AC217FD7FF00E85D38 /* NameGenerator.swift */,
-				BF5A5A3C2180CDB900E2523C /* Termina.swift */,
 				BF5A5A3E2180CE6400E2523C /* NPC.swift */,
 				BF5A5A402180D06700E2523C /* Monologue.swift */,
 				BF4AEC7921811640002722B3 /* Bottle.swift */,
-				BFDB8AB221863EFD00ECEACB /* Logger.swift */,
-				BFF221EA218A2F8E000D477B /* StartRoom.swift */,
 			);
 			path = "termina-base";
 			sourceTree = "<group>";

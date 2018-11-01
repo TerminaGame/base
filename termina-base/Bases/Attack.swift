@@ -25,9 +25,8 @@ class AttackScene {
                 item.use()
             }
         }
-        let damageFromPlayer = Double(((player?.level! ?? 1)) + (player?.temporaryLevel ?? 0))
-        let totalDamageFromPlayer = damageFromPlayer * 1.5
-        enemy?.takeDamage(totalDamageFromPlayer)
+        let damageFromPlayer = Double(((player?.level! ?? 1)) + (player?.temporaryLevel ?? Int.random(in: 1 ... 5)))
+        enemy?.takeDamage(damageFromPlayer)
         if (enemy?.health == 0) {
             myLogger.info("\(enemy?.name ?? "The enemy") is now caught!")
             enemy = nil
