@@ -18,6 +18,12 @@ class AttackScene {
     
     /**
      Allow each entity to attack each other.
+     
+     The process for attacking usually starts with the player attacking the monster first. This attack number is given by the player's level added with their temporary level (given by a weapon).
+     
+     - If ther player does _not_ have a weapon, their temporary level is set between 1 and 5 randomly each time.
+     
+     The enemy may have the ability to deflect and ignore damage on a random basis. If the level is set to 0 or below immediately, the enemy is destroyed and the player cna leave. Otherwise, the enemy takes the chance to attack based on its level.
      */
     func attack() {
         for item in (player?.inventory)! {
