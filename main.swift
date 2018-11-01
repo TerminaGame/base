@@ -7,13 +7,11 @@
 //
 import Foundation
 
-// Get essential data about the game
-let version = "1.0.0beta1"
-
 // Display the "splash" screen and copyright information.
 print("""
-    Termina \(version)
-    Copyright © 2018 Marquis Kurt. All rights reserved.
+    Termina \(version + build)
+    \(copyright)
+    Type \("license".bold()) for more details.
     """.foregroundColor(TerminalColor.orange3))
 
 // Construct a player, command interpreter, and logger.

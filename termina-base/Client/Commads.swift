@@ -238,6 +238,9 @@ class CommandInterpreter {
             myLogger.info("Printing log until now.")
             myLogger.printLog()
             myLogger.info("Done.")
+            
+        case "license":
+            print(license)
         
         case "help":
             print("""
@@ -258,6 +261,7 @@ clear - clears the console screen.
 exit - quits the game.
 help - displays this screen.
 leave - leave the room, if possible.
+license - display the game's license statement.
 printlog - print the log of the current session as of running the command.
 save - saves your player profile.
 """)
