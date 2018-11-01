@@ -36,7 +36,7 @@ class NPC: Entity {
             } else {
                 print("\(name.bold().cyan()): \(line)")
                 if !instant {
-                    sleep(2)
+                    usleep(useconds_t(50000 * line.count))
                 }
             }
         }

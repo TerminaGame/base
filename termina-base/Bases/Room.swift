@@ -56,14 +56,6 @@ class Room {
             myAttackSequence = AttackScene(player, myMonster!)
         } else {
             myNPC = NPC(myNameGen.generateNameNPC())
-            
-            if player.level >= 10 && player.level < 20 {
-                myNPC?.monologue = Monologue().terminaFirstRevealMonologue
-            } else if player.level >= 40 && player.level < 55 {
-                myNPC?.monologue = Monologue().terminaSecondRevealMonologue
-            } else if player.level >= 100 && player.level < 120 {
-                myNPC?.monologue = Monologue().terminaThirdRevealDialogue
-            }
         }
         
         if (chance >= 4) {

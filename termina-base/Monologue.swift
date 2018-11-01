@@ -145,65 +145,6 @@ class Monologue {
     ]
     
     /**
-     */
-    let terminaFirstRevealMonologue = [
-        "Poop"
-    ]
-    
-    /**
-     Second monologue given to an NPC that reveals more information about Termina.
-     */
-    let terminaSecondRevealMonologue = [
-        "Rumors have been spreading about you, you know.",
-        "Someone not quite like us... but not quite like her, either.",
-        "How did you even get here?",
-        "I don't think a Player object like you has ever existed here before.",
-        "I'm sure you've heard many thing about her already, maybe...",
-        "I'm going to be honest with you; she's definitely broken on the inside, but I think there's still a chance.",
-        "If you just try to run away, you might destroy the only chance of giving her what she dearly needs.",
-        "And, no, I don't mean about whatever it is she keeps us here for.",
-        "I think we're just here to keep the story going along.",
-        "Isn't it wonderful to be an NPC like me?",
-        "No, I mean something deeper...",
-        "There's something she's hiding from us and anyone else that's come this way.",
-        "There's always a reason for something, even when it's obfuscated or hidden behind a private variable.",
-        "Wait, what am I even saying?",
-        "Oops.",
-        "Oh, well... you get the idea.",
-        "Just don't try to get yourself killed, alright?"
-    ]
-    
-    /**
-     Third monologue given to an NPC. Gives details of a "possibly bigger event" taking place (aka. cognizance of existence in a video game)
-     */
-    let terminaThirdRevealDialogue = [
-        "So I finally meet the one that everyone's been buzzing about.",
-        "Wowzers, you look like you've been doing some monster slashing for a good while.",
-        "Feels great getting rid of them, doesn't it?",
-        "Like a weight that come off of your back...",
-        "Sometimes I like to think that she makes them just to make her feel good about herself.",
-        "That sounds like something she'd do, anyway.",
-        "Has everyone told you the spiel about her being some heartless... thing that has kept us prisoner for God knows why and is clearly broken in some way?",
-        "I'm pretty sure someone has.",
-        "If you haven't heard that before, I'm sorry if I've painted a bad picture.",
-        "But, you know, I don't think she's holding us prisoner.",
-        "I think she's a prisoner herself.",
-        "Think about it: how is it that every time you enter a room you're bound to find either an error or one of us?",
-        "I think she's just like us in being part of something much bigger.",
-        "But, you know...",
-        "Something's a bit different about her.",
-        "Everyone keeps saying she's the smartest one in the bunch.",
-        "Maybe... she knows something that we aren't supposed to and it's driving her insane?",
-        "Have you considered that?",
-        "It's almost like she's answered religion!",
-        "Maybe I'm just as crazy as her, though.",
-        "I'd like to think this all a big misunderstanding.",
-        "But I coudl also be lying to myself for my own sanity.",
-        "I'll let you be the master of your own philosophies and ponder it yourself.",
-        "Just... at least think about it."
-    ]
-    
-    /**
      Pre-battle dialogue from Termina.
      */
     let terminaPreBattleMonologue = [
