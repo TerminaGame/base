@@ -12,7 +12,7 @@ import Foundation
 
 let version = "1.0.0"
 let build = "beta1"
-let copyright = "Copyright © 2018 Marquis Kurt. All rights reserved."
+let copyright = "Copyright © 2018 Termina developers. All rights reserved."
 let license = """
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

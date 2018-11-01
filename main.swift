@@ -12,6 +12,7 @@ print("""
     Termina \(version + build)
     \(copyright)
     Type \("license".bold()) for more details.
+    Made with ❤️.
     """.foregroundColor(TerminalColor.orange3))
 
 // Construct a player, command interpreter, and logger.

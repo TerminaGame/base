@@ -241,30 +241,44 @@ class CommandInterpreter {
             
         case "license":
             print(license)
+            
+        case "changename":
+            myLogger.info("Type a new name to change to or press Enter to abort.")
+            
+            let newPlayerName = readLine(strippingNewline: true)!
+            
+            if newPlayerName != "" {
+                myPlayer.name = newPlayerName
+                settingsHandler.saveSettings()
+                myLogger.info("Player name changed to \(newPlayerName)!")
+            } else {
+                myLogger.error("User aborted operation.")
+            }
         
         case "help":
             print("""
-=== \("List of Commands".bold()) ===
-== Getting Information ==
-aboutroom - displays information about the room.
-aboutself - displays information about oneself.
+            === \("List of Commands".bold()) ===
+            == Getting Information ==
+            aboutroom - displays information about the room.
+            aboutself - displays information about oneself.
 
-== \("Interactions".bold()) ==
-attack - attacks the monster in the room, if present.
-equip - Equip the weapon in the room, if possible.
-heal - restores your health by an amount.
-talk - talk to a person in the room, if possible.
-xp - use an experience-enhancing bottle, if possible.
+            == \("Interactions".bold()) ==
+            attack - attacks the monster in the room, if present.
+            equip - Equip the weapon in the room, if possible.
+            heal - restores your health by an amount.
+            talk - talk to a person in the room, if possible.
+            xp - use an experience-enhancing bottle, if possible.
 
-== \("Miscellaneous".bold()) ==
-clear - clears the console screen.
-exit - quits the game.
-help - displays this screen.
-leave - leave the room, if possible.
-license - display the game's license statement.
-printlog - print the log of the current session as of running the command.
-save - saves your player profile.
-""")
+            == \("Miscellaneous".bold()) ==
+            changename - change your name to something else.
+            clear - clears the console screen.
+            exit - quits the game.
+            help - displays this screen.
+            leave - leave the room, if possible.
+            license - display the game's license statement.
+            printlog - print the log of the current session as of running the command.
+            save - saves your player profile.
+            """)
             break
         
         
