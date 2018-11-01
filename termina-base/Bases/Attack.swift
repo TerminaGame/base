@@ -41,6 +41,7 @@ class AttackScene {
             let enemyHealth = String(enemy!.health)
             myLogger.info("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).")
             enemy?.attackPlayer(player!)
+            
             let selfHealth = String(player!.health)
             
             if (player?.health == 0) {
@@ -49,8 +50,12 @@ class AttackScene {
                 myLogger.info("The game is now over. Exiting to terminal...")                
                 myLogger.askForLogBeforeExiting()
                 exit(1)
+            } else if (player?.health ?? 1 <= 10.0) {
+                myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth.red()).")
+            } else {
+                myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")
             }
-            myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")
+            
         }
     }
     

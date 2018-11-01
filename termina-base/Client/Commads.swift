@@ -13,6 +13,8 @@ import Foundation
  */
 class CommandInterpreter {
     
+    var lastCommand = ""
+    
     /**
      Interpret the given input to perform an action.
      
@@ -22,6 +24,7 @@ class CommandInterpreter {
         - settingsHandler: The settings manager to save and load player data.
      */
     func parseCommand(_ command: String, _ room: Room, _ settingsHandler: SettingsManager) {
+        
         switch command {
             
         /*
@@ -72,7 +75,12 @@ class CommandInterpreter {
             print("=== \(myPlayer.name.bold()) ===".foregroundColor(TerminalColor.orange3))
             print("Level \(myLevel)")
             print("Progress to next Level: \(myExperience)/25".cyan())
-            print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)".yellow())
+            if myPlayer.health <= 10.0 {
+                 print("Health: \(String(myPlayer.health).red())/\(myPlayer.maximumHealth)".yellow())
+            } else {
+                print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)".yellow())
+            }
+            
             print("Current Inventory: ")
             
             if myPlayer.inventory.isEmpty != true {
@@ -258,6 +266,8 @@ class CommandInterpreter {
         case "help":
             print("""
             === \("List of Commands".bold()) ===
+            \("Tip: To run a previous command, press Enter.".foregroundColor(TerminalColor.orange3))
+            
             == Getting Information ==
             aboutroom - displays information about the room.
             aboutself - displays information about oneself.
@@ -281,10 +291,16 @@ class CommandInterpreter {
             """)
             break
         
+        case "":
+            parseCommand(lastCommand, room, settingsHandler)
+            break
         
         default:
             myLogger.error("\(command) is not a valid command. Type 'help' to see a list of commands.")
             break
+        }
+        if command != "" {
+            lastCommand = command
         }
     }
 }
