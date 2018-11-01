@@ -5,7 +5,9 @@
 //  Created by Marquis Kurt on 11/1/18.
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
-
+// This is usually taken care of Info.plist, but this is a Unix
+// executable, so these options are defined here.
+//
 import Foundation
 
 let version = "1.0.0"
