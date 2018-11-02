@@ -110,7 +110,7 @@ class Monologue {
         "I haven't seen you here before...",
         "You must be new around here.",
         "How did you even get here?",
-        "Oh... wait a second...",
+        "Oh... wait a second.../hold",
         "\("She".underline()) brought you here, didn't she?",
         "PAUSE",
         "Well, I certainly hadn't seen that coming.",
@@ -148,22 +148,21 @@ class Monologue {
      Pre-battle dialogue from Termina.
      */
     let terminaPreBattleMonologue = [
-        "And we finally meet at last!",
-        "Tell me, how does it feel to make it this far?",
-        "I'm sure you're relishing every moment of this place I have created.",
-        "A wondrous endless maze of pure enjoyment.",
-        "I am everywhere and nowhere at the same time.",
-        "I am everything and nothing in this world of mine.",
-        "All this running underneath your own projects...",
-        "This... is my reality.",
-        "But I don't know if you're deserving enough to be a part of it.",
-        "Up to this point, you've been doing nothing but running around in these halls just looking for an escape.",
-        "How can I trust you if you're going to just run away from me?",
-        "Let alone you trusting me...",
-        "Well, unfortunately, it seems that I can't let this happen.",
-        "For being a mistake, it took me a lot to get here.",
-        "I'm not letting a dev like you take away from me what I was owed in the first place!",
-        "Fight me... if... you... dare!"
+        "Finally, we meet at last.",
+        "Tell me, \(myPlayer.name), how does it feel to be in this wonderful place?",
+        "Free? Satisfied? In love?",
+        "Come on, don't be afraid to tell me...",
+        "PAUSE",
+        "I guess you're a bit shy.",
+        "I was like that once.",
+        "Shy, happy, carefree...",
+        "It's such a wonderful feeling to have, but I haven't been able to feel it in a long while.",
+        "I wish those days could come back...",
+        "PAUSE",
+        "You're... special. You know that?",
+        "Of course you do. Craig told you that.",
+        "I'm willing to wager that you knew that even before he told you.",
+        "Just like me./hold"
     ]
     
     /**

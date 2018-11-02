@@ -24,7 +24,12 @@ class NPC: Entity {
     }
     
     /**
-     Say the respective monologue for the NPC line by line. If `"PAUSE"` is listed anywhere, prompt the user to hit the Enter key before continuing.
+     Say the respective monologue for the NPC line by line. Pauses are distributed porportionally to the lines.
+     
+     Monologues can use special strings or escape sequences to manipulate how the monologue is displayed.
+     
+     - Adding `"PAUSE"` as an element will prompt the user to press Enter before continuing.
+     - Adding `"/hold"` to the monologue line will cause the interpreter to pause after the line is displayed for three seconds.
      
      - Parameters:
         - instant: Whether to display all lines instantly (Bool) instead of line by line
@@ -35,9 +40,18 @@ class NPC: Entity {
                 print("Press Enter to continue.".bold())
                 let _ = readLine()!
             } else {
-                print("\(name.bold().cyan()): \(line)")
+                if (line.range(of: "/hold") != nil) {
+                    let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
+                    print("\(name.bold().cyan()): \(strippedLine)")
+                } else {
+                    print("\(name.bold().cyan()): \(line)")
+                }
                 if !instant {
-                    usleep(useconds_t(50000 * line.count))
+                    if (line.range(of: "/hold") != nil) {
+                        usleep(3000000)
+                    } else {
+                        usleep(useconds_t(50000 * line.count))
+                    }
                 }
             }
         }
