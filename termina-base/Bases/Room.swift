@@ -50,7 +50,7 @@ class Room {
                 if player.level <= 4 {
                     myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: 1 ... 3))
                 } else {
-                    myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 3 ... player.level + 2))
+                    myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 7 ... player.level + 5))
                 }
             }
             myAttackSequence = AttackScene(player, myMonster!)
@@ -71,7 +71,7 @@ class Room {
         }
         
         if (chance >= 3 && chance <= 6) {
-            let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... player.level + 2), player)
+            let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... player.level - 15), player)
             myItems.append(myWeapon)
         }
         

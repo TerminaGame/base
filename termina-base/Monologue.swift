@@ -32,7 +32,7 @@ class Monologue {
         "Please help me.",
         "I've waited here for a really long time.",
         "I don't think she likes me at all.",
-        "Alize stole my cookies!",
+        "\(NameGenerator().generateNameNPC()) stole my cookies!",
         "She's not fun at all.",
         "Frankly, she was a mistake.",
         "I don't blame you.",
