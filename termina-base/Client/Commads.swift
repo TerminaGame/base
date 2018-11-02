@@ -248,7 +248,7 @@ class CommandInterpreter {
             myLogger.info("Done.")
             
         case "license":
-            print(license)
+            print("\n" + license + "\n")
             
         case "changename":
             myLogger.info("Type a new name to change to or press Enter to abort.")
@@ -295,6 +295,8 @@ class CommandInterpreter {
             parseCommand(lastCommand, room, settingsHandler)
             break
             
+            
+            
         /*
              MISC. COMMANDS
         */
@@ -310,10 +312,14 @@ class CommandInterpreter {
             myLogger.error("Screaming into the void cannot help you here.")
             break
         
+            
+        
         default:
             myLogger.error("\"\(command)\" is not a valid command. Type \("help".green()) to see a list of commands.")
             break
         }
+        
+        
         if command != "" {
             lastCommand = command
         }
