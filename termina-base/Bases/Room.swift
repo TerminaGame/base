@@ -47,7 +47,7 @@ class Room {
             if monster != nil {
                 myMonster = monster
             } else {
-                if player.level <= 4 {
+                if player.level <= 8 {
                     myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: 1 ... 3))
                 } else {
                     myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 7 ... player.level + 5))
