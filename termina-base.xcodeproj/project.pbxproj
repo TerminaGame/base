@@ -81,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF5F16DF218CE9C8009B2CF1 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				BFCF11AC217FD7FF00E85D38 /* NameGenerator.swift */,
+				BF5A5A402180D06700E2523C /* Monologue.swift */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		BF9C2603218B3BC900E1662A /* Specials */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +108,7 @@
 				BFD81C9D217B8AD50049B5D4 /* Monster.swift */,
 				BFD81C9C217B8AD50049B5D4 /* Player.swift */,
 				BFD81C9E217B8AD50049B5D4 /* Attack.swift */,
+				BF5A5A3E2180CE6400E2523C /* NPC.swift */,
 			);
 			path = Bases;
 			sourceTree = "<group>";
@@ -162,14 +172,12 @@
 		BFD81C94217B8AAC0049B5D4 /* termina-base */ = {
 			isa = PBXGroup;
 			children = (
+				BF5F16DF218CE9C8009B2CF1 /* Strings */,
 				BF9C2606218B402E00E1662A /* Items */,
 				BF9C2605218B3C0000E1662A /* Client */,
 				BF9C2604218B3BDC00E1662A /* Bases */,
 				BF9C2603218B3BC900E1662A /* Specials */,
 				BFCF11A7217FB57500E85D38 /* Libraries */,
-				BFCF11AC217FD7FF00E85D38 /* NameGenerator.swift */,
-				BF5A5A3E2180CE6400E2523C /* NPC.swift */,
-				BF5A5A402180D06700E2523C /* Monologue.swift */,
 			);
 			path = "termina-base";
 			sourceTree = "<group>";
