@@ -88,7 +88,7 @@ class Monologue {
         "Once, I remember seeing her run away after seeing her reflection in some broken glass on the floor, crying.",
         "Poor thing.",
         "Take me to the old workshop.",
-        "It's weird staring into her green eyes. Then again, I'm color blind...",
+        "It's weird staring into her green eyes. Then again, I'm bad with colors...",
         "The thing is, once you leave a room, it no longer exists. Kinda weird, eh?",
         "What time is it?",
         "You have nice posture.",

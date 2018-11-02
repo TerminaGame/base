@@ -25,8 +25,18 @@ class NameGenerator {
         "Object",
         "Rect",
         "Null",
-        "Area"
-        
+        "Area",
+        "Coordinate",
+        "Sprite",
+        "Scene",
+        "Node",
+        "Class",
+        "Home",
+        "Core",
+        "Message",
+        "Map",
+        "Multi",
+        ""
     ]
     
     let weaponSuffix = [
@@ -35,6 +45,8 @@ class NameGenerator {
         "Handler",
         "Buffer",
         "Array",
+        "Service",
+        "Bundle",
         ""
     ]
     

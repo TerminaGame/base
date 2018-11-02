@@ -14,6 +14,7 @@ import Foundation
 class NPC: Entity {
     
     var monologue = [""]
+    var quip: String
     
     /**
      Immediately kill the NPC (not recommended).
@@ -44,10 +45,10 @@ class NPC: Entity {
     }
     
     /**
-        Say a random line from a list of dialogues.
+        Say a random line picked from a list of dialogues.
      */
     func saySomething() {
-        print("\(name.bold().cyan()): \((Monologue().randomMonologuesNPC.randomElement() ?? "Help me."))")
+        print("\(name.bold().cyan()): \(quip)")
     }
     
     /**
@@ -57,6 +58,7 @@ class NPC: Entity {
         - myName: Name of the NPC.
      */
     init(_ myName: String) {
+        quip = Monologue().randomMonologuesNPC.randomElement() ?? "Help me."
         super.init(myName, "NPC", 100.0)
     }
 }
