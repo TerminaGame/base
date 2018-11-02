@@ -112,7 +112,7 @@ class CommandInterpreter {
                 room.myNPC = nil
                 
                 myPlayer.takeDamage(50.0)
-                myLogger.error("You have been damaged as a consequence.")
+                myLogger.error("You have been injured as a consequence (-50).")
                 
             } else {
                 myLogger.error("There's nothing to attack in this room.")
@@ -265,21 +265,21 @@ class CommandInterpreter {
         
         case "help":
             print("""
-            === \("List of Commands".bold()) ===
+            === \("List of Commands".bold().green()) ===
             \("Tip: To run a previous command, press Enter.".foregroundColor(TerminalColor.orange3))
             
-            == Getting Information ==
+            == \("Getting Information".bold().green()) ==
             aboutroom - displays information about the room.
             aboutself - displays information about oneself.
 
-            == \("Interactions".bold()) ==
+            == \("Interactions".bold().green()) ==
             attack - attacks the monster in the room, if present.
             equip - Equip the weapon in the room, if possible.
             heal - restores your health by an amount.
             talk - talk to a person in the room, if possible.
             xp - use an experience-enhancing bottle, if possible.
 
-            == \("Miscellaneous".bold()) ==
+            == \("Miscellaneous".bold().green()) ==
             changename - change your name to something else.
             clear - clears the console screen.
             exit - quits the game.
@@ -294,9 +294,24 @@ class CommandInterpreter {
         case "":
             parseCommand(lastCommand, room, settingsHandler)
             break
+            
+        /*
+             MISC. COMMANDS
+        */
+        case "killself":
+            myLogger.error("You cannot kill yourself.")
+            break
+            
+        case "flee":
+            myLogger.error("You cannot flee. Be brave!")
+            break
+            
+        case "die":
+            myLogger.error("Screaming into the void cannot help you here.")
+            break
         
         default:
-            myLogger.error("\(command) is not a valid command. Type 'help' to see a list of commands.")
+            myLogger.error("\"\(command)\" is not a valid command. Type \("help".green()) to see a list of commands.")
             break
         }
         if command != "" {
