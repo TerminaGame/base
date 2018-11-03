@@ -104,8 +104,14 @@ class Room {
         }
         
         if (chance >= 3 && chance <= 6) {
-            let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... player.level - 15), player)
-            myItems.append(myWeapon)
+            if player.level < 16 {
+                let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... 15), player)
+                myItems.append(myWeapon)
+            } else {
+                let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... player.level - 15), player)
+                myItems.append(myWeapon)
+            }
+            
         }
         
         if cmd != nil {
