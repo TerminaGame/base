@@ -16,7 +16,9 @@ class CommandInterpreter {
     var lastCommand = ""
     
     /**
-     Interpret the given input to perform an action.
+     Interpret the given input to perform an action. If the command parsing is successful, the command is stored into `lastCommand` for future use.
+     
+     If the player is attempting to run the same command as the last time, this will attempt to parse the command stored in `lastCommand`.
      
      - Parameters:
         - command: The command to try running
