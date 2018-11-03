@@ -10,10 +10,19 @@ import Foundation
 
 /**
  Class for designing attack scenes between the player and a monster.
+ 
+ The attack scene is the primary means of `Monster`s and `Player`s to attack each other in a battle.
  */
 class AttackScene {
     
+    /**
+     The player to engage in combat.
+     */
     var player: Player?
+    
+    /**
+     The enemy to defeat in the attack scene.
+     */
     var enemy: Monster?
     
     /**

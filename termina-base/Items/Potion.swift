@@ -10,6 +10,8 @@ import Foundation
 
 /**
  Item to restore player's health
+ 
+ The `Potion` is a temporary item locked to a room that heals the player by random amount. The `effect` uses the standard `Item` effect.
  */
 class Potion: Item {
     

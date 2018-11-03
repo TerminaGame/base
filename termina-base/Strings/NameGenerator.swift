@@ -10,12 +10,24 @@ import Foundation
 
 /**
  Generator for weapon and monster names.
+ 
+ This class randomly picks elements from its properties to generate names. These are usually based off of kit names or typical Swift-like errors.
  */
 class NameGenerator {
     
+    /**
+     The prefix used for weapons (NS). Mirrors APIs found in Cocoa and other Apple APIs.
+     */
     let weaponPrefix = "NS"
+    
+    /**
+     The suffix used for monsters (Error).
+     */
     let monsterSuffix = "Error"
     
+    /**
+     An array containing all of the possible root weapon names.
+     */
     let weaponList = [
         "App",
         "File",
@@ -39,6 +51,9 @@ class NameGenerator {
         ""
     ]
     
+    /**
+     An array containing all of the possible weapon suffixes.
+     */
     let weaponSuffix = [
         "Delegate",
         "Manager",
@@ -50,6 +65,9 @@ class NameGenerator {
         ""
     ]
     
+    /**
+     An array containing all of the possible monster root names.
+     */
     let monsterList = [
         "Null",
         "Integer",
@@ -60,6 +78,9 @@ class NameGenerator {
         "Assignment"
     ]
     
+    /**
+     An array containing all of the possible monster name modifiers.
+     */
     let monsterAddition = [
         "Pointer",
         "Value",
@@ -69,6 +90,11 @@ class NameGenerator {
         "Conversion"
     ]
     
+    /**
+     An array of all of the possible NPC names.
+     
+     These are not dynamically generated like monster and weapon names and are split by gender in the code.
+     */
     let namesNPC = [
         "John",
         "Manny",
@@ -135,7 +161,7 @@ class NameGenerator {
     ]
     
     /**
-     Generates a weapon name from random elements of a list with its prefix.
+     Generates a weapon name from random elements of `weaponList` and `weaponSuffix` with its prefix.
      
      - Returns: Weapon name as a String
      */
@@ -144,7 +170,7 @@ class NameGenerator {
     }
     
     /**
-     Generates a monster name from random elements of a list with its suffix.
+     Generates a monster name from random elements in `monsterList` and `monsterAddition` with its suffix.
      
      - Returns: Monster name as a String
      */
@@ -153,7 +179,7 @@ class NameGenerator {
     }
     
     /**
-     Picks a name from an array randomly.
+     Picks a name from `namesNPC` randomly.
      
      - Returns: NPC name as a String
      */

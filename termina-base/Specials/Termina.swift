@@ -10,9 +10,14 @@ import Foundation
 
 /**
  Main Termina villain. Subclass of `Monster` class.
+ 
+ Termina is the primary villain of the game. This class provides special properties such as speaking and insulting, usually reserved for NPCs.
  */
 class Termina: Monster {
     
+    /**
+     Provides and instance of the Monologue class.
+     */
     var speaker = Monologue()
     
     /**

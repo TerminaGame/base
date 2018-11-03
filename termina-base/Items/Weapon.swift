@@ -10,6 +10,8 @@ import Foundation
 
 /**
  Item to increase player's level and allow attacking monsters with higher damage.
+ 
+ The `Weapon` is a means of providing additional damage to a `Monster` class via an `AttackScene`. Weapons can only be used during attacks with Monsters and have no effect in damaging NPCs.
  */
 class Weapon: Item {
     
@@ -18,6 +20,8 @@ class Weapon: Item {
     
     /**
      Equip the weapon and level up the player temporarily.
+     
+     Will automatically check if an item is equipped and prompt the user to switch weapons.
      */
     func equip() -> Bool {
         
@@ -75,6 +79,15 @@ class Weapon: Item {
         }
     }
     
+    
+    /**
+     Construct the Weapon class.
+     
+     - Parameters:
+        - itemName: The name of the weapon.
+        - equipLevel: The level of the weapon.
+        - equippedPlayer: The player that uses the weapon.
+     */
     init(_ itemName: String, _ equipLevel: Int, _ equippedPlayer: Player) {
         super.init(itemName, "Weapon")
         level = equipLevel

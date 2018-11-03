@@ -8,8 +8,18 @@
 
 import Foundation
 
+/**
+ Manager of logs.
+ 
+ The logger keeps track of events in Termina and stores them inside of a log for later use.
+ */
 class Logger {
     
+    /**
+     An array of all log events.
+     
+     This array contains all of the strings when the logger functions are executed.
+     */
     var log = [String]()
     
     /**

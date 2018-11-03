@@ -10,13 +10,46 @@ import Foundation
 
 /**
  Base element that can contain items and a monster, as well as its name generators and attack scenes.
+ 
+ Rooms make up the core of the game. The `Room` class creates a space where players can interact with items.
+ Rooms can contain any of the following items:
+ - Monsters
+ - NPCs
+ - Items (Potions, Bottles, Weapons)
  */
 class Room {
+    /**
+     Optional monster.
+     */
     var myMonster: Monster?
+    
+    /**
+     Optional NPC.
+     */
     var myNPC: NPC?
+    
+    /**
+     Optional attack sequence.
+     
+     If `myMonster` is not a nill object, the attack sequence will construct itself with the player and monster.
+     */
     var myAttackSequence: AttackScene?
+    
+    /**
+     An array listing the items available to pick up or use.
+     */
     var myItems = [Item]()
+    
+    /**
+     Boolean value to determine if room is done being used.
+     
+     This value cna be used to break a loop or to cause a change in the room.
+     */
     var isDestroyed = false
+    
+    /**
+     Name generator for entities in room.
+     */
     let myNameGen = NameGenerator()
     
     /**

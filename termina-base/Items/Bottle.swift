@@ -10,6 +10,8 @@ import Foundation
 
 /**
  Item to increase player's experience by an amount. Instant one-time use.
+ 
+ The `Bottle` class acts very similarly to the Bottle o' Enchanting in _Minecraft_. Upon use, it will upgrade the player's experience and level up, if necessary.
  */
 class Bottle: Item {
     

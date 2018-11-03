@@ -10,11 +10,19 @@ import Foundation
 
 /**
  A collection of possible monologues.
+ 
+ No methods are available in the monologue class as these are used by NPCs or Termina.
+ 
+ Monologues can contain special escape sequences that are parsed by Termina or an NPC:
+ - `PAUSE` pauses the monologue at that point and requires the user to press Enter to continue.
+ - `/hold` pauses the monologue for five seconds before continuing.
  */
 class Monologue {
     
     /**
      Random one-line dialogues used for NPCs. Generally describe their own feelings or about Termina.
+     
+     This is an array containing one-line dialogues and therefore doesn't include special escape sequences when parsing monologues by Termina or NPCs.
      */
     let randomMonologuesNPC = [
         "Remember: she is always watching.",
@@ -105,6 +113,8 @@ class Monologue {
     
     /**
      First monologue in the starting room.
+     
+     This monologue is responsible for setting up the story as well as giving users a basic tutorial on the commands that can be used.
      */
     let firstGameMonologue = [
         "I haven't seen you here before...",
@@ -146,6 +156,8 @@ class Monologue {
     
     /**
      Pre-battle dialogue from Termina.
+     
+     This dialogue introduces the Termina character and is run before the battle starts.
      */
     let terminaPreBattleMonologue = [
         "Finally, we meet at last.",
@@ -167,6 +179,8 @@ class Monologue {
     
     /**
      Quips from Termina after attacking her.
+     
+     The Termina class will randomly pick one of these lines after immediately taking damage from the player.
      */
     let terminaDerogatoryMonologue = [
         "You really shouldn't have tried to come after me.",

@@ -10,10 +10,19 @@ import Foundation
 
 /**
  Non-player character class.
+ 
+ The NPC is a docile entity that cna interact with the player and provide information. The `Player` class does have the ability to attack an NPC and kill it, though this is highly discouraged. The NPC also parses monologues and perform actions with them accordingly.
  */
 class NPC: Entity {
     
+    /**
+     The monologue that the NPC can say.
+     */
     var monologue = [""]
+    
+    /**
+     A one-line string that the NPC can say.
+     */
     var quip: String
     
     /**
@@ -60,6 +69,8 @@ class NPC: Entity {
     
     /**
         Say a random line picked from a list of dialogues.
+     
+        This is usually aready dertermined through its construction and is stored in `quip`.
      */
     func saySomething() {
         print("\(name.bold().cyan()): \(quip)")

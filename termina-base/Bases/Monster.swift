@@ -9,10 +9,20 @@ import Foundation
 
 /**
  Primary enemy that attacks players.
+ 
+ Monsters are primary enemies. Monsters will never be directly used but are placed in an attack sequence.
  */
 class Monster: Entity {
-    
+    /**
+     The monster's level.
+     */
     var level: Int!
+    
+    /**
+     The monster's power in attack.
+     
+     This value is usually set to match the level. The higher this value is, the more damage it gives to an entity.
+     */
     var attack: Double!
     
     /**

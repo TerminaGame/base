@@ -10,9 +10,14 @@ import Foundation
 
 /**
  Handler for loading and saving settings to/from a JSON file (`settings.json`)
+ 
+ The settings manager is responsible for writing information to and from `settings.json` when running the Termina binary. It usually writes this file in the directory where the binary is executed.
  */
 class SettingsManager {
     
+    /**
+     The player to read data from and save data to.
+     */
     var thisPlayer: Player!
     
     /**
@@ -66,6 +71,8 @@ class SettingsManager {
     }
     /**
      Delete the settings.json file.
+     
+     Deleting settings by means of this function will make a copy in its parent directory and delete the existing one inside of the folder where Termina is run from.
      */
     func deleteSettings() {
         let jsonPath = try! Folder(path: "")

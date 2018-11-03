@@ -8,10 +8,34 @@
 
 /**
  Primary entity to interact with items and attack monsters. Takes and stores data from `settings.json`
+ 
+ The `Player` class is the user's primary means of interacting with things in the game. This class store properties about the player and progress made in the game.
  */
 class Player: Entity {
-    var experience, level: Int!
+    /**
+     The player's experience.
+     
+     The experience value is a means of providing progression in the game without always upgrading the level.
+     */
+    var experience: Int!
+    
+    /**
+     The player's level.
+     
+     This level must reach 420 or higher to fight Termina and win the game.
+     */
+    var level: Int!
+    
+    /**
+     Temporary holding space to increase level.
+     
+     This area is often used by items to increase the player's attack levels.
+     */
     var temporaryLevel: Int!
+    
+    /**
+     An array of items that the player is carrying on them.
+     */
     var inventory = [Item]()
     
     /**

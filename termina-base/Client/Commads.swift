@@ -10,9 +10,16 @@ import Foundation
 
 /**
  Interpreter for given commands, either by user input in a terminal or from a button assignment.
+ 
+ The command interpreter is responsible for handling, parsing, and executing commands given to it, either by user input or programmatically. It will try to store the last command used for "quick-access".
  */
 class CommandInterpreter {
     
+    /**
+     The last successfully-parsed command to be executed.
+     
+     This variable is necessary for enabling the "quick-access" mode by pressing Enter to run this command.
+     */
     var lastCommand = ""
     
     /**

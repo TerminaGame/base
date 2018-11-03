@@ -8,10 +8,29 @@
 
 /**
  Base class for describing entities in the game.
+ 
+ Entities are living beings in the game. They have properties of taking damage and can be expanded upon in subclasses.
  */
 class Entity {
-    var name, type: String
-    var health, maximumHealth: Double
+    /**
+     The name of the entity
+     */
+    var name: String
+    
+    /**
+     The type of entity.
+     */
+    var type: String
+    
+    /**
+     The entity's current health.
+     */
+    var health: Double
+    
+    /**
+     The entity's full health count.
+     */
+    var maximumHealth: Double
     
     /**
      Reduces the health of the entity. Sets health to 0 if a negative value is produced.
