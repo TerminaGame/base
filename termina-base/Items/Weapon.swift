@@ -26,10 +26,10 @@ class Weapon: Item {
         for object in equipper.inventory {
             if object is Weapon {
                 let weapon = object as? Weapon
-                myLogger.warning("You already have a weapon equipped, \(weapon?.name ?? "Weapon"). Are you sure you want to equip \(name) instead? (y/n)")
                 
-                let response = readLine()!
-                if (response == "yes" || response == "y") {
+                let swapWeaponPrompt = myLogger.ask("You have \(weapon?.name ?? "a weapon") already equipped. Are you sure you want to equip \(name) instead?")
+                
+                if swapWeaponPrompt {
                     weapon?.unequip()
                 } else {
                     myLogger.error("Operation aborted.")

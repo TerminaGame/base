@@ -29,7 +29,7 @@ class NPC: Entity {
      Monologues can use special strings or escape sequences to manipulate how the monologue is displayed.
      
      - Adding `"PAUSE"` as an element will prompt the user to press Enter before continuing.
-     - Adding `"/hold"` to the monologue line will cause the interpreter to pause after the line is displayed for three seconds.
+     - Adding `"/hold"` to the string element will cause the interpreter to pause after the line is displayed for three seconds.
      
      - Parameters:
         - instant: Whether to display all lines instantly (Bool) instead of line by line

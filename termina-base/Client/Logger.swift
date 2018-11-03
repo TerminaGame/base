@@ -28,6 +28,32 @@ class Logger {
     }
     
     /**
+     Ask the user to perform an action via a yes/no question.
+     
+     - Parameters:
+        - prompt: The question to be asked. Should be yes/no.
+     
+     - Returns: True if user responds with yes, False if user does not answer or answers with no.
+     */
+    func ask(_ prompt: String) -> Bool {
+        let fullPrompt = "[Q] \(prompt) (y/n)"
+        log.append(fullPrompt)
+        print(fullPrompt.cyan())
+        let response = readLine()!
+        if response == "y" || response == "yes" {
+            logToFile("User responded with YES.", "info")
+            return true
+        } else if response == "n" || response == "no" {
+            logToFile("User responded with NO.", "info")
+            return false
+        } else {
+            error("Could not determine response.")
+            logToFile("Inrepreting as NO...", "warning")
+            return false
+        }
+    }
+    
+    /**
      Print a warning to the console.
      
      - Parameters:
@@ -89,14 +115,12 @@ class Logger {
      Ask the user if they want a log exported to `termlog.txt` before performing an action.
      */
     func askForLogBeforeExiting() {
-        info("Would you like a copy of this session's log? (y/n)")
-        let response = readLine(strippingNewline: true)!
-        
-        if response == "y" || response == "yes" {
-            info("Log will be printed to termlog.txt.")
+        let getLogPrint = ask("Do you want a printed copy of this session's log?")
+        if getLogPrint {
+            info("Log will be saved to termlog.txt.")
             printLog()
         } else {
-            error("User aborted operation.")
+            error("Operation aborted!")
         }
     }
     

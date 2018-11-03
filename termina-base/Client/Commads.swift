@@ -208,23 +208,17 @@ class CommandInterpreter {
         
         
         case "exit":
-            myLogger.warning("Are you sure you want to exit? (y/n)")
             
-            let response = readLine()!
+            let getExit = myLogger.ask("Are you sure you want to exit?")
             
-            if (response == "y" || response == "yes") {
+            if getExit {
                 settingsHandler.saveSettings()
-                
                 myLogger.askForLogBeforeExiting()
-                
                 exit(0)
-            } else if (response == "n" || response == "no") {
-                myLogger.info("Resuming game...")
-                break
             } else {
-                myLogger.error("Could not determine action. Resuming game...")
-                break
+                myLogger.info("Resuming game...")
             }
+            break
         
         case "save":
             settingsHandler.saveSettings()
