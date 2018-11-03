@@ -16,7 +16,7 @@ import Foundation
 class Termina: Monster {
     
     /**
-     Provides and instance of the Monologue class.
+     Provides an instance of the Monologue class.
      */
     var speaker = Monologue()
     
@@ -29,11 +29,24 @@ class Termina: Monster {
     
     /**
      Speak pre-battle dialogue.
+     
+     This function borrows elements from NPCs in parsing the monologue.
      */
     func speakBeforeFighting() {
         for line in speaker.terminaPreBattleMonologue {
-            print("Termina: \(line)")
-            sleep(2)
+            if line == "PAUSE" {
+                print("Press Enter to continue.".bold())
+                let _ = readLine()!
+            } else {
+                if (line.range(of: "/hold") != nil) {
+                    let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
+                    print("\(name.bold().cyan()): \(strippedLine)")
+                    usleep(3000000)
+                } else {
+                    print("\(name.bold().cyan()): \(line)")
+                    usleep(useconds_t(50000 * line.count))
+                }
+            }
         }
     }
     
