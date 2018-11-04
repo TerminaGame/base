@@ -24,7 +24,7 @@ class Termina: Monster {
      Insult the player with a line of dialogue.
      */
     func insult() {
-        print("Termina: \(speaker.terminaDerogatoryMonologue.randomElement() ?? "You're wasting my time.")")
+        print("\(name.bold().cyan()): \(speaker.terminaDerogatoryMonologue.randomElement() ?? "You're wasting my time.")")
     }
     
     /**
@@ -58,13 +58,16 @@ class Termina: Monster {
      */
     override func takeDamage(_ amount: Double) {
         super.takeDamage(amount)
-        print("Termina: Aah~!")
+        print("\(name.bold().cyan()): Aah~!")
+        if health <= 0.0 {
+            print("\(name.bold().cyan()): No, no, no! Why can't you just die?")
+        }
     }
     
     /**
      Construct Termina with level 420.
      */
     init() {
-        super.init("Termina", 420)
+        super.init("Termina", 4200)
     }
 }

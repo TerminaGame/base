@@ -31,7 +31,7 @@ class Room {
     /**
      Optional attack sequence.
      
-     If `myMonster` is not a nill object, the attack sequence will construct itself with the player and monster.
+     If `myMonster` is not a nil object, the attack sequence will construct itself with the player and monster.
      */
     var myAttackSequence: AttackScene?
     
@@ -75,21 +75,28 @@ class Room {
     init(_ player: Player, _ monster: Monster?, _ cmd: CommandInterpreter?) {
         let chance = Int.random(in: 0 ... 9)
         
-        if (chance > 4) {
-            myNPC = nil
-            if monster != nil {
-                myMonster = monster
-            } else {
-                if player.level < 8 {
-                    myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: 1 ... 7))
-                } else {
-                    myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 7 ... player.level + 5))
-                }
-            }
+        if monster != nil {
+            myMonster = monster
             myAttackSequence = AttackScene(player, myMonster!)
         } else {
-            myNPC = NPC(myNameGen.generateNameNPC())
+            if (chance > 4) {
+                myNPC = nil
+                if monster != nil {
+                    myMonster = monster
+                } else {
+                    if player.level < 8 {
+                        myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: 1 ... 7))
+                    } else {
+                        myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 7 ... player.level + 5))
+                    }
+                }
+                myAttackSequence = AttackScene(player, myMonster!)
+            } else {
+                myNPC = NPC(myNameGen.generateNameNPC())
+            }
         }
+        
+        
         
         if (chance >= 4) {
             let selectRandomHelper = Int.random(in: 0 ... 3)

@@ -61,7 +61,6 @@ else {
 // Always keep creating a new room until the room is destroyed or the player level is
 // high enough to break out of the loop and fight the boss.
 while true {
-    //TODO: Break this loop when level reaches the maximum level to initiate a boss fight.
     var theDarkRoom = Room(myPlayer, nil, command)
     myLogger.logToFile("New room generated.", "info")
     
@@ -93,13 +92,19 @@ while myPlayer.level >= 420 {
     let termina = Termina()
     let terminaRoom = Room(myPlayer, termina, command)
     
+    // Clear the console again.
+    command.parseCommand("clear", terminaRoom, vm)
+    
     // Say pre-battle dialogue before starting the fight.
     termina.speakBeforeFighting()
     
     // Keep looping infinitely until the player is able to leave the room
     while !terminaRoom.isDestroyed {
-        // Let Termina insult the player before taking a new command.
-        termina.insult()
+        
+        if terminaRoom.myMonster != nil {
+            // Let Termina insult the player before taking a new command.
+            termina.insult()
+        }
         
         // Get the player's input and parse the command.
         print("\nWhat would you like to do? Type a command:")

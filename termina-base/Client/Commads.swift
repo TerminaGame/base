@@ -295,6 +295,7 @@ class CommandInterpreter {
             break
         
         case "":
+            myLogger.logToFile("Running last known command (\(lastCommand))", "info")
             parseCommand(lastCommand, room, settingsHandler)
             break
             
