@@ -209,6 +209,17 @@ class CommandInterpreter {
                 myLogger.error("There isn't anyone here to talk to.")
             }
             break
+            
+        case "pacify":
+            if myPlayer.level ?? 1 > room.myMonster?.level ?? 1 {
+                room.myMonster?.pacify()
+                room.myAttackSequence?.enemy = nil
+                myLogger.info("You pacified the error successfully!")
+                myPlayer.experienceUp(7)
+            } else {
+                myLogger.error("You can't pacify \(room.myAttackSequence?.enemy?.name ?? "Monster")!")
+            }
+            break
            
             
         /*
@@ -279,6 +290,7 @@ class CommandInterpreter {
             attack - attacks the monster in the room, if present.
             equip - Equip the weapon in the room, if possible.
             heal - restores your health by an amount.
+            pacify - attempt to make peace with an error, if possible.
             talk - talk to a person in the room, if possible.
             xp - use an experience-enhancing bottle, if possible.
 

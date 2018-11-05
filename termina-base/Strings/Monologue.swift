@@ -118,7 +118,10 @@ class Monologue {
         "You'll never get out of this alive!",
         "You won't survive me!",
         "Hello, friend!",
-        "Die!"
+        "Die!",
+        "I don't \("want".bold()) to do this, but I must because I can.",
+        "You're the first one on my death list!",
+        "Players don't belong here!"
     ]
     
     /**

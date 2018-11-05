@@ -53,6 +53,10 @@ class Monster: Entity {
         saySomething(Monologue().randomMonologuesMonster.randomElement() ?? "Aargh!")
     }
     
+    func pacify() {
+        saySomething("R-really? Thank you so much! I didn't want to hurt you...")
+    }
+    
     /**
      Constructs the Monster class. Sets type to Monster with health 50 automatically. Attack is defined by inputted level.
      
