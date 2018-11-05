@@ -101,7 +101,7 @@ while myPlayer.level >= 420 {
     // Keep looping infinitely until the player is able to leave the room
     while !terminaRoom.isDestroyed {
         
-        if terminaRoom.myMonster != nil {
+        if terminaRoom.myAttackSequence?.enemy != nil {
             // Let Termina insult the player before taking a new command.
             termina.insult()
         }
@@ -113,6 +113,8 @@ while myPlayer.level >= 420 {
     
     // If the player has left the room, break this loop infinitely.
     if terminaRoom.isDestroyed {
+        myLogger.info("Congratulations! The game is now over.")
+        myLogger.askForLogBeforeExiting()
         break
     }
 }

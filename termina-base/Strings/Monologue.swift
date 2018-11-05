@@ -74,7 +74,6 @@ class Monologue {
         "She looks like the kind of gal that was treated poorly as a kid.",
         "She's something alright...",
         "The last time anyone fell into her arms, they died.",
-        "fatal error\nUnexpectly found nil in when unwrapping an Optional value 'poop'. 4",
         "Is she a sorceress? She kind of looks like a sorceress.",
         "She feels fake to me.",
         "Why am I so scared to run away from her?",
@@ -119,9 +118,27 @@ class Monologue {
         "You won't survive me!",
         "Hello, friend!",
         "Die!",
-        "I don't \("want".bold()) to do this, but I must because I can.",
+        "I don't \("want".bold()) to do this, but I must because she makes me.",
         "You're the first one on my death list!",
-        "Players don't belong here!"
+        "Players don't belong here!",
+        "She'll warrant your death!",
+        "For her!",
+        "I'll give your heart to her!",
+        "I'm doing you a favor.",
+        "Who's in control?"
+    ]
+    
+    /**
+     Quips said by monsters when pacified.
+     */
+    let pacifyMonologues = [
+        "R-really? Thank you so much! I didn't want to hurt you...",
+        "Thank you, you kind hero!",
+        "Thank you for not being heartless...",
+        "I never wanted to hurt you, anyway.",
+        "Thank you for your mercy! Uwu",
+        "Thank you for setting me free.",
+        "You really are the hero everyone's been talking about!"
     ]
     
     /**

@@ -170,7 +170,7 @@ class CommandInterpreter {
             break
             
         case "leave":
-            myLogger.info("Moving to the next room...")
+            myLogger.info("Leaving this room...")
             if room.myAttackSequence?.enemy == nil {
                 room.isDestroyed = true
             } else {
