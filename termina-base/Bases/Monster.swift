@@ -53,6 +53,9 @@ class Monster: Entity {
         saySomething(Monologue().randomMonologuesMonster.randomElement() ?? "Aargh!")
     }
     
+    /**
+     Pacify the monster and thank the player.
+     */
     func pacify() {
         saySomething("R-really? Thank you so much! I didn't want to hurt you...")
     }
