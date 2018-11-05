@@ -347,7 +347,7 @@ class CommandInterpreter {
         }
         
         
-        if command != "" || !skipCommandLogging {
+        if command != "" && !skipCommandLogging {
             lastCommand = command
         }
     }

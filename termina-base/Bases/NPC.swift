@@ -20,6 +20,8 @@ class NPC: Entity {
      */
     var monologue = [""]
     
+    var quip: String
+    
     /**
      Immediately kill the NPC (not recommended).
      */
@@ -37,7 +39,7 @@ class NPC: Entity {
         if what != nil {
             super.saySomething(what ?? "Help me.")
         } else {
-            super.saySomething(Monologue().randomMonologuesNPC.randomElement() ?? "Help me.")
+            super.saySomething(quip)
         }
     }
     
@@ -83,6 +85,7 @@ class NPC: Entity {
         - myName: Name of the NPC.
      */
     init(_ myName: String) {
+        quip = Monologue().randomMonologuesNPC.randomElement() ?? "Help me."
         super.init(myName, "NPC", 100.0, TerminalColor.cyan1)
     }
 }
