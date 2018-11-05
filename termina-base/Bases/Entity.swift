@@ -9,7 +9,7 @@
 /**
  Base class for describing entities in the game.
  
- Entities are living beings in the game. They have properties of taking damage and can be expanded upon in subclasses.
+ Entities are living beings in the game. They have properties of taking damage and speaking. More functions can be expanded upon in subclasses.
  */
 class Entity {
     /**
@@ -53,9 +53,10 @@ class Entity {
     }
     
     /**
-     Say a random line picked from a list of dialogues.
+     Say a line or inputted text.
      
-     This is usually aready dertermined through its construction and is stored in `quip`.
+     - Parameters:
+        - what: The line to say.
      */
     func saySomething(_ what: String) {
         print("\(name.bold().foregroundColor(colorType)): \(what)")
@@ -68,6 +69,7 @@ class Entity {
         - myName: The name of the entity.
         - myType: The entity's type.
         - myHealth: The health given to the entity.
+        - myColor: The color of the entity's speech tag.
      */
     init(_ myName: String, _ myType: String, _ myHealth: Double, _ myColor: TerminalColor) {
         name = myName

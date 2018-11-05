@@ -27,6 +27,12 @@ class NPC: Entity {
         health = 0
     }
     
+    /**
+     Say either a specific line or a random one from a list.
+     
+     - Parameters:
+        - what: The line to say, if possible. If set to `nil`, pick randomly instead.
+     */
     override func saySomething(_ what: String?) {
         if what != nil {
             super.saySomething(what ?? "Help me.")
