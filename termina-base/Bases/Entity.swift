@@ -33,6 +33,11 @@ class Entity {
     var maximumHealth: Double
     
     /**
+     The entity type's color as a terminal color.
+     */
+    var colorType: TerminalColor
+    
+    /**
      Reduces the health of the entity. Sets health to 0 if a negative value is produced.
      
      - Parameters:
@@ -48,6 +53,15 @@ class Entity {
     }
     
     /**
+     Say a random line picked from a list of dialogues.
+     
+     This is usually aready dertermined through its construction and is stored in `quip`.
+     */
+    func saySomething(_ what: String) {
+        print("\(name.bold().foregroundColor(colorType)): \(what)")
+    }
+    
+    /**
      Constructs the Entity class.
      
      - Parameters:
@@ -55,11 +69,12 @@ class Entity {
         - myType: The entity's type.
         - myHealth: The health given to the entity.
      */
-    init(_ myName: String, _ myType: String, _ myHealth: Double) {
+    init(_ myName: String, _ myType: String, _ myHealth: Double, _ myColor: TerminalColor) {
         name = myName
         type = myType
         health = myHealth
         maximumHealth = myHealth
+        colorType = myColor
     }
     
 }

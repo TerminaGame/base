@@ -49,6 +49,8 @@ class Monster: Entity {
         } else {
             super.takeDamage(amount)
         }
+        
+        saySomething(Monologue().randomMonologuesMonster.randomElement() ?? "Aargh!")
     }
     
     /**
@@ -59,7 +61,7 @@ class Monster: Entity {
         - myLevel: The monster's level.
      */
     init(_ monsterName: String, _ myLevel: Int) {
-        super.init(monsterName, "Monster", 100)
+        super.init(monsterName, "Monster", 100, TerminalColor.red)
         level = myLevel
         attack = Double(myLevel)
     }

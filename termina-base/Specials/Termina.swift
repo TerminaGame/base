@@ -24,7 +24,7 @@ class Termina: Monster {
      Insult the player with a line of dialogue.
      */
     func insult() {
-        print("\(name.bold().cyan()): \(speaker.terminaDerogatoryMonologue.randomElement() ?? "You're wasting my time.")")
+        saySomething(Monologue().terminaDerogatoryMonologue.randomElement() ?? "You're wasting my time.")
     }
     
     /**
@@ -40,10 +40,10 @@ class Termina: Monster {
             } else {
                 if (line.range(of: "/hold") != nil) {
                     let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
-                    print("\(name.bold().cyan()): \(strippedLine)")
+                    print("\(name.bold().foregroundColor(colorType)): \(strippedLine)")
                     usleep(3000000)
                 } else {
-                    print("\(name.bold().cyan()): \(line)")
+                    print("\(name.bold().foregroundColor(colorType)): \(line)")
                     usleep(useconds_t(50000 * line.count))
                 }
             }
@@ -58,9 +58,9 @@ class Termina: Monster {
      */
     override func takeDamage(_ amount: Double) {
         super.takeDamage(amount)
-        print("\(name.bold().cyan()): Aah~!")
+        print("\(name.bold().foregroundColor(colorType)): Aah~!")
         if health <= 0.0 {
-            print("\(name.bold().cyan()): No, no, no! Why can't you just die?")
+            print("\(name.bold().foregroundColor(colorType)): No, no, no! Why can't you just die?")
         }
     }
     
@@ -69,5 +69,6 @@ class Termina: Monster {
      */
     init() {
         super.init("Termina", 4200)
+        super.colorType = TerminalColor.orange3
     }
 }

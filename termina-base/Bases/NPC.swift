@@ -21,15 +21,18 @@ class NPC: Entity {
     var monologue = [""]
     
     /**
-     A one-line string that the NPC can say.
-     */
-    var quip: String
-    
-    /**
      Immediately kill the NPC (not recommended).
      */
     override func takeDamage(_ amount: Double) {
         health = 0
+    }
+    
+    override func saySomething(_ what: String?) {
+        if what != nil {
+            super.saySomething(what ?? "Help me.")
+        } else {
+            super.saySomething(Monologue().randomMonologuesNPC.randomElement() ?? "Help me.")
+        }
     }
     
     /**
@@ -51,9 +54,9 @@ class NPC: Entity {
             } else {
                 if (line.range(of: "/hold") != nil) {
                     let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
-                    print("\(name.bold().cyan()): \(strippedLine)")
+                    print("\(name.bold().foregroundColor(colorType)): \(strippedLine)")
                 } else {
-                    print("\(name.bold().cyan()): \(line)")
+                    print("\(name.bold().foregroundColor(colorType)): \(line)")
                 }
                 if !instant {
                     if (line.range(of: "/hold") != nil) {
@@ -68,22 +71,12 @@ class NPC: Entity {
     }
     
     /**
-        Say a random line picked from a list of dialogues.
-     
-        This is usually aready dertermined through its construction and is stored in `quip`.
-     */
-    func saySomething() {
-        print("\(name.bold().cyan()): \(quip)")
-    }
-    
-    /**
      Construct the NPC class.
      
      - Parameters:
         - myName: Name of the NPC.
      */
     init(_ myName: String) {
-        quip = Monologue().randomMonologuesNPC.randomElement() ?? "Help me."
-        super.init(myName, "NPC", 100.0)
+        super.init(myName, "NPC", 100.0, TerminalColor.cyan1)
     }
 }

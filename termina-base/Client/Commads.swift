@@ -203,7 +203,7 @@ class CommandInterpreter {
                 if room.myNPC?.monologue != [""] {
                     room.myNPC?.sayMonologue(instant: false)
                 } else {
-                    room.myNPC?.saySomething()
+                    room.myNPC?.saySomething(nil)
                 }
             } else {
                 myLogger.error("There isn't anyone here to talk to.")

@@ -112,6 +112,16 @@ class Monologue {
     ]
     
     /**
+     Quips said by monsters.
+     */
+    let randomMonologuesMonster = [
+        "You'll never get out of this alive!",
+        "You won't survive me!",
+        "Hello, friend!",
+        "Die!"
+    ]
+    
+    /**
      First monologue in the starting room.
      
      This monologue is responsible for setting up the story as well as giving users a basic tutorial on the commands that can be used.

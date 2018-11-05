@@ -93,7 +93,7 @@ class Player: Entity {
         - myName: The name of the player.
      */
     init(_ myName: String) {
-        super.init(myName, "Player", 100)
+        super.init(myName, "Player", 100, TerminalColor.grey)
         experience = 0
         level = 1
     }
