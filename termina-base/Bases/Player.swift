@@ -5,6 +5,7 @@
 //  Created by Marquis Kurt on 10/17/18.
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
+import Foundation
 
 /**
  Primary entity to interact with items and attack monsters. Takes and stores data from `settings.json`
@@ -37,6 +38,27 @@ class Player: Entity {
      An array of items that the player is carrying on them.
      */
     var inventory = [Item]()
+    
+    
+    /**
+     Reduces the health of the entity. Sets health to 0 if a negative value is produced.
+     
+     - Parameters:
+     - amount: The amount of damage to subract from health.
+     */
+    override func takeDamage(_ amount: Double) {
+        let tempHealth = health - amount
+        if (tempHealth < 0) {
+            health = 0
+            myLogger.info("You died!")
+            myLogger.info("The game is now over. Exiting to terminal...")
+            myLogger.askForLogBeforeExiting()
+            exit(2)
+        } else {
+            health = tempHealth
+        }
+    }
+    
     
     /**
      Heals the player by an amount. If resultant health is over maximum, sets it to maximum instead.

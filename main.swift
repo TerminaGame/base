@@ -45,17 +45,17 @@ if !vm.loadSettings() {
     myLogger.logToFile("Tutorial room generated.", "info")
     
     // Clear the console and have Craig start his monologue.
-    command.parseCommand("clear", storyJumpStart, vm)
-    command.parseCommand("talk", storyJumpStart, vm)
+    command.parseCommand("clear", storyJumpStart, vm, skipCommandLogging: true)
+    command.parseCommand("talk", storyJumpStart, vm, skipCommandLogging: true)
     
     // Immediately move to the next room after finishing.
-    command.parseCommand("leave", storyJumpStart, vm)
+    command.parseCommand("leave", storyJumpStart, vm, skipCommandLogging: true)
 }
 
 // If the settings file is found, greet the player and assume that they know the controls.
 else {
     print("Welcome back to Termina, \(myPlayer.name.bold()). We've been waiting for you.\n")
-    command.parseCommand("aboutself", Room(myPlayer, nil, nil), vm)
+    command.parseCommand("aboutself", Room(myPlayer, nil, nil), vm, skipCommandLogging: true)
 }
 
 // Always keep creating a new room until the room is destroyed or the player level is
@@ -78,7 +78,7 @@ while true {
         
         // Get the player's input and parse the command into the interpreter.
         print("\nWhat would you like to do? Type a command:")
-        command.parseCommand(readLine(strippingNewline: true)!, theDarkRoom, vm)
+        command.parseCommand(readLine(strippingNewline: true)!, theDarkRoom, vm, skipCommandLogging: false)
     }
 }
 
@@ -93,7 +93,7 @@ while myPlayer.level >= 420 {
     let terminaRoom = Room(myPlayer, termina, command)
     
     // Clear the console again.
-    command.parseCommand("clear", terminaRoom, vm)
+    command.parseCommand("clear", terminaRoom, vm, skipCommandLogging: true)
     
     // Say pre-battle dialogue before starting the fight.
     termina.speakBeforeFighting()
@@ -108,7 +108,7 @@ while myPlayer.level >= 420 {
         
         // Get the player's input and parse the command.
         print("\nWhat would you like to do? Type a command:")
-        command.parseCommand(readLine(strippingNewline: true)!, terminaRoom, vm)
+        command.parseCommand(readLine(strippingNewline: true)!, terminaRoom, vm, skipCommandLogging: false)
     }
     
     // If the player has left the room, break this loop infinitely.

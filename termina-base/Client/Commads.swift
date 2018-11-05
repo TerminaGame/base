@@ -31,8 +31,9 @@ class CommandInterpreter {
         - command: The command to try running
         - room: The room the player is located in.
         - settingsHandler: The settings manager to save and load player data.
+        - skipCommandLogging: Whether to store the run command in the command log.
      */
-    func parseCommand(_ command: String, _ room: Room, _ settingsHandler: SettingsManager) {
+    func parseCommand(_ command: String, _ room: Room, _ settingsHandler: SettingsManager, skipCommandLogging: Bool) {
         
         switch command {
             
@@ -312,8 +313,13 @@ class CommandInterpreter {
             break
         
         case "":
-            myLogger.logToFile("Running last known command (\(lastCommand))", "info")
-            parseCommand(lastCommand, room, settingsHandler)
+            if lastCommand != "" {
+                myLogger.logToFile("Running last known command (\(lastCommand))", "info")
+                parseCommand(lastCommand, room, settingsHandler, skipCommandLogging: false)
+            } else {
+                myLogger.error("There is no previous command to parse!")
+            }
+            
             break
             
             
@@ -341,7 +347,7 @@ class CommandInterpreter {
         }
         
         
-        if command != "" {
+        if command != "" || !skipCommandLogging {
             lastCommand = command
         }
     }

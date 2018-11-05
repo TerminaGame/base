@@ -122,7 +122,7 @@ class Room {
         }
         
         if cmd != nil {
-            cmd!.parseCommand("aboutroom", self, SettingsManager(player))
+            cmd!.parseCommand("aboutroom", self, SettingsManager(player), skipCommandLogging: true)
         }
     }
     
