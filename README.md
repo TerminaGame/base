@@ -1,6 +1,6 @@
 # Termina (Base + CLI)
 
-![Screenshot](screenshot.png)
+![Screenshot](img/screenshot.png)
 
 Termina is a fun single-user, level-based user dungeon game for macOS and Linux.
 
@@ -21,7 +21,15 @@ If you're looking for GUI versions, we recommend looking at the following projec
 - [TerminaGame/mac](https://github.com/TerminaGame/mac): official SpriteKit version of Termina for macOS
 
 ## Downloads
-Currently, there are no releases of Termina ready for the public. However, feel free to build the source code to try it yourself!
+Currently, there aren't any releases ready for GitHub just yet. Check back another time for one of those!
+
+If you prefer testing builds as they are built off the branch, check out the [Azure DevOps builds](https://marquiskurt.visualstudio.com/TerminaBase/_build?definitionId=6) as they come in.
+
+### Downloading via DevOps
+![DevOps downloads](img/devops.png)
+1. Go to the DevOps builds page.
+2. Click on the build you'd like to test out.
+3. Click 'Artifacts > drop' to download the ZIP file.
 
 ## Building from source
 Clone the repository via Xcode and run the default scheme to build and test. This requires at least Xcode 9.4.1 and macOS 10.14 Mojave or Swift 4.2.
