@@ -2,10 +2,17 @@ language: swift
 # xcode_project: termina-base.xcodeproj # path to your xcodeproj folder
 # xcode_scheme: termina-base
 # xcode_destination: platform=macOS
-osx_image: xcode10
+osx_image: xcode10.1
 
 script:
-  xcodebuild -scheme termina-base -project termina-base.xcodeproj -derivedDataPath dist build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+  echo $APPLE_DEV_CERTIFICATE | base64 --decode > certificate.p12
+  security create-keychain -p temps build.keychain
+  security default-keychain -s build.keychain
+  security unlock-keychain -p temps build.keychain
+  security import certificate.p12 -k build.keychain -P 
+  security find-identity -v
+  xcodebuild -scheme termina-base -project termina-base.xcodeproj -derivedDataPath dist build
+  # xcodebuild -scheme termina-base -project termina-base.xcodeproj -derivedDataPath dist build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
 deploy:
   provider: releases
