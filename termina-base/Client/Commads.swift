@@ -332,7 +332,15 @@ class CommandInterpreter {
             break
             
         case "flee":
-            myLogger.error("You cannot flee. Be brave!")
+            if room.myAttackSequence?.enemy != nil {
+                if myPlayer.level ?? 1 > room.myMonster?.level ?? 1 {
+                    myLogger.error("You cannot flee. But, you \("could".underline()) pacify \(room.myMonster?.name ?? "the enemy")...")
+                }
+                else {
+                    myLogger.error("You cannot flee. Be brave!")
+                }
+            }
+            
             break
             
         case "die":
