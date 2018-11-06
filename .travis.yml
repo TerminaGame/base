@@ -4,10 +4,8 @@ language: swift
 # xcode_destination: platform=macOS
 osx_image: xcode10.1
 
-before_install:
-  ./xcbuild.sh
-
 script:
+  ./xcbuild.sh
   xcodebuild -scheme termina-base -project termina-base.xcodeproj -derivedDataPath dist build
 
 deploy:
