@@ -3,6 +3,7 @@ language: swift
 # xcode_scheme: termina-base
 # xcode_destination: platform=macOS
 osx_image: xcode10
+sudo: required
 
 script:
   echo $APPLE_DEV_CERTIFICATE | base64 --decode > certificate.p12
