@@ -2,7 +2,7 @@ language: swift
 # xcode_project: termina-base.xcodeproj # path to your xcodeproj folder
 # xcode_scheme: termina-base
 # xcode_destination: platform=macOS
-osx_image: xcode10
+osx_image: xcode10.1
 
 before_install:
   ./xcbuild.sh
