@@ -3,10 +3,12 @@ language: swift
 # xcode_scheme: termina-base
 # xcode_destination: platform=macOS
 osx_image: xcode10
-sudo: required
+
+before_install:
+  ./xcbuild.sh
 
 script:
-  ./xcbuild.sh
+  xcodebuild -scheme termina-base -project termina-base.xcodeproj -derivedDataPath dist build
 
 deploy:
   provider: releases
