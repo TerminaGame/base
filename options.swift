@@ -6,12 +6,15 @@
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
 // This is usually taken care of Info.plist, but this is a Unix
-// executable, so these options are defined here.
+// executable, so these options are defined here. Azure DevOps
+// builds will overwrite the build variable from here to the build
+// being generated in the pipeline sequence.
 //
 import Foundation
 
-let version = "1.0.0"
+let version = "1.0.0beta1"
 let build = "beta1"
+let fullBuildId = version + build
 let copyright = "Copyright © 2018 Termina developers. All rights reserved."
 let license = """
 Licensed under the Apache License, Version 2.0 (the "License");

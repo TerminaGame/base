@@ -9,7 +9,8 @@ import Foundation
 
 // Display the "splash" screen and copyright information.
 print("""
-    Termina \(version + build)
+    Termina \(version)
+    Build ID: \(fullBuildId)
     \(copyright)
     Type \("license".bold()) for more details.
     Made with ❤️.

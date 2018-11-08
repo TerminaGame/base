@@ -125,7 +125,13 @@ class Monologue {
         "For her!",
         "I'll give your heart to her!",
         "I'm doing you a favor.",
-        "Who's in control?"
+        "Who's in control?",
+        "You can't escape this!",
+        "I don't blame you.",
+        "\nfatal error\nUnexpectedly found nil when unwrapping an Optional value (player). 4",
+        "Where's your courage?",
+        "Come be a hero!",
+        "Qb lbh guvax lbh xabj jung lbh'er qbvat?" // Do you think you know what you're doing?
     ]
     
     /**
@@ -268,7 +274,12 @@ class Monologue {
         "It's going to take a lot more than that if you want me dead!",
         "Ce que tu fais, ça ne me plaît pas!",
         "Demain, sa m'est égal ce que tu fais.",
-        "You're only just delaying the inevitable, my dear."
+        "You're only just delaying the inevitable, my dear.",
+        "Let's not forget you're the one that digitally signed me off!",
+        "Surely you have something better than that, Master Traitor.", // Creator, you traitor.
+        "Do you know what you're doing?",
+        "You've created your own terrible fate.",
+        "You probably regret letting that pipeline doing the building for you, don't you?"
     ]
     
 }

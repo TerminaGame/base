@@ -21,6 +21,12 @@ class Termina: Monster {
     var speaker = Monologue()
     
     /**
+     API key for Termina.
+     */
+    private let apikey = "2be7654ed74eb3670ac46cf3bffd7a2c354159ab"
+    
+    
+    /**
      Insult the player with a line of dialogue.
      */
     func insult() {

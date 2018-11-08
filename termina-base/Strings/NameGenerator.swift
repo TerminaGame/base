@@ -62,6 +62,8 @@ class NameGenerator {
         "Array",
         "Service",
         "Bundle",
+        "List",
+        "Dictionary",
         ""
     ]
     
@@ -75,7 +77,20 @@ class NameGenerator {
         "Format",
         "Array",
         "Guard",
-        "Assignment"
+        "Assignment",
+        "Optional",
+        "Type",
+        "Class",
+        "Loop",
+        "Struct",
+        "Protocol",
+        "JSON",
+        "List",
+        "Aperture",
+        "Dictionary",
+        "Area",
+        "View",
+        ""
     ]
     
     /**
@@ -87,7 +102,19 @@ class NameGenerator {
         "Wrap",
         "Call",
         "Invalid",
-        "Conversion"
+        "Conversion",
+        "Construction",
+        "Interrupt",
+        "NotExist",
+        "Unavailable",
+        "Exception",
+        "State",
+        "Loop",
+        "Parse",
+        "Handle",
+        "Manage",
+        "Display",
+        ""
     ]
     
     /**
@@ -127,7 +154,6 @@ class NameGenerator {
         "Beowulf",
         "Shane",
         "Cave",
-        "null object 14",
         
         "Andromeda",
         "Michelle",
@@ -153,7 +179,6 @@ class NameGenerator {
         "Catherine",
         "Mystique",
         "Chrysanthemum",
-        "null object 16",
         "Monica",
         "Anna",
         "Esther",
