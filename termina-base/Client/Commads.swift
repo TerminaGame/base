@@ -35,13 +35,19 @@ class CommandInterpreter {
         print("\nWhat would you like to do? Type a command or a set seperated by a semicolon:")
         let commandInput = readLine(strippingNewline: true)!
         if commandInput.contains(";") {
+            myLogger.logToFile("Input is a set of commands! Parsing each command...", "info")
             var commandArray = commandInput.components(separatedBy: ";")
             if let emptyArrayIndex = commandArray.index(of: ";") {
                 commandArray.remove(at: emptyArrayIndex)
             }
+            
+            var parseCommandCounter = 0
             for commandInArray in commandArray {
+                myLogger.logToFile("Running command \(commandInArray.uppercased()) (\(parseCommandCounter))", "info")
                 parseCommand(commandInArray, whichRoom, settings, skipCommandLogging: skipCommandLogging)
+                parseCommandCounter += 1
             }
+            myLogger.logToFile("Done!", "info")
         } else {
             parseCommand(commandInput, whichRoom, vm, skipCommandLogging: skipCommandLogging)
         }

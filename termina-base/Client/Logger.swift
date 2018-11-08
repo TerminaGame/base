@@ -20,12 +20,13 @@ class Logger {
      
      This array contains all of the strings when the logger functions are executed.
      */
-    var log = [String]()
+    var log = ["Termina \(version) (build \(build))"]
     
     /**
      Create a log file of all logging messages. Overwrites any older log files.
      */
     func printLog() {
+        myLogger.logToFile("Do you think you're accomplishing anything by snooping around like this? You're wasting your time, and believe me; if there was something hidden, you WOULD'NT want to see it.", "warning")
         let logPath = try! Folder(path: "")
         
         var fullLogAsString = ""
