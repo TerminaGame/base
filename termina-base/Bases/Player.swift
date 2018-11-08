@@ -48,7 +48,7 @@ class Player: Entity {
      */
     override func takeDamage(_ amount: Double) {
         let tempHealth = health - amount
-        if (tempHealth < 0) {
+        if (tempHealth <= 0) {
             health = 0
             myLogger.info("You died!")
             myLogger.info("The game is now over. Exiting to terminal...")

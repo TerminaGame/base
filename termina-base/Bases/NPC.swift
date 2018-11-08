@@ -20,6 +20,8 @@ class NPC: Entity {
      */
     var monologue = [""]
     
+    var cheesecakeSurprise = false
+    
     var quip: String
     
     /**
@@ -40,6 +42,18 @@ class NPC: Entity {
             super.saySomething(what ?? "Help me.")
         } else {
             super.saySomething(quip)
+        }
+    }
+    
+    /**
+     Special cheesecake function!
+     */
+    func cheesecake() {
+        if !cheesecakeSurprise {
+            saySomething("Gobble gobble.")
+            cheesecakeSurprise = true
+        } else {
+            myLogger.error("What are you doing?")
         }
     }
     

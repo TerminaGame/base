@@ -23,6 +23,31 @@ class CommandInterpreter {
     var lastCommand = ""
     
     /**
+     Gets the command or list of commands from a user and parses them.
+     
+     - Parameters:
+        - whichRoom: The room to parse the commands for
+        - settings: The settings manager to handling data
+        - skipCommandLogging: Whether to skip flagging the commands in the command log
+     */
+    func getCommandAndParse(whichRoom: Room, settings: SettingsManager, skipCommandLogging: Bool) {
+        // Get the player's input and parse the command into the interpreter.
+        print("\nWhat would you like to do? Type a command or a set seperated by a semicolon:")
+        let commandInput = readLine(strippingNewline: true)!
+        if commandInput.contains(";") {
+            var commandArray = commandInput.components(separatedBy: ";")
+            if let emptyArrayIndex = commandArray.index(of: ";") {
+                commandArray.remove(at: emptyArrayIndex)
+            }
+            for commandInArray in commandArray {
+                parseCommand(commandInArray, whichRoom, settings, skipCommandLogging: skipCommandLogging)
+            }
+        } else {
+            parseCommand(commandInput, whichRoom, vm, skipCommandLogging: skipCommandLogging)
+        }
+    }
+    
+    /**
      Interpret the given input to perform an action. If the command parsing is successful, the command is stored into `lastCommand` for future use.
      
      If the player is attempting to run the same command as the last time, this will attempt to parse the command stored in `lastCommand`.
@@ -41,7 +66,7 @@ class CommandInterpreter {
             GETTING INFORMATION
         */
             
-        case "aboutroom":
+        case "whereami":
             print("=== \("Current Room".bold()) ===".foregroundColor(TerminalColor.orange3))
             if room.myAttackSequence?.enemy != nil {
                 let monsterLevel = String(room.myMonster!.level)
@@ -79,7 +104,7 @@ class CommandInterpreter {
             }
             print("\n")
             break
-        case "aboutself":
+        case "whoami":
             let myLevel = String(myPlayer.level)
             let myExperience = String(myPlayer.experience)
             print("=== \(myPlayer.name.bold()) ===".foregroundColor(TerminalColor.orange3))
@@ -108,7 +133,16 @@ class CommandInterpreter {
             print("\n")
             break
             
-        
+        // Deprecated functions
+        case "aboutself":
+            myLogger.warning("'aboutself' is deprecated. Use 'whoami' instead.")
+            parseCommand("whoami", room, settingsHandler, skipCommandLogging: false)
+            break
+            
+        case "aboutroom":
+            myLogger.warning("'aboutroom' is deprecated. Use 'whereami' instead.")
+            parseCommand("whereami", room, settingsHandler, skipCommandLogging: false)
+            break
             
         /*
             INTERACTIONS
@@ -287,10 +321,11 @@ class CommandInterpreter {
             print("""
             === \("List of Commands".bold().green()) ===
             \("Tip: To run a previous command, press Enter.".foregroundColor(TerminalColor.orange3))
+            \("Tip: To run a series of commands, seperate each command by a semicolon (help;whereami;exit).".foregroundColor(TerminalColor.orange3))
             
             == \("Getting Information".bold().green()) ==
-            aboutroom - displays information about the room.
-            aboutself - displays information about oneself.
+            whereami - displays information about the room.
+            whoami - displays information about oneself.
 
             == \("Interactions".bold().green()) ==
             attack - attacks the monster in the room, if present.
@@ -348,6 +383,14 @@ class CommandInterpreter {
             break
         
             
+            
+        case "cheesecake":
+            if room.myNPC != nil {
+                room.myNPC?.cheesecake()
+            } else {
+                myLogger.error("What in the world are you doing?")
+            }
+            break
         
         default:
             myLogger.error("\"\(command)\" is not a valid command. Type \("help".green()) to see a list of commands.")

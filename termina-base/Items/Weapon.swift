@@ -31,7 +31,7 @@ class Weapon: Item {
             if object is Weapon {
                 let weapon = object as? Weapon
                 
-                let swapWeaponPrompt = myLogger.ask("You have \(weapon?.name ?? "a weapon") already equipped. Are you sure you want to equip \(name) instead?")
+                let swapWeaponPrompt = myLogger.ask("You have \(weapon?.name ?? "a weapon") (\(weapon?.level ?? 0) already equipped. Are you sure you want to equip \(name) (Level \(level ?? 0)) instead?")
                 
                 if swapWeaponPrompt {
                     weapon?.unequip()

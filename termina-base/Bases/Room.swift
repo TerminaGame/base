@@ -70,7 +70,7 @@ class Room {
      - Parameters:
         - player: The player to put into the room
         - monster: The monster to insert into the room. If set to `nil`, will generate randomly.
-        - cmd: The command interpreter to run the "aboutroom" command. If set to `nil`, will not display command.
+        - cmd: The command interpreter to run the "whereami" command. If set to `nil`, will not display command.
      */
     init(_ player: Player, _ monster: Monster?, _ cmd: CommandInterpreter?) {
         let chance = Int.random(in: 0 ... 9)
@@ -122,7 +122,7 @@ class Room {
         }
         
         if cmd != nil {
-            cmd!.parseCommand("aboutroom", self, SettingsManager(player), skipCommandLogging: true)
+            cmd!.parseCommand("whereami", self, SettingsManager(player), skipCommandLogging: true)
         }
     }
     

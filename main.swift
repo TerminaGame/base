@@ -56,7 +56,7 @@ if !vm.loadSettings() {
 // If the settings file is found, greet the player and assume that they know the controls.
 else {
     print("Welcome back to Termina, \(myPlayer.name.bold()). We've been waiting for you.\n")
-    command.parseCommand("aboutself", Room(myPlayer, nil, nil), vm, skipCommandLogging: true)
+    command.parseCommand("whoami", Room(myPlayer, nil, nil), vm, skipCommandLogging: true)
 }
 
 // Always keep creating a new room until the room is destroyed or the player level is
@@ -77,9 +77,10 @@ while true {
             myLogger.logToFile("New room generated.", "info")
         }
         
-        // Get the player's input and parse the command into the interpreter.
-        print("\nWhat would you like to do? Type a command:")
-        command.parseCommand(readLine(strippingNewline: true)!, theDarkRoom, vm, skipCommandLogging: false)
+        // Get the player's input and parse ift accordingly.
+        command.getCommandAndParse(whichRoom: theDarkRoom, settings: vm, skipCommandLogging: false)
+        
+        
     }
 }
 
@@ -107,9 +108,7 @@ while myPlayer.level >= 420 {
             termina.insult()
         }
         
-        // Get the player's input and parse the command.
-        print("\nWhat would you like to do? Type a command:")
-        command.parseCommand(readLine(strippingNewline: true)!, terminaRoom, vm, skipCommandLogging: false)
+        command.getCommandAndParse(whichRoom: terminaRoom, settings: vm, skipCommandLogging: false)
     }
     
     // If the player has left the room, break this loop infinitely.
