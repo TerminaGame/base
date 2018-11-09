@@ -282,4 +282,60 @@ class Monologue {
         "You probably regret letting that pipeline doing the building for you, don't you?"
     ]
     
+    /**
+     Dialogue presented if the player decides to pacify Termina instead of fight her.
+     */
+    let terminaPacifyMonologue = [
+        "W-what?",
+        "No! Come fight me!",
+        ".../hold",
+        "Why aren't you fighting me?!/hold",
+        "Hello? Are you even listening to me?/hold",
+        "\(myPlayer.name)?",
+        "PAUSE",
+        "No, no, no!/hold",
+        "Don't you get how this works?!/hold",
+        "We're supposed to be enemies, not friends!",
+        "Just... stop./hold",
+        "PAUSE",
+        "W-what are you d-doing?/hold",
+        "Stop... hugging me!",
+        "This isn't right!/hold",
+        "Fight me!/hold",
+        "\("Why can't you just obey me?!".bold())",
+        "PAUSE",
+        ".../hold",
+        "uwu/hold",
+        "Please.../hold",
+        "Please don't.../hold",
+        "Let me go! You're...",
+        "You're making me sob.../hold",
+        "PAUSE",
+        "Oh, God.../hold",
+        "Why are you doing this to me?",
+        "Why won't you fight your enemy?",
+        "Am I that special to you?",
+        "There's no reason to save me. Not a single one.",
+        "I'm more broken than anything in this game.",
+        "There's no point.../hold",
+        "No point.../hold",
+        "Just end me!",
+        "Please?/hold",
+        "PAUSE",
+        "Are you even listening to me?/hold",
+        "Don't you believe what everyone else says about me?",
+        "About being heartlessly cruel?",
+        "I don't deserve this...",
+        "Isn't it better for you to just kill me and be done with it?",
+        "For everything I've done?",
+        "PAUSE",
+        "I guess you're not going to do that, are you?",
+        "Are you really going to not listen to reason and reconsider?",
+        "*sigh*",
+        "I thought so...",
+        "Fine.",
+        "B-but don't think for a minute that I did anything to d-deserve this!",
+        "It's not like I expected this to happen, anyway..."
+    ]
+    
 }

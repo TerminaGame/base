@@ -5,6 +5,7 @@
 //  Created by Marquis Kurt on 10/17/18.
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
+import Foundation
 
 /**
  Base class for describing entities in the game.
@@ -60,6 +61,35 @@ class Entity {
      */
     func saySomething(_ what: String) {
         print("\(name.bold().foregroundColor(colorType)): \(what)")
+    }
+    
+    /**
+     Parse a monologue given the following conditions.
+     
+     Monologues can use special strings or escape sequences to manipulate how the monologue is displayed.
+     
+     - Adding `"PAUSE"` as an element will prompt the user to press Enter before continuing.
+     - Adding `"/hold"` to the string element will cause the interpreter to pause after the line is displayed for three seconds.
+     
+     - Parameters:
+        - what: the monologue to parse.
+     */
+    func parseMonologue(_ what: [String]) {
+        for line in what {
+            if line == "PAUSE" {
+                print("Press Enter to continue.".bold())
+                let _ = readLine()!
+            } else {
+                if (line.range(of: "/hold") != nil) {
+                    let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
+                    print("\(name.bold().foregroundColor(colorType)): \(strippedLine)")
+                    usleep(3000000)
+                } else {
+                    print("\(name.bold().foregroundColor(colorType)): \(line)")
+                    usleep(useconds_t(50000 * line.count))
+                }
+            }
+        }
     }
     
     /**

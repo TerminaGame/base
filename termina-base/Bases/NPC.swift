@@ -69,26 +69,7 @@ class NPC: Entity {
         - instant: Whether to display all lines instantly (Bool) instead of line by line
      */
     func sayMonologue(instant: Bool) {
-        for line in monologue {
-            if line == "PAUSE" {
-                print("Press Enter to continue.".bold())
-                let _ = readLine()!
-            } else {
-                if (line.range(of: "/hold") != nil) {
-                    let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
-                    print("\(name.bold().foregroundColor(colorType)): \(strippedLine)")
-                } else {
-                    print("\(name.bold().foregroundColor(colorType)): \(line)")
-                }
-                if !instant {
-                    if (line.range(of: "/hold") != nil) {
-                        usleep(3000000)
-                    } else {
-                        usleep(useconds_t(50000 * line.count))
-                    }
-                }
-            }
-        }
+        parseMonologue(monologue)
         monologue = [""]
     }
     

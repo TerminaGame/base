@@ -35,25 +35,9 @@ class Termina: Monster {
     
     /**
      Speak pre-battle dialogue.
-     
-     This function borrows elements from NPCs in parsing the monologue.
      */
     func speakBeforeFighting() {
-        for line in speaker.terminaPreBattleMonologue {
-            if line == "PAUSE" {
-                print("Press Enter to continue.".bold())
-                let _ = readLine()!
-            } else {
-                if (line.range(of: "/hold") != nil) {
-                    let strippedLine = line.replacingOccurrences(of: "/hold", with: "")
-                    print("\(name.bold().foregroundColor(colorType)): \(strippedLine)")
-                    usleep(3000000)
-                } else {
-                    print("\(name.bold().foregroundColor(colorType)): \(line)")
-                    usleep(useconds_t(50000 * line.count))
-                }
-            }
-        }
+        parseMonologue(Monologue().terminaPreBattleMonologue)
     }
     
     /**
@@ -66,8 +50,25 @@ class Termina: Monster {
         super.takeDamage(amount)
         print("\(name.bold().foregroundColor(colorType)): Aah~!")
         if health <= 0.0 {
-            print("\(name.bold().foregroundColor(colorType)): No, no, no! Why can't you just die?")
+            print("\(name.bold().foregroundColor(colorType)): No, no, no! Just die already!")
         }
+    }
+    
+    /**
+     Pacify Termina.
+     
+     First parses the pacify monologue and then continues the regular pacify function.
+     */
+    override func pacify(_ from: Player) {
+        if level <= from.level || canBePacified {
+            parseMonologue(Monologue().terminaPacifyMonologue)
+            myLogger.info("\(name) reluctantly accepts.")
+            myLogger.info("You pacified \(name) successfully!")
+            from.experienceUp(7)
+        } else {
+            myLogger.error("\(name) can't be pacified!")
+        }
+        
     }
     
     /**
@@ -76,5 +77,6 @@ class Termina: Monster {
     init() {
         super.init("Termina", 4200)
         super.colorType = TerminalColor.orange3
+        super.canBePacified = true
     }
 }

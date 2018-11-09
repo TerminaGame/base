@@ -253,18 +253,11 @@ class CommandInterpreter {
             
         case "pacify":
             if room.myAttackSequence?.enemy != nil {
-                if myPlayer.level ?? 1 > room.myMonster?.level ?? 1 {
-                    room.myMonster?.pacify()
-                    room.myAttackSequence?.enemy = nil
-                    myLogger.info("You pacified the error successfully!")
-                    myPlayer.experienceUp(7)
-                } else {
-                    myLogger.error("You can't pacify \(room.myAttackSequence?.enemy?.name ?? "Monster")!")
-                }
+                room.myMonster?.pacify(myPlayer)
+                room.myAttackSequence?.enemy = nil
             } else {
                 myLogger.error("There isn't an error to pacify.")
             }
-            
             break
            
             
