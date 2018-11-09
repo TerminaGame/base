@@ -58,8 +58,6 @@ class Room {
     func attackHere() {
         if myAttackSequence?.enemy != nil {
             myAttackSequence?.attack()
-        } else {
-            print("Please, stop with the overkill.")
         }
     }
     
@@ -101,10 +99,10 @@ class Room {
         if (chance >= 4) {
             let selectRandomHelper = Int.random(in: 0 ... 3)
             if selectRandomHelper <= 2 {
-                let myPotion = Potion("Heal Potion", player)
+                let myPotion = Potion("Health Hotfix", player)
                 myItems.append(myPotion)
             } else if selectRandomHelper == 3 {
-                let myBottle = Bottle("Bottle of Experience", player)
+                let myBottle = Bottle("Experience Incrementer", player)
                 myItems.append(myBottle)
             }
             

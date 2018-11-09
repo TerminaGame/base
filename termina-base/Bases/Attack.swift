@@ -25,6 +25,10 @@ class AttackScene {
      */
     var enemy: Monster?
     
+    var protectedZone: Bool
+    
+    var protectedZoneCount = 0
+    
     /**
      Allow each entity to attack each other.
      
@@ -49,7 +53,20 @@ class AttackScene {
         } else {
             let enemyHealth = String(enemy!.health)
             myLogger.info("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).")
-            enemy?.attackPlayer(player!)
+            
+            if protectedZone {
+                if protectedZoneCount < 3 {
+                    myLogger.info("The protected zone has deflected \(enemy?.name ?? "Monster")'s attack!")
+                    protectedZoneCount += 1
+                    if protectedZoneCount == 3 {
+                        protectedZone = false
+                        myLogger.error("The zone is unprotected now!")
+                    }
+                }
+            } else {
+                enemy?.attackPlayer(player!)
+            }
+            
             
             let selfHealth = String(player!.health)
             
@@ -78,5 +95,13 @@ class AttackScene {
     init(_ whichPlayer: Player, _ whichMonster: Monster) {
         player = whichPlayer
         enemy = whichMonster
+        
+        let chance = Int.random(in: 0...5)
+        
+        if chance > 3 {
+            protectedZone = false
+        } else {
+            protectedZone = true
+        }
     }
 }

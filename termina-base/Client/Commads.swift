@@ -74,17 +74,20 @@ class CommandInterpreter {
             
         case "whereami":
             print("=== \("Current Room".bold()) ===".foregroundColor(TerminalColor.orange3))
+            if room.myAttackSequence?.protectedZone ?? false {
+                print("Protected Zone".cyan().blink())
+            }
             if room.myAttackSequence?.enemy != nil {
                 let monsterLevel = String(room.myMonster!.level)
                 let monsterName = room.myMonster?.name
-                print("\(monsterName ?? "Monster") [Level \(monsterLevel)] (Enemy)".red())
+                print("\(monsterName ?? "Monster") [Level \(monsterLevel)] (Enemy)".red().bold())
                 
                 if myPlayer.level <= 3 {
                     print("Use the \("attack".bold()) command to catch the error!".green())
                 }
                 
             } else if room.myNPC != nil {
-                print("\(room.myNPC?.name ?? "NPC") (NPC)")
+                print("\(room.myNPC?.name ?? "NPC") (NPC)".bold())
                 
                 if myPlayer.level <= 3 {
                     print("Use the \("talk".bold()) command to interact!".green())
@@ -95,14 +98,14 @@ class CommandInterpreter {
             }
             
             if room.myItems.isEmpty != true {
-                print("Items: ")
+                print("Items: ".bold())
                 for obj in room.myItems {
                     if obj is Weapon {
                         let thisWeapon = obj as! Weapon
                         let weaponLevel = String(thisWeapon.level!)
                         print(" - \(thisWeapon.name) [Level \(weaponLevel)]")
                     } else {
-                        print(" - \(obj.name) (\(obj.currentUse) uses left)")
+                        print(" - \(obj.name) v.\(obj.effect) (\(obj.currentUse) uses left)")
                     }
                 }
             } else {
@@ -117,7 +120,7 @@ class CommandInterpreter {
             print("Level \(myLevel)")
             print("Progress to next Level: \(myExperience)/25".cyan())
             if myPlayer.health <= 10.0 {
-                 print("Health: \(String(myPlayer.health).red())/\(myPlayer.maximumHealth)".yellow())
+                 print("Health: \(String(myPlayer.health).red().blink().bold())/\(myPlayer.maximumHealth)".yellow())
             } else {
                 print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)".yellow())
             }
