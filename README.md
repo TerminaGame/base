@@ -15,6 +15,7 @@ This repository provides the base source code for the game as well as the projec
 - [x] Attack and heal system
 - [x] Persistent data or load games
 - [x] Inventory system
+- [x] Command set support
 
 ## GUIs
 If you're looking for GUI versions, we recommend looking at the following projects:
@@ -30,6 +31,8 @@ If you prefer testing builds as they are built off the branch, check out the [Az
 1. Go to the DevOps builds page.
 2. Click on the build you'd like to test out.
 3. Click 'Artifacts > drop' to download the ZIP file.
+
+> Coming soon: builds to be made available via Homebrew!
 
 ## Building from source
 Clone the repository via Xcode and run the default scheme to build and test. This requires at least Xcode 9.4.1 and macOS 10.14 Mojave or Swift 4.2.
