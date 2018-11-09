@@ -76,10 +76,18 @@ class SettingsManager {
      */
     func deleteSettings() {
         let jsonPath = try! Folder(path: "")
+        let rootJsonPath = try! Folder(path: "../")
         
-        try! jsonPath.file(named: "settings.json").copy(to: Folder(path: "../"))
+        if rootJsonPath.containsFile(named: "settings.json") {
+            try! jsonPath.file(named: "settings.json").rename(to: "settings_\(thisPlayer.name).json")
+        }
         
-        try! jsonPath.file(named: "settings.json").delete()
+        for file in jsonPath.files {
+            if file.extension == "json" {
+                try! file.move(to: rootJsonPath)
+            }
+        }
+        
     }
     
     /**

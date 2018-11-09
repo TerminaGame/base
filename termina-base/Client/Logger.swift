@@ -29,6 +29,11 @@ class Logger {
         myLogger.logToFile("Do you think you're accomplishing anything by snooping around like this? You're wasting your time, and believe me; if there was something hidden, you WOULD'NT want to see it.", "warning")
         let logPath = try! Folder(path: "")
         
+        if logPath.containsFile(named: "termlog.txt") {
+            warning("termlog.txt has been detected here! Renaming this file to termlog.bak.txt...")
+            try! logPath.file(named: "termlog.txt").rename(to: "termlog.bak.txt")
+        }
+        
         var fullLogAsString = ""
         
         for message in log {

@@ -61,8 +61,12 @@ class Monster: Entity {
         } else {
             super.takeDamage(amount)
         }
+                
+        if Int.random(in: 1 ... 50) > 23 {
+            saySomething(Monologue().randomMonologuesMonster.randomElement() ?? "Aargh!")
+        }
         
-        saySomething(Monologue().randomMonologuesMonster.randomElement() ?? "Aargh!")
+        
     }
     
     /**
