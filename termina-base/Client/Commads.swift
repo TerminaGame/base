@@ -80,7 +80,7 @@ class CommandInterpreter {
             if room.myAttackSequence?.enemy != nil {
                 let monsterLevel = String(room.myMonster!.level)
                 let monsterName = room.myMonster?.name
-                print("\(monsterName ?? "Monster") [Level \(monsterLevel)] (Enemy)".red().bold())
+                print("\(monsterName ?? "Monster") v.\(monsterLevel) (Enemy)".red().bold())
                 
                 if myPlayer.level <= 3 {
                     print("Use the \("attack".bold()) command to catch the error!".green())
@@ -103,9 +103,9 @@ class CommandInterpreter {
                     if obj is Weapon {
                         let thisWeapon = obj as! Weapon
                         let weaponLevel = String(thisWeapon.level!)
-                        print(" - \(thisWeapon.name) [Level \(weaponLevel)]")
+                        print(" - \(thisWeapon.name) v.\(weaponLevel)".foregroundColor(TerminalColor.gold3_2))
                     } else {
-                        print(" - \(obj.name) v.\(obj.effect) (\(obj.currentUse) uses left)")
+                        print(" - \(obj.name) v.\(obj.effect) (\(obj.currentUse) uses left)".foregroundColor(TerminalColor.purple_3))
                     }
                 }
             } else {
@@ -113,12 +113,13 @@ class CommandInterpreter {
             }
             print("\n")
             break
+        
         case "whoami":
             let myLevel = String(myPlayer.level)
             let myExperience = String(myPlayer.experience)
             print("=== \(myPlayer.name.bold()) ===".foregroundColor(TerminalColor.orange3))
-            print("Level \(myLevel)")
-            print("Progress to next Level: \(myExperience)/25".cyan())
+            print("Version \(myLevel)")
+            print("Patch Number: \(myExperience)/25".cyan())
             if myPlayer.health <= 10.0 {
                  print("Health: \(String(myPlayer.health).red().blink().bold())/\(myPlayer.maximumHealth)".yellow())
             } else {
@@ -140,17 +141,6 @@ class CommandInterpreter {
                 print(" - Inventory empty!")
             }
             print("\n")
-            break
-            
-        // Deprecated functions
-        case "aboutself":
-            myLogger.warning("'aboutself' is deprecated. Use 'whoami' instead.")
-            parseCommand("whoami", room, settingsHandler, skipCommandLogging: false)
-            break
-            
-        case "aboutroom":
-            myLogger.warning("'aboutroom' is deprecated. Use 'whereami' instead.")
-            parseCommand("whereami", room, settingsHandler, skipCommandLogging: false)
             break
             
         /*
@@ -176,13 +166,13 @@ class CommandInterpreter {
             if room.myItems.isEmpty {
                 myLogger.error("There aren't any items in this room.")
             } else {
-                for obj in room.myItems {
+                equipLoop: for obj in room.myItems {
                     if obj is Potion {
                         obj.use()
                         if obj.currentUse == 0 {
                             room.myItems.removeFirst()
                         }
-                        break
+                        break equipLoop
                     } else if !(obj is Potion) {
                         myLogger.error("You can't use \(obj.name) to heal yourself.")
                         break
@@ -199,10 +189,11 @@ class CommandInterpreter {
             if room.myItems.isEmpty {
                 myLogger.error("There aren't any items in this room.")
             } else {
-                for obj in room.myItems {
+                xpLoop: for obj in room.myItems {
                     if obj is Bottle {
                         obj.use()
                         room.myItems.removeFirst()
+                        break xpLoop
                     } else if !(obj is Bottle) {
                         myLogger.error("You cannot upgrade your XP with a \(obj.name).")
                     } else {
@@ -217,7 +208,7 @@ class CommandInterpreter {
             if room.myAttackSequence?.enemy == nil {
                 room.isDestroyed = true
             } else {
-                myLogger.error("You cannot leave until you kill \(room.myMonster?.name ?? "the monster") has been killed.")
+                myLogger.error("You cannot leave until \(room.myMonster?.name ?? "the monster") has been caught or pacified!")
             }
             break
             
@@ -226,14 +217,15 @@ class CommandInterpreter {
                 myLogger.error("There is nothing to equip in this room.")
                 break
             } else {
-                for obj in room.myItems {
+                weaponLoop: for obj in room.myItems {
                     if obj is Weapon {
                         let useWeapon = obj as! Weapon
                         let getEquipped = useWeapon.equip()
                         if getEquipped {
                             room.myItems.removeLast()
+                            break weaponLoop
                         } else {
-                            break
+                            break weaponLoop
                         }
                     } else {
                         myLogger.error("\(obj.name) cannot be equipped.")
@@ -322,29 +314,25 @@ class CommandInterpreter {
         case "help":
             print("""
             === \("List of Commands".bold().green()) ===
-            \("Tip: To run a previous command, press Enter.".foregroundColor(TerminalColor.orange3))
-            \("Tip: To run a series of commands, seperate each command by a semicolon (help;whereami;exit).".foregroundColor(TerminalColor.orange3))
+            \("To run a previous command, press Enter.".foregroundColor(TerminalColor.orange3))
             
-            == \("Getting Information".bold().green()) ==
-            whereami - displays information about the room.
-            whoami - displays information about oneself.
-
-            == \("Interactions".bold().green()) ==
+            == \("Game Commands".bold().green()) ==
             attack - attacks the monster in the room, if present.
             equip - Equip the weapon in the room, if possible.
             heal - restores your health by an amount.
+            leave - leave the room, if possible.
             pacify - attempt to make peace with an error, if possible.
             talk - talk to a person in the room, if possible.
             xp - use an experience-enhancing bottle, if possible.
+            whereami - displays information about the room.
+            whoami - displays information about oneself.
 
-            == \("Miscellaneous".bold().green()) ==
+            == \("Client Commands".bold().green()) ==
             changename - change your name to something else.
             clear - clears the console screen.
             exit - quits the game.
             help - displays this screen.
-            leave - leave the room, if possible.
             license - display the game's license statement.
-            printlog - print the log of the current session as of running the command.
             save - saves your player profile.
             """)
             break

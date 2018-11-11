@@ -85,7 +85,7 @@ class Room {
                     if player.level < 8 {
                         myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: 1 ... 7))
                     } else {
-                        myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 7 ... player.level + 5))
+                        myMonster = Monster(myNameGen.generateMonsterName(), Int.random(in: player.level - 7 ... player.level + 15))
                     }
                 }
                 myAttackSequence = AttackScene(player, myMonster!)

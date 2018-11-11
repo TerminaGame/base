@@ -52,12 +52,15 @@ class Monster: Entity {
      
      - Parameters:
         - amount: The amount to take damage, if possible.
+     
+     - Returns: Boolean value if taking damage was successful.
      */
-    override func takeDamage(_ amount: Double) {
+    func takeDamageOrDeflect(_ amount: Double) -> Bool {
         let chance = Int.random(in: 1 ... 10)
         
         if chance <= 3 {
             myLogger.info("\(name) deflected and took no damage!")
+            return false
         } else {
             super.takeDamage(amount)
         }
@@ -65,8 +68,7 @@ class Monster: Entity {
         if Int.random(in: 1 ... 50) > 23 {
             saySomething(Monologue().randomMonologuesMonster.randomElement() ?? "Aargh!")
         }
-        
-        
+        return true
     }
     
     /**
@@ -96,6 +98,6 @@ class Monster: Entity {
         pacifyQuip = Monologue().pacifyMonologues.randomElement() ?? "Uwu"
         super.init(monsterName, "Monster", 100, TerminalColor.red)
         level = myLevel
-        attack = Double(myLevel)
+        attack = Double(myLevel) + 5.0
     }
 }

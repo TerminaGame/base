@@ -45,15 +45,12 @@ class AttackScene {
             }
         }
         let damageFromPlayer = Double(((player?.level! ?? 1)) + (player?.temporaryLevel ?? Int.random(in: 1 ... 5)))
-        enemy?.takeDamage(damageFromPlayer)
+        let didEnemyGetDamaged = enemy?.takeDamageOrDeflect(damageFromPlayer)
         if (enemy?.health == 0) {
             myLogger.info("\(enemy?.name ?? "The enemy") is now caught!")
             enemy = nil
             player?.experienceUp(5)
         } else {
-            let enemyHealth = String(enemy!.health)
-            myLogger.info("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).")
-            
             if protectedZone {
                 if protectedZoneCount < 3 {
                     myLogger.info("The protected zone has deflected \(enemy?.name ?? "Monster")'s attack!")
@@ -64,6 +61,8 @@ class AttackScene {
                     }
                 }
             } else {
+                let enemyHealth = String(enemy!.health)
+                if !(didEnemyGetDamaged ?? true) { myLogger.info("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).") }
                 enemy?.attackPlayer(player!)
             }
             
@@ -78,7 +77,7 @@ class AttackScene {
                 exit(1)
             } else if (player?.health ?? 1 <= 10.0) {
                 myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth.red()).")
-            } else {
+            } else if !protectedZone {
                 myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")
             }
             
@@ -98,10 +97,13 @@ class AttackScene {
         
         let chance = Int.random(in: 0...5)
         
-        if chance > 3 {
-            protectedZone = false
-        } else {
+        let enemyLevel = enemy?.level ?? 2
+        let playerLevel = player?.level ?? 1
+        
+        if chance > 2 && enemyLevel > playerLevel {
             protectedZone = true
+        } else {
+            protectedZone = false
         }
     }
 }
