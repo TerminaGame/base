@@ -32,7 +32,23 @@ If you prefer testing builds as they are built off the branch, check out the [Az
 2. Click on the build you'd like to test out.
 3. Click 'Artifacts > drop' to download the ZIP file.
 
-> Coming soon: builds to be made available via Homebrew!
+### Download via Homebrew
+We have packages available through the Homebrew package manager! Just follow the instructions below to get started:
+
+1. Install Homebrew if you haven't already.
+2. Run the following commands:
+
+#### Regular
+```
+brew tap TerminaGame/termina-osx
+brew install termina
+```
+
+#### Developer Build
+```
+brew tap TerminaGame/termina-osx
+brew install termina-dev
+```
 
 ## Building from source
 Clone the repository via Xcode and run the default scheme to build and test. This requires at least Xcode 9.4.1 and macOS 10.14 Mojave or Swift 4.2.
