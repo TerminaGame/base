@@ -87,7 +87,7 @@ class CommandInterpreter {
                 }
                 
             } else if room.myNPC != nil {
-                print("\(room.myNPC?.name ?? "NPC") (NPC)".bold())
+                print("\(room.myNPC?.name ?? "NPC") (NPC)".bold().lightGray())
                 
                 if myPlayer.level <= 3 {
                     print("Use the \("talk".bold()) command to interact!".green())

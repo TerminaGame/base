@@ -7,20 +7,28 @@
 //
 import Foundation
 
+// Construct all of the important objects we need for
+// the game to run.
+let myPlayer = Player("player")
+let command = CommandInterpreter()
+let myLogger = Logger()
+let vm = SettingsManager(myPlayer)
+var runEndlessModeFromCommandLine = false
+
+// Check all command arguments that could be passed through.
+// Some commands may cause the program to quit before going
+// through, so it must be checked before the game actually
+// starts.
+checkArgs()
+
 // Display the "splash" screen and copyright information.
 print("""
     Termina \(version)
-    Build ID: \(fullBuildId)
+    Build ID: \(build)
     \(copyright)
     Type \("license".bold()) for more details.
     Made with ❤️.
     """.foregroundColor(TerminalColor.orange3))
-
-// Construct a player, command interpreter, and logger.
-// These will get used constantly throughout the game.
-let myPlayer = Player("player")
-let command = CommandInterpreter()
-let myLogger = Logger()
 
 // Silently log that a new session has started. These silent logs appear everywhere so that
 // the user has a better understanding of what is going on. They are stored in termlog.txt when
@@ -28,7 +36,6 @@ let myLogger = Logger()
 myLogger.logToFile("Starting a new session...", "info")
 
 // Construct a settings manager to load data and attempt to locate a settings file.
-let vm = SettingsManager(myPlayer)
 myLogger.logToFile("Attempting to load settings...", "info")
 
 // If the settings file is missing, ask the player to create a new player account.
@@ -66,7 +73,9 @@ while true {
     myLogger.logToFile("New room generated.", "info")
     
     // If the player's level is 420 or greater, break out of this loop.
-    if myPlayer.level >= 420 {
+    // This check will fail if the player passes the 'endless' parameter
+    // into Termina before running it.
+    if myPlayer.level >= 420 && runEndlessModeFromCommandLine == false {
         break
     }
     
@@ -79,8 +88,6 @@ while true {
         
         // Get the player's input and parse ift accordingly.
         command.getCommandAndParse(whichRoom: theDarkRoom, settings: vm, skipCommandLogging: false)
-        
-        
     }
 }
 
@@ -88,7 +95,7 @@ while true {
 // In this case, this is where the boss battle with Termina occurs.
 
 // Start looping while the level is sufficient to fight Termina.
-while myPlayer.level >= 420 {
+while myPlayer.level >= 420 && runEndlessModeFromCommandLine == false {
     
     // Add Termina as a Monster to a new room.
     let termina = Termina()

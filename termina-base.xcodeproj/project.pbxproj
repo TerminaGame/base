@@ -11,6 +11,7 @@
 		BF5A5A3D2180CDB900E2523C /* Termina.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A5A3C2180CDB900E2523C /* Termina.swift */; };
 		BF5A5A3F2180CE6400E2523C /* NPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A5A3E2180CE6400E2523C /* NPC.swift */; };
 		BF5A5A412180D06700E2523C /* Monologue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5A5A402180D06700E2523C /* Monologue.swift */; };
+		BF6CBAE3219B181D006BE4EA /* Arguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CBAE2219B181D006BE4EA /* Arguments.swift */; };
 		BF9C2609218B48D300E1662A /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C2608218B48D300E1662A /* options.swift */; };
 		BFCF1197217FAE2E00E85D38 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */; };
 		BFCF11AA217FB57500E85D38 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */; };
@@ -49,6 +50,7 @@
 		BF5A5A3C2180CDB900E2523C /* Termina.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Termina.swift; sourceTree = "<group>"; };
 		BF5A5A3E2180CE6400E2523C /* NPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPC.swift; sourceTree = "<group>"; };
 		BF5A5A402180D06700E2523C /* Monologue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monologue.swift; sourceTree = "<group>"; };
+		BF6CBAE2219B181D006BE4EA /* Arguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arguments.swift; sourceTree = "<group>"; };
 		BF9C2608218B48D300E1662A /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				BFD81CA3217B8AD60049B5D4 /* Commads.swift */,
 				BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */,
 				BFDB8AB221863EFD00ECEACB /* Logger.swift */,
+				BF6CBAE2219B181D006BE4EA /* Arguments.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				BFCF11AB217FB57500E85D38 /* Files.swift in Sources */,
 				BFCF1197217FAE2E00E85D38 /* SettingsManager.swift in Sources */,
 				BF4AEC7A21811640002722B3 /* Bottle.swift in Sources */,
+				BF6CBAE3219B181D006BE4EA /* Arguments.swift in Sources */,
 				BFD81CA7217B8AD60049B5D4 /* Attack.swift in Sources */,
 				BF5A5A3D2180CDB900E2523C /* Termina.swift in Sources */,
 			);

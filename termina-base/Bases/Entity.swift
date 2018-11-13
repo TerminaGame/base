@@ -77,7 +77,7 @@ class Entity {
     func parseMonologue(_ what: [String]) {
         for line in what {
             if line == "PAUSE" {
-                print("Press Enter to continue.".bold())
+                print("Press Enter to continue.".bold().lightGray())
                 let _ = readLine()!
             } else {
                 if (line.range(of: "/hold") != nil) {

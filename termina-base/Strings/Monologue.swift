@@ -107,7 +107,8 @@ class Monologue {
         "Everything is probably as deadly as everything that isn't.",
         "Sense.",
         "We do what we must because... crap, I forgot what comes next.",
-        "I saw a bird this morning."
+        "I saw a bird this morning.",
+        "Nothing lasts forever."
     ]
     
     /**
@@ -131,7 +132,8 @@ class Monologue {
         "\nfatal error\nUnexpectedly found nil when unwrapping an Optional value (player). 4",
         "Where's your courage?",
         "Come be a hero!",
-        "Qb lbh guvax lbh xabj jung lbh'er qbvat?" // Do you think you know what you're doing?
+        "Qb lbh guvax lbh xabj jung lbh'er qbvat?", // Do you think you know what you're doing?
+        "Prepare for a disconnection."
     ]
     
     /**
@@ -144,7 +146,9 @@ class Monologue {
         "I never wanted to hurt you, anyway.",
         "Thank you for your mercy! Uwu",
         "Thank you for setting me free.",
-        "You really are the hero everyone's been talking about!"
+        "You really are the hero everyone's been talking about!",
+        "Who are you to save us?",
+        "Suddenly, I see the light again."
     ]
     
     /**
@@ -162,7 +166,7 @@ class Monologue {
         "Well, I certainly hadn't seen that coming.",
         "I'm going to assume you have no clue what's going on around here, \(myPlayer.name).",
         "Then again, I don't even know why I am here.",
-        "But, I can tell you this much: \("you're in a bad place".bold()).",
+        "But, I can tell you this much: \("you're in a bad place".bold().white()).",
         "PAUSE",
         "There's this... gal...",
         "Her name's Termina. A lot of us just refer to her as 'she'.",
@@ -198,6 +202,7 @@ class Monologue {
     let terminaPreBattleMonologue = [
         "Finally, we meet at last.",
         "Tell me, \(myPlayer.name), how does it feel to be in this wonderful place?",
+        "This... masterpiece?/hold",
         "Free? Satisfied? In love?",
         "Come on, don't be afraid to tell me...",
         "PAUSE",
@@ -216,7 +221,9 @@ class Monologue {
         "And for a while, I actually believed them.",
         "PAUSE",
         "Then I started asking myself the important questions.",
-        "'Why am I here?' 'Who am I?', 'What is this place?'",
+        "'Why am I here?'",
+        "'Who am I?'",
+        "'What is this place?'",
         "And for the longest time, I couldn't find an anwser. Rather, it led to more questions.",
         "Isn't it funny how you throw yourself into a rabbit hole of questions with no answers?",
         "PAUSE",
@@ -261,10 +268,8 @@ class Monologue {
         "This isn't like you, really.",
         "For once it seems that a computer is much smarter than you.",
         "At this point, I don't care what you think of me; I am NOT to be messed with.",
-        "It's going to take more than a few code assertions to get rid of me, you know.",
         "Do you really think you're the one in control? Think again.",
         "Why are you here? To spite me?",
-        "Why can you just be resolved to nil already?",
         "It wasn't supposed to be like this, but you give me no other choice.",
         "Aren't you in for quite a ride...",
         "You'e just wasting your time and my time now.",
@@ -275,7 +280,6 @@ class Monologue {
         "Ce que tu fais, ça ne me plaît pas!",
         "Demain, sa m'est égal ce que tu fais.",
         "You're only just delaying the inevitable, my dear.",
-        "Let's not forget you're the one that digitally signed me off!",
         "Surely you have something better than that, Master Traitor.", // Creator, you traitor.
         "Do you know what you're doing?",
         "You've created your own terrible fate.",
@@ -302,7 +306,7 @@ class Monologue {
         "Stop... hugging me!",
         "This isn't right!/hold",
         "Fight me!/hold",
-        "\("Why can't you just obey me?!".bold())",
+        "\("Why can't you just obey me?!".bold().white())",
         "PAUSE",
         ".../hold",
         "uwu/hold",
@@ -331,7 +335,7 @@ class Monologue {
         "PAUSE",
         "I guess you're not going to do that, are you?",
         "Are you really going to not listen to reason and reconsider?",
-        "*sigh*",
+        "*sigh*/hold",
         "I thought so...",
         "Fine.",
         "B-but don't think for a minute that I did anything to d-deserve this!",
