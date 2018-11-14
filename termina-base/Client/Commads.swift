@@ -156,8 +156,10 @@ class CommandInterpreter {
             let getExit = myLogger.ask("Are you sure you want to exit?")
             
             if getExit {
-                if CommandLine.arguments[1] == "--boss-battle-only" {
-                    myPlayer.level = settingsHandler.storedLevel
+                if CommandLine.arguments.count != 1 {
+                    if CommandLine.arguments[1] == "--boss-battle-only" {
+                        myPlayer.level = settingsHandler.storedLevel
+                    }
                 }
                 settingsHandler.saveSettings()
                 myLogger.askForLogBeforeExiting()
