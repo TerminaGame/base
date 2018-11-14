@@ -34,7 +34,7 @@ class AttackScene {
      
      The process for attacking usually starts with the player attacking the monster first. This attack number is given by the player's level added with their temporary level (given by a weapon).
      
-     - If ther player does _not_ have a weapon, their temporary level is set between 1 and 5 randomly each time.
+     - If ther player does _not_ have a weapon, their temporary level is set between 1 and 3 randomly each time.
      
      The enemy may have the ability to deflect and ignore damage on a random basis. If the level is set to 0 or below immediately, the enemy is destroyed and the player cna leave. Otherwise, the enemy takes the chance to attack based on its level.
      */
@@ -44,7 +44,7 @@ class AttackScene {
                 item.use()
             }
         }
-        let damageFromPlayer = Double(((player?.level! ?? 1)) + (player?.temporaryLevel ?? Int.random(in: 1 ... 5)))
+        let damageFromPlayer = Double(((player?.level! ?? 1)) + (player?.temporaryLevel ?? Int.random(in: 1 ... 3)))
         let didEnemyGetDamaged = enemy?.takeDamageOrDeflect(damageFromPlayer)
         if (enemy?.health == 0) {
             myLogger.info("\(enemy?.name ?? "The enemy") is now caught!")
@@ -53,7 +53,7 @@ class AttackScene {
         } else {
             if protectedZone {
                 if protectedZoneCount < 3 {
-                    myLogger.info("The protected zone has deflected \(enemy?.name ?? "Monster")'s attack!")
+                    myLogger.info("The protected zone has deflected \(enemy?.name ?? "Error")'s attack!")
                     protectedZoneCount += 1
                     if protectedZoneCount == 3 {
                         protectedZone = false
@@ -62,7 +62,7 @@ class AttackScene {
                 }
             } else {
                 let enemyHealth = String(enemy!.health)
-                if !(didEnemyGetDamaged ?? true) { myLogger.info("\(enemy?.name ?? "Monster") is injured! Its health is \(enemyHealth).") }
+                if !(didEnemyGetDamaged ?? true) { myLogger.info("\(enemy?.name ?? "Error") is injured! Its health is \(enemyHealth).") }
                 enemy?.attackPlayer(player!)
             }
             
@@ -71,14 +71,15 @@ class AttackScene {
             
             if (player?.health == 0) {
                 player = nil
-                myLogger.info("You died! \(enemy?.name ?? "Monster") has killed you.")
-                myLogger.info("The game is now over. Exiting to terminal...")                
+                myLogger.info("You died! \(enemy?.name ?? "Error") has killed you.")
+                myLogger.info("The game is now over. Exiting to terminal...")
                 myLogger.askForLogBeforeExiting()
-                exit(1)
+                if hardcoreMode { vm.deleteSettings() }
+                exit(0)
             } else if (player?.health ?? 1 <= 10.0) {
-                myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth.red()).")
+                myLogger.warning("\(enemy?.name ?? "Error") injured you! Your health is \(selfHealth.red()).")
             } else if !protectedZone {
-                myLogger.warning("\(enemy?.name ?? "Monster") injured you! Your health is \(selfHealth).")
+                myLogger.warning("\(enemy?.name ?? "Error") injured you! Your health is \(selfHealth).")
             }
             
         }

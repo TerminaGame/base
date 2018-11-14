@@ -33,6 +33,19 @@ func checkArgs() {
             vm.saveSettings()
             break
         
+        // Checks if a developer is testing the final battle scene with
+        // Termina.
+        case "--boss-battle-only":
+            myLogger.logToFile("Developer function BOSS BATTLE ONLY present!", "info")
+            myPlayer.level = 420
+            vm.saveSettings()
+            break
+            
+        case "--hardcore":
+            hardcoreMode = true
+            myLogger.logToFile("Running in Hardcore Mode...", "info")
+            break
+        
         // Checks to see if player just wants to report
         // the game version without opening the game.
         case "--version":
@@ -46,6 +59,7 @@ func checkArgs() {
                 
                 Passable Arguments:
                 - endless: Runs the game in endless mode, ignoring the player's level.
+                - hardcore: Runs the game in hardcore mode. If the player dies, their data is deleted.
                 - reset: Resets the player back to the very beginning and starts the game.
                 - version: Prints the full build ID of Termina.
                 - help: Prints this page.

@@ -14,6 +14,7 @@ let command = CommandInterpreter()
 let myLogger = Logger()
 let vm = SettingsManager(myPlayer)
 var runEndlessModeFromCommandLine = false
+var hardcoreMode = false
 
 // Check all command arguments that could be passed through.
 // Some commands may cause the program to quit before going
@@ -24,12 +25,17 @@ checkArgs()
 // Display the "splash" screen and copyright information.
 print("""
     Termina \(version)
-    Build ID: \(build)
     \(copyright)
     Type \("license".bold()) for more details.
-    Made with ❤️.
+    Made with ❤️
     """.foregroundColor(TerminalColor.orange3))
 
+// Let players know if they are running in Endless Mode or Hardcore Mode.
+if runEndlessModeFromCommandLine {
+    print("You're running in \("Endless Mode".bold()).".foregroundColor(TerminalColor.orange1))
+} else if hardcoreMode {
+    print("You're running in \("Hardcore Mode".bold()).".red())
+}
 // Silently log that a new session has started. These silent logs appear everywhere so that
 // the user has a better understanding of what is going on. They are stored in termlog.txt when
 // the user exits the game (if the user asks for this log).
@@ -60,9 +66,8 @@ if !vm.loadSettings() {
     command.parseCommand("leave", storyJumpStart, vm, skipCommandLogging: true)
 }
 
-// If the settings file is found, greet the player and assume that they know the controls.
+// If the settings file is found, display their profile information.
 else {
-    print("Welcome back to Termina, \(myPlayer.name.bold()). We've been waiting for you.\n")
     command.parseCommand("whoami", Room(myPlayer, nil, nil), vm, skipCommandLogging: true)
 }
 

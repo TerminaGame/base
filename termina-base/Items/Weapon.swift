@@ -73,6 +73,8 @@ class Weapon: Item {
             super.use()
             if (equipper.temporaryLevel - 1 < 0) {
                 equipper.temporaryLevel = 0
+                myLogger.error("Your weapon can no longer be used!")
+                unequip()
             } else {
                 equipper.temporaryLevel = equipper.temporaryLevel - 1
             }

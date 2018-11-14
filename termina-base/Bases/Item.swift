@@ -48,14 +48,14 @@ class Item {
      Use the item and decrement the amount of uses.
      */
     func use() {
-        if (currentUse < 0 ) {
+        if (currentUse <= 0 ) {
             myLogger.error("\(name) can no longer be used.")
         } else {
-            currentUse = currentUse - 1
-            
-            if currentUse == 0 {
-                myLogger.warning("\(name) is broken and can no longer be used.")
+            if currentUse - 1 <= 0 {
+                currentUse = 0
+                myLogger.error("\(name) is broken and can no longer be used.")
             } else {
+                currentUse = currentUse - 1
                 myLogger.warning("\(name) now has \(currentUse) uses left!")
             }
         }

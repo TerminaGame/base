@@ -73,134 +73,42 @@ class CommandInterpreter {
         */
             
         case "whereami":
-            print("=== \("Current Room".bold()) ===".foregroundColor(TerminalColor.orange3))
-            if room.myAttackSequence?.protectedZone ?? false {
-                print("Protected Zone".cyan().blink())
-            }
-            if room.myAttackSequence?.enemy != nil {
-                let monsterLevel = String(room.myMonster!.level)
-                let monsterName = room.myMonster?.name
-                print("\(monsterName ?? "Monster") v.\(monsterLevel) (Enemy)".red().bold())
-                
-                if myPlayer.level <= 3 {
-                    print("Use the \("attack".bold()) command to catch the error!".green())
-                }
-                
-            } else if room.myNPC != nil {
-                print("\(room.myNPC?.name ?? "NPC") (NPC)".bold().lightGray())
-                
-                if myPlayer.level <= 3 {
-                    print("Use the \("talk".bold()) command to interact!".green())
-                }
-                
-            } else {
-                print("There are no entities here.")
-            }
-            
-            if room.myItems.isEmpty != true {
-                print("Items: ".bold())
-                for obj in room.myItems {
-                    if obj is Weapon {
-                        let thisWeapon = obj as! Weapon
-                        let weaponLevel = String(thisWeapon.level!)
-                        print(" - \(thisWeapon.name) v.\(weaponLevel)".foregroundColor(TerminalColor.gold3_2))
-                    } else {
-                        print(" - \(obj.name) v.\(obj.effect) (\(obj.currentUse) uses left)".foregroundColor(TerminalColor.purple_3))
-                    }
-                }
-            } else {
-                print("There are no items here.")
-            }
-            print("\n")
+            room.listProperties()
             break
         
         case "whoami":
-            let myLevel = String(myPlayer.level)
-            let myExperience = String(myPlayer.experience)
-            print("=== \(myPlayer.name.bold()) ===".foregroundColor(TerminalColor.orange3))
-            print("Version \(myLevel)")
-            print("Patch Number: \(myExperience)/25".cyan())
-            if myPlayer.health <= 10.0 {
-                 print("Health: \(String(myPlayer.health).red().blink().bold())/\(myPlayer.maximumHealth)".yellow())
-            } else {
-                print("Health: \(myPlayer.health)/\(myPlayer.maximumHealth)".yellow())
-            }
-            
-            print("Current Inventory: ")
-            
-            if myPlayer.inventory.isEmpty != true {
-                for item in myPlayer.inventory {
-                    if item is Weapon {
-                        let weaponTemp = item as? Weapon
-                        print(" - \(weaponTemp?.name ?? "Weapon") [Level \(weaponTemp?.level ?? 0)] (\((weaponTemp?.currentUse ?? 0) + 1 ) uses left)")
-                    } else {
-                        print(" - \(item.name) (\(item.currentUse) uses left)")
-                    }
-                }
-            } else {
-                print(" - Inventory empty!")
-            }
-            print("\n")
+            myPlayer.listProperties()
+            break
+        
+        // Alternative command for the geeks
+        case "ls":
+            room.listProperties()
+            myPlayer.listProperties()
             break
             
         /*
             INTERACTIONS
          */
         case "attack":
-            if room.myAttackSequence?.enemy != nil {
-                room.attackHere()
-            } else if room.myNPC != nil {
-                room.myNPC?.takeDamage(1)
-                myLogger.error("You killed \((room.myNPC?.name ?? "NPC").bold())! You monster...")
-                room.myNPC = nil
-                
-                myPlayer.takeDamage(50.0)
-                myLogger.error("You have been injured as a consequence (-50).")
-                
-            } else {
-                myLogger.error("There's nothing to attack in this room.")
-            }
+            room.attackHere()
             break
             
         case "heal":
-            if room.myItems.isEmpty {
-                myLogger.error("There aren't any items in this room.")
-            } else {
-                equipLoop: for obj in room.myItems {
-                    if obj is Potion {
-                        obj.use()
-                        if obj.currentUse == 0 {
-                            room.myItems.removeFirst()
-                        }
-                        break equipLoop
-                    } else if !(obj is Potion) {
-                        myLogger.error("You can't use \(obj.name) to heal yourself.")
-                        break
-                    } else {
-                        myLogger.error("There aren't any items in this room.")
-                        break
-                    }
-                }
-            }
+            room.useItemsHere(which: "potion")
+            break
             
+        // Alternative command for the geeks
+        case "apply-hotfix":
+            room.useItemsHere(which: "potion")
             break
             
         case "xp":
-            if room.myItems.isEmpty {
-                myLogger.error("There aren't any items in this room.")
-            } else {
-                xpLoop: for obj in room.myItems {
-                    if obj is Bottle {
-                        obj.use()
-                        room.myItems.removeFirst()
-                        break xpLoop
-                    } else if !(obj is Bottle) {
-                        myLogger.error("You cannot upgrade your XP with a \(obj.name).")
-                    } else {
-                        myLogger.error("There aren't any items in this room.")
-                    }
-                }
-            }
+            room.useItemsHere(which: "bottle")
+            break
+         
+        // Alternative command for the geeks
+        case "patch":
+            room.useItemsHere(which: "bottle")
             break
             
         case "leave":
@@ -213,25 +121,7 @@ class CommandInterpreter {
             break
             
         case "equip":
-            if room.myItems.isEmpty {
-                myLogger.error("There is nothing to equip in this room.")
-                break
-            } else {
-                weaponLoop: for obj in room.myItems {
-                    if obj is Weapon {
-                        let useWeapon = obj as! Weapon
-                        let getEquipped = useWeapon.equip()
-                        if getEquipped {
-                            room.myItems.removeLast()
-                            break weaponLoop
-                        } else {
-                            break weaponLoop
-                        }
-                    } else {
-                        myLogger.error("\(obj.name) cannot be equipped.")
-                    }
-                }
-            }
+            room.useItemsHere(which: "weapon")
             break
             
         case "talk":
@@ -266,12 +156,28 @@ class CommandInterpreter {
             let getExit = myLogger.ask("Are you sure you want to exit?")
             
             if getExit {
+                if CommandLine.arguments[1] == "--boss-battle-only" {
+                    myPlayer.level = settingsHandler.storedLevel
+                }
                 settingsHandler.saveSettings()
                 myLogger.askForLogBeforeExiting()
                 exit(0)
             } else {
                 myLogger.info("Resuming game...")
             }
+            break
+        
+        // Alternative command
+        case "exit --force":
+            myLogger.info("Exiting game without prompt (log save in termlog.txt)...")
+            
+            if CommandLine.arguments[1] == "--boss-battle-only" {
+                myPlayer.level = settingsHandler.storedLevel
+            }
+            
+            settingsHandler.saveSettings()
+            myLogger.printLog()
+            exit(0)
             break
         
         case "save":
@@ -283,12 +189,6 @@ class CommandInterpreter {
             print("\u{001B}[2J")
             break
             
-        case "deleteself":
-            settingsHandler.deleteSettings()
-            myLogger.info("You died! You deleted yourself from existence.")
-            myLogger.info("The game is now over. Exiting to terminal...")
-            exit(42)
-            break
             
         case "printlog":
             myLogger.info("Printing log until now.")
@@ -342,7 +242,7 @@ class CommandInterpreter {
                 myLogger.logToFile("Running last known command (\(lastCommand))", "info")
                 parseCommand(lastCommand, room, settingsHandler, skipCommandLogging: false)
             } else {
-                myLogger.error("There is no previous command to parse!")
+                myLogger.error("There is no previous command to run!")
             }
             
             break
@@ -368,11 +268,20 @@ class CommandInterpreter {
             
             break
             
+        case "termina":
+            myLogger.warning("\(myPlayer.name)... why are you here?")
+            break
+            
         case "die":
             myLogger.error("Screaming into the void cannot help you here.")
             break
         
-            
+        case "deleteself":
+            settingsHandler.deleteSettings()
+            myLogger.info("You died! You deleted yourself from existence.")
+            myLogger.info("The game is now over. Exiting to terminal...")
+            exit(42)
+            break
             
         case "cheesecake":
             if room.myNPC != nil {
@@ -386,7 +295,6 @@ class CommandInterpreter {
             myLogger.error("\"\(command)\" is not a valid command. Type \("help".green()) to see a list of commands.")
             break
         }
-        
         
         if command != "" && !skipCommandLogging {
             lastCommand = command

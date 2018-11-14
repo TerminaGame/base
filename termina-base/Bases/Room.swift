@@ -53,13 +53,145 @@ class Room {
     let myNameGen = NameGenerator()
     
     /**
-     Attempt to attack the monster in the room. If the monster is dead from attack, removes it from Room.
+     Attempt to attack any entities in the room.
      */
     func attackHere() {
         if myAttackSequence?.enemy != nil {
             myAttackSequence?.attack()
+        } else if myNPC != nil {
+            myNPC?.takeDamage(1)
+            myLogger.error("You killed \((myNPC?.name ?? "NPC").bold())! You monster...")
+            myAttackSequence?.player?.takeDamage(50)
+            myLogger.error("You've been injured as a consequence! (-50)")
+        } else {
+            myLogger.error("There's nothing to attack in this room.")
         }
     }
+    
+    /**
+     Lists everything available in the room.
+     
+     Identifies any entities in the room, its protected status, and items that the room has.
+     */
+    func listProperties() {
+        print("=== \("Current Room".bold()) ===".foregroundColor(TerminalColor.orange3))
+        if myAttackSequence?.protectedZone ?? false {
+            print("Protected Zone".cyan().blink())
+        }
+        if myAttackSequence?.enemy != nil {
+            let monsterLevel = String(myMonster!.level)
+            let monsterName = myMonster?.name
+            print("\(monsterName ?? "MonsterError") v.\(monsterLevel) (Enemy)".red().bold())
+            
+            if myPlayer.level <= 3 {
+                print("Use the \("attack".bold()) command to catch the error!".green())
+            }
+            
+        } else if myNPC != nil {
+            print("\(myNPC?.name ?? "NPC") (NPC)".bold().lightGray())
+            
+            if myPlayer.level <= 3 {
+                print("Use the \("talk".bold()) command to interact!".green())
+            }
+            
+        } else {
+            print("There are no entities here.")
+        }
+        
+        if myItems.isEmpty != true {
+            print("Items: ".bold())
+            for obj in myItems {
+                if obj is Weapon {
+                    let thisWeapon = obj as! Weapon
+                    let weaponLevel = String(thisWeapon.level!)
+                    print(" - \(thisWeapon.name) v.\(weaponLevel)".foregroundColor(TerminalColor.gold3_2))
+                } else if obj is Bottle {
+                    let bottleTemp = obj as? Bottle
+                    print(" - \(bottleTemp?.name ?? "Version Update Patcher") v.\(bottleTemp?.effect ?? 1) (Single-Use)".foregroundColor(TerminalColor.purple_3))
+                } else {
+                    print(" - \(obj.name) v.\(obj.effect) (\(obj.currentUse - 1) uses left)".foregroundColor(TerminalColor.purple_3))
+                }
+            }
+        } else {
+            print("There are no items here.")
+        }
+        print("\n")
+    }
+    
+    /**
+     Attempt to use any of the items in the room.
+     
+     Accepted types:
+     - potion
+     - bottle
+     - weapon
+     
+     - Parameters:
+        - which: the type of item to target
+     */
+    func useItemsHere(which: String) {
+        if myItems.isEmpty {
+            myLogger.error("There are no items here.")
+        } else {
+            switch which {
+            case "potion":
+                potionLoop: for item in myItems {
+                    if item is Potion {
+                        item.use()
+                        if item.currentUse <= 0 {
+                            myItems.removeFirst()
+                        }
+                        break potionLoop
+                    } else {
+                        myLogger.error ("You can't use \(item.name) to heal yourself.")
+                        break
+                    }
+                }
+                break
+            case "bottle":
+                patchLoop: for item in myItems {
+                    if item is Bottle {
+                        item.use()
+                        if item.currentUse <= 0 {
+                            myItems.removeFirst()
+                        }
+                        break patchLoop
+                    } else {
+                        myLogger.error("You can't use \(item.name) to patch yourself.")
+                        break
+                    }
+                }
+                break
+            case "weapon":
+                weaponLoop: for item in myItems {
+                    if item is Weapon {
+                        let weapon = item as? Weapon
+                        let equipWeapon = weapon?.equip() ?? false
+                        if equipWeapon {
+                            myItems.removeLast()
+                            break weaponLoop
+                        } else {
+                            break weaponLoop
+                        }
+                    } else {
+                        myLogger.error("You can't equip \(item.name)")
+                    }
+                }
+                
+                break
+            default:
+                myLogger.logToFile("The case \(which) doesn't match any parameters listed.", "error")
+                break
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
     
     /**
      Constructs the Room object. Randomly adds monsters and an attack sequence if necessary.
@@ -102,7 +234,7 @@ class Room {
                 let myPotion = Potion("Health Hotfix", player)
                 myItems.append(myPotion)
             } else if selectRandomHelper == 3 {
-                let myBottle = Bottle("Experience Incrementer", player)
+                let myBottle = Bottle("Version Update Patcher", player)
                 myItems.append(myBottle)
             }
             
@@ -120,7 +252,7 @@ class Room {
         }
         
         if cmd != nil {
-            cmd!.parseCommand("whereami", self, SettingsManager(player), skipCommandLogging: true)
+            listProperties()
         }
     }
     

@@ -51,6 +51,7 @@ class NPC: Entity {
     func cheesecake() {
         if !cheesecakeSurprise {
             saySomething("Gobble gobble.")
+            myPlayer.experienceUp(1)
             cheesecakeSurprise = true
         } else {
             myLogger.error("What are you doing?")

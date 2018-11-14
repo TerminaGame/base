@@ -21,6 +21,11 @@ class SettingsManager {
     var thisPlayer: Player!
     
     /**
+     Stored level of the player.
+     */
+    var storedLevel: Int
+    
+    /**
      Load the player settings from a JSON file and assign the values to the Player object.
      
      - Returns: Boolean value of operation's success
@@ -98,5 +103,6 @@ class SettingsManager {
      */
     init(_ who: Player) {
         thisPlayer = who
+        storedLevel = who.level
     }
 }

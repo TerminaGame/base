@@ -24,8 +24,14 @@ class Potion: Item {
         if (currentUse <= 0) {
             myLogger.error("The potion can no longer heal you.")
         } else {
-            player.heal(Double(effect))
             super.use()
+            let didPlayerOverflowDuringHealing = player.heal(Double(effect))
+            if !didPlayerOverflowDuringHealing {
+                myLogger.info("Health has been restored to \(player.health)!")
+            } else if player.health == player.maximumHealth && !didPlayerOverflowDuringHealing {
+                myLogger.info("Health has been fully restored!")
+            }
+            
         }
     }
     

@@ -23,7 +23,9 @@ class Logger {
     var log = ["Termina \(version) (build \(build))"]
     
     /**
-     Create a log file of all logging messages. Overwrites any older log files.
+     Create a log file of all logging messages.
+     
+     Attempts to create a printed version of the log. If it finds older copies, it will rename them accordingly.
      */
     func printLog() {
         myLogger.logToFile("Do you think you're accomplishing anything by snooping around like this? You're wasting your time, and believe me; if there was something hidden, you WOULD'NT want to see it.", "warning")
@@ -31,6 +33,12 @@ class Logger {
         
         if logPath.containsFile(named: "termlog.txt") {
             warning("termlog.txt has been detected here! Renaming this file to termlog.bak.txt...")
+            
+            if logPath.containsFile(named: "termlog.bak.txt") {
+                warning("Found old bak file! Will rename using hashes...")
+                try! logPath.file(named: "termlog.bak.txt").rename(to: "termlog.bak.\(Date(timeIntervalSinceNow: 0).hashValue).txt")
+            }
+            
             try! logPath.file(named: "termlog.txt").rename(to: "termlog.bak.txt")
         }
         

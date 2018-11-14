@@ -66,14 +66,20 @@ class Player: Entity {
      
      - Parameters:
         - amount: The amount to heal by.
+     
+     - Returns: Boolean value if the heal operation didn't go over the maximum health
      */
-    func heal(_ amount: Double) {
-        health += amount
-
-        if (health > maximumHealth) {
+    func heal(_ amount: Double) -> Bool {
+        let temporaryHealth = health + amount
+        if temporaryHealth > maximumHealth {
+            myLogger.warning("You cannot heal higher than your maximum health!")
             health = maximumHealth
+            return false
+        } else {
+            health = temporaryHealth
+            experienceUp(3)
+            return true
         }
-        experienceUp(3)
     }
     
     /**
@@ -85,7 +91,7 @@ class Player: Entity {
     func levelUp(_ amount: Int) {
         level += amount
         experience = 0
-        myLogger.info("You leveled up to level \(level ?? 1)!")
+        myLogger.info("You upgraded to v.\(String(level ?? 1).cyan())!".bold())
     }
     
     /**
@@ -105,7 +111,39 @@ class Player: Entity {
             experience = temporaryExperience
         }
         
-        myLogger.info("Your experience is now \(experience ?? 0)!")
+        myLogger.info("You're patched to v.\(level ?? 1).\(experience ?? 0)!")
+    }
+    
+    /**
+     Lists information about the Player.
+     */
+    func listProperties() {
+        let myLevel = String(level)
+        let myExperience = String(experience)
+        let patch = String(25 - experience)
+        print("=== \(name.bold()) v.\(myLevel).\(myExperience.cyan()) ===".foregroundColor(TerminalColor.orange3))
+        print("Patches until next version: \(patch)".cyan())
+        if health <= 10.0 {
+            print("Health: \(String(health).red().blink().bold())/\(maximumHealth)".yellow())
+        } else {
+            print("Health: \(health)/\(maximumHealth)".yellow())
+        }
+        
+        print("Current Inventory: ")
+        
+        if inventory.isEmpty != true {
+            for item in inventory {
+                if item is Weapon {
+                    let weaponTemp = item as? Weapon
+                    print(" - \(weaponTemp?.name ?? "NSWeapon") v.\(weaponTemp?.level ?? 1) (\(((weaponTemp?.currentUse ?? 1))) uses left)")
+                } else {
+                    print(" - \(item.name) (\(item.currentUse) uses left)")
+                }
+            }
+        } else {
+            print(" - Inventory empty!")
+        }
+        print("\n")
     }
     
     /**
