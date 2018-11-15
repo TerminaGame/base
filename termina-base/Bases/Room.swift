@@ -82,6 +82,7 @@ class Room {
             let monsterLevel = String(myMonster!.level)
             let monsterName = myMonster?.name
             print("\(monsterName ?? "MonsterError") v.\(monsterLevel) (Enemy)".red().bold())
+            print("Health: \(myMonster?.health ?? 100)/\(myMonster?.maximumHealth ?? 100)".yellow())
             
             if myPlayer.level <= 3 {
                 print("Use the \("attack".bold()) command to catch the error!".green())
@@ -202,7 +203,7 @@ class Room {
         - monster: The monster to insert into the room. If set to `nil`, will generate randomly.
         - cmd: The command interpreter to run the "whereami" command. If set to `nil`, will not display command.
      */
-    init(_ player: Player, _ monster: Monster?, _ cmd: CommandInterpreter?) {
+    init(_ player: Player, _ monster: Monster?, _ cmd: CommandInterpreter?, _ potion: Potion?) {
         let chance = Int.random(in: 0 ... 9)
         
         if monster != nil {
@@ -227,25 +228,33 @@ class Room {
         }
         
         
-        
-        if (chance >= 4) {
-            let selectRandomHelper = Int.random(in: 0 ... 3)
-            if selectRandomHelper <= 2 {
-                let myPotion = Potion("Health Hotfix", player)
-                myItems.append(myPotion)
-            } else if selectRandomHelper == 3 {
-                let myBottle = Bottle("Version Update Patcher", player)
-                myItems.append(myBottle)
+        if potion == nil {
+            if (chance >= 4) {
+                let selectRandomHelper = Int.random(in: 0 ... 3)
+                if selectRandomHelper <= 2 {
+                    let myPotion = Potion("Health Hotfix", player)
+                    myItems.append(myPotion)
+                } else if selectRandomHelper == 3 {
+                    let myBottle = Bottle("Version Update Patcher", player)
+                    myItems.append(myBottle)
+                }
+                
             }
-            
+        } else {
+            let myPotion = potion
+            myItems.append(myPotion ?? Potion("Health Hotfix", player))
         }
         
-        if (chance >= 3 && chance <= 6) {
+        if ((chance >= 3 && chance <= 6) || player.level >= 420 && !runEndlessModeFromCommandLine) {
             if player.level < 16 {
                 let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... 15), player)
                 myItems.append(myWeapon)
             } else {
                 let myWeapon = Weapon(myNameGen.generateWeaponName(), Int.random(in: 1 ... player.level - 15), player)
+                if player.level >= 420 {
+                    myWeapon.maximumUse = 35
+                    myWeapon.currentUse = 35
+                }
                 myItems.append(myWeapon)
             }
             

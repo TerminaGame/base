@@ -30,7 +30,7 @@ class StartRoom: Room {
     init(_ player: Player, _ friend: NPC) {
         thisNPC = friend
         
-        super.init(player, nil, command)
+        super.init(player, nil, command, nil)
         super.myAttackSequence?.enemy = nil
         super.myNPC = friend
         super.myItems = []

@@ -41,17 +41,49 @@ class Termina: Monster {
     }
     
     /**
+     Heals Termina by an amount. If resultant health is over maximum, sets it to maximum instead.
+     
+     - Parameters:
+        - amount: The amount to heal by.
+     
+     - Returns: Boolean value if the heal operation didn't go over the maximum health
+     */
+    func heal(_ amount: Double) -> Bool {
+        let temporaryHealth = health + amount
+        if temporaryHealth > maximumHealth {
+            health = maximumHealth
+            return false
+        } else {
+            health = temporaryHealth
+            return true
+        }
+    }
+    
+    /**
      Damage Termina by an amount and print a painful scream.
      
      - Parameters:
         - amount: The amount of damage to give to Termina
      */
-    override func takeDamage(_ amount: Double) {
-        super.takeDamage(amount)
+    override func takeDamageOrDeflect(_ amount: Double) -> Bool {
+        let chance = Int.random(in: 1 ... 10)
+        
+        if chance <= 5 {
+            myLogger.info("\(name) deflected and took no damage!")
+            return false
+        } else {
+            super.takeDamage(amount)
+        }
+        
         print("\(name.bold().foregroundColor(colorType)): Aah~!")
-        if health <= 0.0 {
+        
+        if health >= maximumHealth / 2 {
+            let _ = heal(Double(Int.random(in: 5 ... 7)))
+            myLogger.warning("Termina used a script and healed herself! Her health is \(health).")
+        } else if health <= 0.0 {
             print("\(name.bold().foregroundColor(colorType)): No, no, no! Just die already!")
         }
+        return true
     }
     
     /**
@@ -75,7 +107,10 @@ class Termina: Monster {
      Construct Termina with level 420.
      */
     init() {
-        super.init("Termina", 4200)
+        super.init("Termina", 420)
+        super.maximumHealth = 9001
+        super.health = 9001
+        super.attack = 10
         super.colorType = TerminalColor.orange3
         super.canBePacified = true
     }

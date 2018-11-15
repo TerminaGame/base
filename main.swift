@@ -28,6 +28,7 @@ print("""
     \(copyright)
     Type \("license".bold()) for more details.
     Made with ❤️
+    
     """.foregroundColor(TerminalColor.orange3))
 
 // Let players know if they are running in Endless Mode or Hardcore Mode.
@@ -68,13 +69,13 @@ if !vm.loadSettings() {
 
 // If the settings file is found, display their profile information.
 else {
-    command.parseCommand("whoami", Room(myPlayer, nil, nil), vm, skipCommandLogging: true)
+    command.parseCommand("whoami", Room(myPlayer, nil, nil, nil), vm, skipCommandLogging: true)
 }
 
 // Always keep creating a new room until the room is destroyed or the player level is
 // high enough to break out of the loop and fight the boss.
 while true {
-    var theDarkRoom = Room(myPlayer, nil, command)
+    var theDarkRoom = Room(myPlayer, nil, command, nil)
     myLogger.logToFile("New room generated.", "info")
     
     // If the player's level is 420 or greater, break out of this loop.
@@ -87,7 +88,7 @@ while true {
     // Loop infinitely until the player leaves the room, then go back to the main loop.
     while !theDarkRoom.isDestroyed {
         if theDarkRoom.isDestroyed {
-            theDarkRoom = Room(myPlayer, nil, command)
+            theDarkRoom = Room(myPlayer, nil, command, nil)
             myLogger.logToFile("New room generated.", "info")
         }
         
@@ -104,13 +105,20 @@ while myPlayer.level >= 420 && runEndlessModeFromCommandLine == false {
     
     // Add Termina as a Monster to a new room.
     let termina = Termina()
-    let terminaRoom = Room(myPlayer, termina, command)
+    let finalPotion = Potion("Super Hotfix", myPlayer)
+    finalPotion.maximumUse = 25
+    finalPotion.currentUse = 25
+    finalPotion.effect = 25
+    let terminaRoom = Room(myPlayer, termina, command, finalPotion)
+    
     
     // Clear the console again.
     command.parseCommand("clear", terminaRoom, vm, skipCommandLogging: true)
     
     // Say pre-battle dialogue before starting the fight.
     termina.speakBeforeFighting()
+    
+    command.parseCommand("ls", terminaRoom, vm, skipCommandLogging: true)
     
     // Keep looping infinitely until the player is able to leave the room
     while !terminaRoom.isDestroyed {
@@ -125,6 +133,10 @@ while myPlayer.level >= 420 && runEndlessModeFromCommandLine == false {
     
     // If the player has left the room, break this loop infinitely.
     if terminaRoom.isDestroyed {
+        if termina.health == 0.0 {
+            command.parseCommand("clear", terminaRoom, vm, skipCommandLogging: true)
+            termina.parseMonologue(Monologue().terminaPostBattleMonologue)
+        }
         myLogger.info("Congratulations! The game is now over.")
         myLogger.askForLogBeforeExiting()
         break

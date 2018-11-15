@@ -36,6 +36,7 @@ func checkArgs() {
         // Checks if a developer is testing the final battle scene with
         // Termina.
         case "--boss-battle-only":
+            let _ = vm.loadSettings()
             myLogger.logToFile("Developer function BOSS BATTLE ONLY present!", "info")
             myPlayer.level = 420
             vm.saveSettings()

@@ -216,7 +216,7 @@ class CommandInterpreter {
         case "help":
             print("""
             === \("List of Commands".bold().green()) ===
-            \("To run a previous command, press Enter.".foregroundColor(TerminalColor.orange3))
+            If you need more help, go here: \("https://terminagame.github.io/help/".cyan().underline()).
             
             == \("Game Commands".bold().green()) ==
             attack - attacks the monster in the room, if present.

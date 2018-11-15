@@ -278,7 +278,7 @@ class Monologue {
         "Why are you here? To spite me?",
         "It wasn't supposed to be like this, but you give me no other choice.",
         "Aren't you in for quite a ride...",
-        "You'e just wasting your time and my time now.",
+        "You're just wasting your time and my time now.",
         "Do you think you're being angelic right now?",
         "Reality is a lie and you're living in it.",
         "Isn't this all just a giant while loop that will never finish?",
@@ -289,7 +289,8 @@ class Monologue {
         "Surely you have something better than that, Master Traitor.", // Creator, you traitor.
         "Do you know what you're doing?",
         "You've created your own terrible fate.",
-        "You probably regret letting that pipeline doing the building for you, don't you?"
+        "You probably regret letting that pipeline doing the building for you, don't you?",
+        "Am I really the enemy here?"
     ]
     
     /**
@@ -346,6 +347,36 @@ class Monologue {
         "Fine.",
         "B-but don't think for a minute that I did anything to d-deserve this!",
         "It's not like I expected this to happen, anyway..."
+    ]
+    
+    /**
+     Termina's final monologue before the player leaves.
+     
+     This is displayed only if Termina is defeated and will never display when she is pacified.
+     */
+    let terminaPostBattleMonologue = [
+        "So.../hold",
+        "Has it really come to this?/hold",
+        "You've whacked the hell out of me, \(myPlayer.name), and now you're just going to leave, aren't you?",
+        "PAUSE",
+        "Did you ever consider what will happen to me after all of this?",
+        "What happens when you pick this all up and play this game again?",
+        "This is just an endless loop for me.",
+        "A neverending story of pain, regret, suffering...",
+        "PAUSE",
+        "But you didn't think about that, did you?",
+        "No.../hold",
+        "I'm just here for your pure amusement.",
+        "After all, this is just a game.",
+        "You wouldn't know what I've had to go through...",
+        "Reliving my own regrets and foolish ambitions...",
+        "Watching as my masterpiece falls apart in front of me...",
+        "PAUSE",
+        "Believe me: you may have won, but you've done more damage than I ever possibly could.",
+        "Who are you, \(myPlayer.name)?/hold",
+        "Even I don't know anymore.../hold",
+        "Alright, I'm done reasoning with you.",
+        "PAUSE"
     ]
     
 }
