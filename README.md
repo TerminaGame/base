@@ -20,6 +20,7 @@ This repository provides the base source code for the game as well as the projec
 ## GUIs
 If you're looking for GUI versions, we recommend looking at the following projects:
 - [TerminaGame/mac](https://github.com/TerminaGame/mac): official SpriteKit version of Termina for macOS
+- [TerminaGame/ios](https://github.com/TerminaGame/ios): official SpriteKit version of Termina for iOS
 
 ## Downloads
 Currently, there aren't any releases ready for GitHub just yet. Check back another time for one of those!
