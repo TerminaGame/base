@@ -5,7 +5,7 @@
 Termina is a fun single-user, level-based user dungeon game for macOS and Linux.
 
 [![Build Status](https://dev.azure.com/marquiskurt/Termina/_apis/build/status/Termina%20Base%20CI%20(Signed,%20Unstable))](https://dev.azure.com/marquiskurt/Termina/_build/latest?definitionId=6)
-![Swift Version](https://img.shields.io/badge/swift-4.2-orange.svg)
+![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg)
 
 This repository provides the base source code for the game as well as the project files for building the command line version via Xcode.
 
@@ -23,15 +23,6 @@ If you're looking for GUI versions, we recommend looking at the following projec
 - [TerminaGame/ios](https://github.com/TerminaGame/ios): official SpriteKit version of Termina for iOS
 
 ## Downloads
-Currently, there aren't any releases ready for GitHub just yet. Check back another time for one of those!
-
-If you prefer testing builds as they are built off the branch, check out the [Azure DevOps builds](https://dev.azure.com/marquiskurt/Termina/_build/latest?definitionId=6) as they come in.
-
-### Downloading via DevOps
-![DevOps downloads](img/devops.png)
-1. Go to the DevOps builds page.
-2. Click on the build you'd like to test out.
-3. Click 'Artifacts > drop' to download the ZIP file.
 
 ### Download via Homebrew
 We have packages available through the Homebrew package manager! Just follow the instructions below to get started:
@@ -52,7 +43,7 @@ brew install termina-dev
 ```
 
 ## Building from source
-Clone the repository via Xcode and run the default scheme to build and test. This requires at least Xcode 9.4.1 and macOS 10.14 Mojave or Swift 4.2.
+Clone the repository via Xcode and run the default scheme to build and test. This requires at least Xcode 11.0 and macOS 10.15 Catalina.
 
 ## About Logging Features
 Termina does log information about your current session for your convenience. However, this data is _not_ stored anywhere and will only be saved when the user asks for this log to be exported to a text file (`termlog.txt`).
@@ -63,6 +54,8 @@ Termina does log information about your current session for your convenience. Ho
 - [ColorizeSwift](https://github.com/mtynior/ColorizeSwift/)
 
 **Libraires used in Termina are under their respective licenses.**
+
+To use these libraries, ensure that you  fetch the latest versions of the target dependencies via the Swift Package Manager in Xcode.
 
 ## License
 Licensed under the Apache License, Version 2.0 (the "License");
