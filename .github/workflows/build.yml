@@ -8,8 +8,8 @@ jobs:
       - name: Set up ssh-agent
         uses: yakuhzi/action-ssh-agent@v1
         with:
-          public: ${{ secrets.SSH_PUBLIC_KEY }}
-          private: ${{ secrets.SSH_PRIVATE_KEY }}
+          public: ${{ secrets.SSH_KEY_PUBLIC }}
+          private: ${{ secrets.SSH_KEY }}
       - name: Get GitHub SSH Known Hosts
         run: for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
       - name: Clone source code
