@@ -218,7 +218,7 @@
 				};
 			};
 			buildConfigurationList = BFD81C8D217B8AAC0049B5D4 /* Build configuration list for PBXProject "termina-base" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
