@@ -6,7 +6,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Set up ssh-agent
-        uses: yakuhzi/action-ssh-agent@v1
+        uses: yakuhzi/action-ssh-agent@v1.4.2
         with:
           public: ${{ secrets.SSH_KEY_PUBLIC }}
           private: ${{ secrets.SSH_KEY }}
