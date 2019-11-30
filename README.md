@@ -4,7 +4,6 @@
 
 Termina is a fun single-user, level-based user dungeon game for macOS and Linux.
 
-[![Build Status](https://dev.azure.com/marquiskurt/Termina/_apis/build/status/Termina%20Base%20CI%20(Signed,%20Unstable))](https://dev.azure.com/marquiskurt/Termina/_build/latest?definitionId=6)
 ![Swift Version](https://img.shields.io/badge/swift-5.0-orange.svg)
 
 This repository provides the base source code for the game as well as the project files for building the command line version via Xcode.
