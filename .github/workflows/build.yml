@@ -19,9 +19,9 @@ jobs:
       - name: Replace build version
         run: |
           cd base
-          sed -i -e "s/let build = \"beta1\"/let build = \"build$(Build.BuildNumber)\"/g" options.swift
+          sed -i -e "s/let build = \"beta1\"/let build = \"build$(Build.BuildNumber)\"/g" ./options.swift
       - name: Run xcodebuild
         run: |
           cd base
-          /usr/bin/xcodebuild -configuration Debug -workspace termina-base.xcodeproj/project.xcworkspace -scheme termina-base -destination platform=macOS build -derivedDataPath dist -forceResolvedPackageVersions | /usr/local/lib/ruby/gems/2.6.0/bin/xcpretty -r junit --no-color
+          /usr/bin/xcodebuild -configuration Debug -workspace ./termina-base.xcodeproj/project.xcworkspace -scheme termina-base -destination platform=macOS build -derivedDataPath dist -forceResolvedPackageVersions | /usr/local/lib/ruby/gems/2.6.0/bin/xcpretty -r junit --no-color
 
