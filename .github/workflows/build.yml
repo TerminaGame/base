@@ -5,13 +5,13 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v1.3.0
+      - name: Set up ssh-agent
+        uses: yakuhzi/action-ssh-agent@v1
         with:
-          private-key: ${{ secrets.SSH_KEY }}
-          public-key: ${{ secrets.SSH_KEY_PUBLIC }}
-          name: id_rsa
-          known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          public: ${{ secrets.SSH_PUBLIC_KEY }}
+          private: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Get GitHub SSH Known Hosts
+        run: for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
       - name: Clone source code
         uses: actions/checkout@v1
       - name: Install Apple certificates
@@ -30,5 +30,4 @@ jobs:
         run: sudo xcode-select --switch /Applications/Xcode_11.1.app
       - name: Run xcodebuild
         run: |
-          cat ~/.ssh/known_hosts
           /usr/bin/xcodebuild -configuration Debug -workspace ./termina-base.xcodeproj/project.xcworkspace -scheme termina-base -destination platform=macOS build -derivedDataPath dist | /usr/local/lib/ruby/gems/2.6.0/bin/xcpretty -r junit --no-color
