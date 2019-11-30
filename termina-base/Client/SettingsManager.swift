@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Files
+import SwiftyJSON
 
 /**
  Handler for loading and saving settings to/from a JSON file (`settings.json`)
@@ -65,7 +67,8 @@ class SettingsManager {
      */
     func saveSettings() {
         let jsonPath = try! Folder(path: "")
-        try! jsonPath.createFile(named: "settings.json", contents: """
+        let jsonFile = try! jsonPath.createFile(named: "settings.json")
+        try! jsonFile.write("""
 {
     "name": "\(thisPlayer.name)",
     "level": "\(thisPlayer.level ?? 1)",

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
 import Foundation
+import ColorizeSwift
 
 // Construct all of the important objects we need for
 // the game to run.

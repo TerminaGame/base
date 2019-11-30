@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ColorizeSwift
 
 /**
  Base element that can contain items and a monster, as well as its name generators and attack scenes.

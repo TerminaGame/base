@@ -6,6 +6,7 @@
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
 import Foundation
+import ColorizeSwift
 
 /**
  Primary enemy that attacks players.

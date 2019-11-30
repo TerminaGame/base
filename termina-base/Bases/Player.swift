@@ -6,6 +6,7 @@
 //  Copyright © 2018 Marquis Kurt. All rights reserved.
 //
 import Foundation
+import ColorizeSwift
 
 /**
  Primary entity to interact with items and attack monsters. Takes and stores data from `settings.json`

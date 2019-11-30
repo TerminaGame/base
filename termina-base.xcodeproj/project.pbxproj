@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,8 +14,6 @@
 		BF6CBAE3219B181D006BE4EA /* Arguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CBAE2219B181D006BE4EA /* Arguments.swift */; };
 		BF9C2609218B48D300E1662A /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9C2608218B48D300E1662A /* options.swift */; };
 		BFCF1197217FAE2E00E85D38 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */; };
-		BFCF11AA217FB57500E85D38 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */; };
-		BFCF11AB217FB57500E85D38 /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF11A9217FB57500E85D38 /* Files.swift */; };
 		BFCF11AD217FD7FF00E85D38 /* NameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCF11AC217FD7FF00E85D38 /* NameGenerator.swift */; };
 		BFD81C96217B8AAC0049B5D4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C95217B8AAC0049B5D4 /* main.swift */; };
 		BFD81CA5217B8AD60049B5D4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81C9C217B8AD50049B5D4 /* Player.swift */; };
@@ -28,8 +26,10 @@
 		BFD81CAC217B8AD60049B5D4 /* Commads.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA3217B8AD60049B5D4 /* Commads.swift */; };
 		BFD81CAD217B8AD60049B5D4 /* Potion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD81CA4217B8AD60049B5D4 /* Potion.swift */; };
 		BFDB8AB321863EFD00ECEACB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDB8AB221863EFD00ECEACB /* Logger.swift */; };
-		BFF221E9218A2EC3000D477B /* ColorizeSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF221E8218A2EC3000D477B /* ColorizeSwift.swift */; };
 		BFF221EB218A2F8E000D477B /* StartRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF221EA218A2F8E000D477B /* StartRoom.swift */; };
+		BFFB97462392BC6600EC9072 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = BFFB97452392BC6600EC9072 /* SwiftyJSON */; };
+		BFFB97492392BC8800EC9072 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = BFFB97482392BC8800EC9072 /* Files */; };
+		BFFB974C2392BD4C00EC9072 /* ColorizeSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BFFB974B2392BD4C00EC9072 /* ColorizeSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,8 +53,6 @@
 		BF6CBAE2219B181D006BE4EA /* Arguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arguments.swift; sourceTree = "<group>"; };
 		BF9C2608218B48D300E1662A /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
 		BFCF1196217FAE2E00E85D38 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		BFCF11A9217FB57500E85D38 /* Files.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		BFCF11AC217FD7FF00E85D38 /* NameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGenerator.swift; sourceTree = "<group>"; };
 		BFD81C92217B8AAC0049B5D4 /* termina */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = termina; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD81C95217B8AAC0049B5D4 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 		BFD81CA3217B8AD60049B5D4 /* Commads.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commads.swift; sourceTree = "<group>"; };
 		BFD81CA4217B8AD60049B5D4 /* Potion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
 		BFDB8AB221863EFD00ECEACB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		BFF221E8218A2EC3000D477B /* ColorizeSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorizeSwift.swift; sourceTree = "<group>"; };
 		BFF221EA218A2F8E000D477B /* StartRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRoom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFB97492392BC8800EC9072 /* Files in Frameworks */,
+				BFFB97462392BC6600EC9072 /* SwiftyJSON in Frameworks */,
+				BFFB974C2392BD4C00EC9072 /* ColorizeSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,16 +143,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BFCF11A7217FB57500E85D38 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				BFF221E8218A2EC3000D477B /* ColorizeSwift.swift */,
-				BFCF11A8217FB57500E85D38 /* SwiftyJSON.swift */,
-				BFCF11A9217FB57500E85D38 /* Files.swift */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
 		BFD81C89217B8AAC0049B5D4 = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +170,6 @@
 				BF9C2605218B3C0000E1662A /* Client */,
 				BF9C2604218B3BDC00E1662A /* Bases */,
 				BF9C2603218B3BC900E1662A /* Specials */,
-				BFCF11A7217FB57500E85D38 /* Libraries */,
 			);
 			path = "termina-base";
 			sourceTree = "<group>";
@@ -201,6 +190,11 @@
 			dependencies = (
 			);
 			name = "termina-base";
+			packageProductDependencies = (
+				BFFB97452392BC6600EC9072 /* SwiftyJSON */,
+				BFFB97482392BC8800EC9072 /* Files */,
+				BFFB974B2392BD4C00EC9072 /* ColorizeSwift */,
+			);
 			productName = "termina-base";
 			productReference = BFD81C92217B8AAC0049B5D4 /* termina */;
 			productType = "com.apple.product-type.tool";
@@ -215,7 +209,7 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Marquis Kurt";
 				TargetAttributes = {
 					BFD81C91217B8AAC0049B5D4 = {
@@ -229,8 +223,14 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = BFD81C89217B8AAC0049B5D4;
+			packageReferences = (
+				BFFB97442392BC6600EC9072 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				BFFB97472392BC8800EC9072 /* XCRemoteSwiftPackageReference "Files" */,
+				BFFB974A2392BD4B00EC9072 /* XCRemoteSwiftPackageReference "ColorizeSwift" */,
+			);
 			productRefGroup = BFD81C93217B8AAC0049B5D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -251,18 +251,15 @@
 				BFD81CAB217B8AD60049B5D4 /* Weapon.swift in Sources */,
 				BFD81CA5217B8AD60049B5D4 /* Player.swift in Sources */,
 				BFF221EB218A2F8E000D477B /* StartRoom.swift in Sources */,
-				BFCF11AA217FB57500E85D38 /* SwiftyJSON.swift in Sources */,
 				BFCF11AD217FD7FF00E85D38 /* NameGenerator.swift in Sources */,
 				BF5A5A3F2180CE6400E2523C /* NPC.swift in Sources */,
 				BFD81CAA217B8AD60049B5D4 /* Entity.swift in Sources */,
 				BFD81CAD217B8AD60049B5D4 /* Potion.swift in Sources */,
-				BFF221E9218A2EC3000D477B /* ColorizeSwift.swift in Sources */,
 				BFD81CAC217B8AD60049B5D4 /* Commads.swift in Sources */,
 				BFD81CA9217B8AD60049B5D4 /* Room.swift in Sources */,
 				BFD81CA6217B8AD60049B5D4 /* Monster.swift in Sources */,
 				BFD81C96217B8AAC0049B5D4 /* main.swift in Sources */,
 				BF9C2609218B48D300E1662A /* options.swift in Sources */,
-				BFCF11AB217FB57500E85D38 /* Files.swift in Sources */,
 				BFCF1197217FAE2E00E85D38 /* SettingsManager.swift in Sources */,
 				BF4AEC7A21811640002722B3 /* Bottle.swift in Sources */,
 				BF6CBAE3219B181D006BE4EA /* Arguments.swift in Sources */,
@@ -392,6 +389,7 @@
 		BFD81C9A217B8AAC0049B5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = FQQXSP79X3;
@@ -408,6 +406,7 @@
 		BFD81C9B217B8AAC0049B5D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = FQQXSP79X3;
@@ -443,6 +442,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BFFB97442392BC6600EC9072 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		BFFB97472392BC8800EC9072 /* XCRemoteSwiftPackageReference "Files" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:JohnSundell/Files.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+		BFFB974A2392BD4B00EC9072 /* XCRemoteSwiftPackageReference "ColorizeSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:mtynior/ColorizeSwift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BFFB97452392BC6600EC9072 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFB97442392BC6600EC9072 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		BFFB97482392BC8800EC9072 /* Files */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFB97472392BC8800EC9072 /* XCRemoteSwiftPackageReference "Files" */;
+			productName = Files;
+		};
+		BFFB974B2392BD4C00EC9072 /* ColorizeSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFB974A2392BD4B00EC9072 /* XCRemoteSwiftPackageReference "ColorizeSwift" */;
+			productName = ColorizeSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BFD81C8A217B8AAC0049B5D4 /* Project object */;
 }

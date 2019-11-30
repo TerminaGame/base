@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ColorizeSwift",
+        "repositoryURL": "git@github.com:mtynior/ColorizeSwift.git",
+        "state": {
+          "branch": "master",
+          "revision": "7492d039d594daccc39cacea343eed6cc9d1ed5a",
+          "version": null
+        }
+      },
+      {
+        "package": "Files",
+        "repositoryURL": "git@github.com:JohnSundell/Files.git",
+        "state": {
+          "branch": null,
+          "revision": "6568bfe636f02dfd85dc9d51b3782555b83080d3",
+          "version": "4.0.2"
+        }
+      },
+      {
+        "package": "SwiftyJSON",
+        "repositoryURL": "git@github.com:SwiftyJSON/SwiftyJSON.git",
+        "state": {
+          "branch": null,
+          "revision": "2b6054efa051565954e1d2b9da831680026cd768",
+          "version": "5.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

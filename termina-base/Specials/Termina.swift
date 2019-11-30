@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ColorizeSwift
 
 /**
  Main Termina villain. Subclass of `Monster` class.

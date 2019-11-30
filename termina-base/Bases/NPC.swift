@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ColorizeSwift
 
 /**
  Non-player character class.

@@ -11,6 +11,7 @@
 // being generated in the pipeline sequence.
 //
 import Foundation
+import ColorizeSwift
 
 let version = "1.0.0beta1"
 let build = "beta1"

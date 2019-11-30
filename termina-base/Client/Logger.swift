@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Files
 
 /**
  Manager of logs.
@@ -48,7 +49,7 @@ class Logger {
             fullLogAsString += "\(message)\n"
         }
         
-        try! logPath.createFile(named: "termlog.txt").write(string: fullLogAsString)
+        try! logPath.createFile(named: "termlog.txt").write(fullLogAsString)
     }
     
     /**
