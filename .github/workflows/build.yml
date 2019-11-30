@@ -22,5 +22,5 @@ jobs:
       - name: Run xcodebuild
         run: |
           /usr/bin/xcodebuild -version
-          /usr/bin/xcodebuild -configuration Debug -workspace ./termina-base.xcodeproj/project.xcworkspace -scheme termina-base -destination platform=macOS build -derivedDataPath dist -forceResolvedPackageVersions | /usr/local/lib/ruby/gems/2.6.0/bin/xcpretty -r junit --no-color
+          /usr/bin/xcodebuild -resolvePackageDependencies -configuration Debug -workspace ./termina-base.xcodeproj/project.xcworkspace -scheme termina-base -destination platform=macOS build -derivedDataPath dist | /usr/local/lib/ruby/gems/2.6.0/bin/xcpretty -r junit --no-color
 
