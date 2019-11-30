@@ -14,5 +14,5 @@ jobs:
           security add-generic-password -a "appleseed@marquiskurt.net" -w "$ascPassword" -s "AC_PASSWORD"
           sudo security import Certificates.p12 -P "$ascCertsPassword" -k /Library/Keychains/System.keychain
         env:
-          ascPassword: ${{ secrets.ASC_PASSWORD }}
+          ascCertsPassword: ${{ secrets.ASC_PASSWORD }}
           ascCertificates: ${{ secrets.ASC_CERTS }}
