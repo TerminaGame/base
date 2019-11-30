@@ -67,6 +67,7 @@
 		BFD81CA4217B8AD60049B5D4 /* Potion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Potion.swift; sourceTree = "<group>"; };
 		BFDB8AB221863EFD00ECEACB /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		BFF221EA218A2F8E000D477B /* StartRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRoom.swift; sourceTree = "<group>"; };
+		BFFB97502392C66600EC9072 /* build.yml */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = text.yaml; path = build.yml; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +147,7 @@
 		BFD81C89217B8AAC0049B5D4 = {
 			isa = PBXGroup;
 			children = (
+				BFFB974E2392C64300EC9072 /* .github */,
 				BF9C2608218B48D300E1662A /* options.swift */,
 				BFD81C95217B8AAC0049B5D4 /* main.swift */,
 				BFD81C94217B8AAC0049B5D4 /* termina-base */,
@@ -172,6 +174,22 @@
 				BF9C2603218B3BC900E1662A /* Specials */,
 			);
 			path = "termina-base";
+			sourceTree = "<group>";
+		};
+		BFFB974E2392C64300EC9072 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				BFFB974F2392C64300EC9072 /* workflows */,
+			);
+			path = .github;
+			sourceTree = "<group>";
+		};
+		BFFB974F2392C64300EC9072 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				BFFB97502392C66600EC9072 /* build.yml */,
+			);
+			path = workflows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
