@@ -23,6 +23,6 @@ jobs:
         run: sudo xcode-select --switch /Applications/Xcode_11.1.app
       - name: Run xcodebuild
         run: |
-          git config -l
+          git config -l | grep url
           git config --global --unset url."ssh://git@github.com".insteadOf
           /usr/bin/xcodebuild -configuration Debug -workspace ./termina-base.xcodeproj/project.xcworkspace -scheme termina-base -destination platform=macOS build -derivedDataPath dist | /usr/local/lib/ruby/gems/2.6.0/bin/xcpretty -r junit --no-color
