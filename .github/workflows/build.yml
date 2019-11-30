@@ -19,6 +19,8 @@ jobs:
       - name: Replace build version
         run: |
           sed -i -e "s/let build = \"beta1\"/let build = \"build$(Build.BuildNumber)\"/g" ./options.swift
+      - name: Switch to Xcode 11
+        run: sudo xcode-select --switch /Applications/Xcode_11.1.app
       - name: Run xcodebuild
         run: |
           for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_host

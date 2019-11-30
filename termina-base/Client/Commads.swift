@@ -37,7 +37,7 @@ class CommandInterpreter {
         if commandInput.contains(";") {
             myLogger.logToFile("Input is a set of commands! Parsing each command...", "info")
             var commandArray = commandInput.components(separatedBy: ";")
-            if let emptyArrayIndex = commandArray.index(of: ";") {
+            if let emptyArrayIndex = commandArray.firstIndex(of: ";") {
                 commandArray.remove(at: emptyArrayIndex)
             }
             
